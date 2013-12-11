@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Markdown\Facades;
+<?php namespace GrahamCampbell\Markdown\Classes;
 
 /**
  * This file is part of Laravel Markdown by Graham Campbell.
@@ -20,15 +20,17 @@
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
 
-use Illuminate\Support\Facades\Facade;
+use Michelf\Markdown as MichelfMarkdown;
 
-class Markdown extends Facade {
+class Markdown {
 
     /**
-     * Get the registered name of the component.
+     * Get the parsed markdown.
      *
+     * @param  string  $value
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'markdown'; }
-
+    public function render($value) {
+        return MichelfMarkdown::defaultTransform($value);
+    }
 }

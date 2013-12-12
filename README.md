@@ -12,10 +12,10 @@ Laravel Markdown
 
 ## What Is Laravel Markdown?
 
-Laravel Markdown is a simple [Parsedown](https://github.com/erusev/parsedown) wrapper for [Laravel 4](http://laravel.com).  
+Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markdown) wrapper for [Laravel 4](http://laravel.com).  
 
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
-* Laravel Markdown relies on Emanuil Rusev's [Parsedown](https://github.com/erusev/parsedown) package.  
+* Laravel Markdown relies on Michel Fortin's [PHP Markdown](https://github.com/michelf/php-markdown) package.  
 * Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) to run tests to check if it's working as it should.  
 * Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) to run additional tests and checks.  
 * Laravel Markdown uses [Composer](https://getcomposer.org) to load and manage dependencies.  

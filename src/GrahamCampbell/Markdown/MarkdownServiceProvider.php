@@ -20,7 +20,6 @@
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
 
-use Parsedown;
 use Illuminate\Support\ServiceProvider;
 
 class MarkdownServiceProvider extends ServiceProvider {
@@ -47,8 +46,8 @@ class MarkdownServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app['parsedown'] = $this->app->share(function($app) {
-            return Parsedown::instance();
+        $this->app['markdown'] = $this->app->share(function($app) {
+            return new Classes\Markdown;
         });
     }
 
@@ -58,6 +57,6 @@ class MarkdownServiceProvider extends ServiceProvider {
      * @return array
      */
     public function provides() {
-        return array('parsedown');
+        return array('markdown');
     }
 }

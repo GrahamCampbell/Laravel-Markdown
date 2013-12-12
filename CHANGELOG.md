@@ -2,7 +2,13 @@ CHANGE LOG
 ==========
 
 
-## V0.2 Alpha (Upcoming)
+## V0.3 Alpha (Upcoming)
+#### Major Release
+
+* Added unit tests
+
+
+## V0.2 Alpha (12/12/2013)
 #### Major Release
 
 * New markdown parser

@@ -12,7 +12,7 @@ Laravel Markdown
 
 ## What Is Laravel Markdown?
 
-Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markdown) wrapper for [Laravel 4](http://laravel.com).  
+Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markdown) wrapper for [Laravel 4.1](http://laravel.com).  
 
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Laravel Markdown relies on Michel Fortin's [PHP Markdown](https://github.com/michelf/php-markdown) package.  
@@ -25,8 +25,8 @@ Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markd
 
 ## System Requirements
 
-* PHP 5.3.3+, 5.4+ or PHP 5.5+ is required.
-* You will need [Laravel 4](http://laravel.com) because this package is designed for it.  
+* PHP 5.4.7+ or PHP 5.5+ is required.
+* You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.  
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Markdown.  
 
 

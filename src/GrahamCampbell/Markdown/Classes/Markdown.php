@@ -22,7 +22,8 @@
 
 use Michelf\Markdown as MichelfMarkdown;
 
-class Markdown {
+class Markdown
+{
 
     /**
      * Get the parsed markdown.
@@ -30,7 +31,8 @@ class Markdown {
      * @param  string  $value
      * @return string
      */
-    public function render($value) {
+    public function render($value)
+    {
         return MichelfMarkdown::defaultTransform($value);
     }
 }

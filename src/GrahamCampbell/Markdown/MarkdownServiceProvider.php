@@ -22,7 +22,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class MarkdownServiceProvider extends ServiceProvider {
+class MarkdownServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -36,7 +37,8 @@ class MarkdownServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         $this->package('graham-campbell/markdown');
     }
 
@@ -45,8 +47,9 @@ class MarkdownServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register() {
-        $this->app['markdown'] = $this->app->share(function($app) {
+    public function register()
+    {
+        $this->app['markdown'] = $this->app->share(function ($app) {
             return new Classes\Markdown;
         });
     }
@@ -56,7 +59,8 @@ class MarkdownServiceProvider extends ServiceProvider {
      *
      * @return array
      */
-    public function provides() {
+    public function provides()
+    {
         return array('markdown');
     }
 }

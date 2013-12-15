@@ -24,7 +24,6 @@ use Michelf\Markdown as MichelfMarkdown;
 
 class Markdown
 {
-
     /**
      * Get the parsed markdown.
      *

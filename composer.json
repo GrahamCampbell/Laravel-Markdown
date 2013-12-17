@@ -41,7 +41,7 @@
     "autoload": {
         "psr-0": {
             "GrahamCampbell\\Markdown": "src/",
-            "GrahamCampbell\\Markdown\\Tests": "tests/"
+            "GrahamCampbell\\Tests\\Markdown": "tests/"
         }
     },
     "extra": {

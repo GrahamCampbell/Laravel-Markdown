@@ -40,9 +40,7 @@
     },
     "autoload": {
         "psr-0": {
-            "GrahamCampbell\\Markdown\\Classes": "src/",
-            "GrahamCampbell\\Markdown\\Facades": "src/",
-            "GrahamCampbell\\Markdown\\Support": "src/",
+            "GrahamCampbell\\Markdown": "src/",
             "GrahamCampbell\\Markdown\\Tests": "tests/"
         }
     },

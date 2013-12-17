@@ -11,16 +11,18 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "orchestra/testbench": "2.1.*",
+        "laravel/framework": "4.1.*",
         "michelf/php-markdown": "1.4.*"
     },
     "require-dev": {
-        "mockery/mockery": "0.8.*",
-        "phpunit/phpunit": "3.7.*"
+        "graham-campbell/testbench": "0.1.*"
     },
     "autoload": {
         "psr-0": {
-            "GrahamCampbell\\Markdown": "src/"
+            "GrahamCampbell\\Markdown\\Classes": "src/",
+            "GrahamCampbell\\Markdown\\Facades": "src/",
+            "GrahamCampbell\\Markdown\\Support": "src/",
+            "GrahamCampbell\\Markdown\\Tests": "tests/"
         }
     },
     "extra": {

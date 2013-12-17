@@ -1,4 +1,4 @@
-<?php namespace GrahamCampbell\Markdown;
+<?php namespace GrahamCampbell\Markdown\Support;
 
 /**
  * This file is part of Laravel Markdown by Graham Campbell.
@@ -21,6 +21,7 @@
  */
 
 use Illuminate\Support\ServiceProvider;
+use GrahamCampbell\Markdown\Classes\Markdown;
 
 class MarkdownServiceProvider extends ServiceProvider
 {
@@ -49,7 +50,7 @@ class MarkdownServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app['markdown'] = $this->app->share(function ($app) {
-            return new Classes\Markdown;
+            return new Markdown;
         });
     }
 

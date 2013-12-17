@@ -1,12 +1,12 @@
 Laravel Markdown
-==============
+================
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Laravel-Markdown/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-[![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Markdown.png?branch=master)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
-[![Latest Version](https://poser.pugx.org/graham-campbell/markdown/v/stable.png)](https://packagist.org/packages/graham-campbell/markdown)
-[![Total Downloads](https://poser.pugx.org/graham-campbell/markdown/downloads.png)](https://packagist.org/packages/graham-campbell/markdown)
+[![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Markdown.png?branch=develop)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
+[![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Markdown/badge.png?branch=develop)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/badges/quality-score.png?s=91550d4afdf2961a89d17eb76b3c26304749d872)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
+[![Latest Version](https://poser.pugx.org/graham-campbell/markdown/v/stable.png)](https://packagist.org/packages/graham-campbell/markdown)
 [![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown)
 
 
@@ -17,10 +17,10 @@ Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markd
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Laravel Markdown relies on Michel Fortin's [PHP Markdown](https://github.com/michelf/php-markdown) package.  
 * Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) to run tests to check if it's working as it should.  
-* Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) to run additional tests and checks.  
+* Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown) to run additional tests and checks.  
 * Laravel Markdown uses [Composer](https://getcomposer.org) to load and manage dependencies.  
-* Laravel Markdown provides a [change log](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), and a [wiki](https://github.com/GrahamCampbell/Laravel-Markdown/wiki).  
-* Laravel Markdown is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md).  
+* Laravel Markdown provides a [change log](https://github.com/GrahamCampbell/Laravel-Markdown/blob/develop/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), and a [wiki](https://github.com/GrahamCampbell/Laravel-Markdown/wiki).  
+* Laravel Markdown is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Markdown/blob/develop/LICENSE.md).  
 
 
 ## System Requirements
@@ -42,7 +42,7 @@ You'll then need to run `composer install` or `composer update` to download it a
 
 Once Laravel Markdown is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
-`'GrahamCampbell\Markdown\MarkdownServiceProvider'`
+`'GrahamCampbell\Markdown\Support\MarkdownServiceProvider'`
 
 You can register the Markdown facade in the `aliases` key of your `app/config/app.php` file if you like.
 

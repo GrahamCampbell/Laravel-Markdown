@@ -25,7 +25,7 @@ Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markd
 
 ## System Requirements
 
-* PHP 5.4.7+ or PHP 5.5+ is required.
+* PHP 5.4.7+ or PHP 5.5+ is required.  
 * You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.  
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Markdown.  
 
@@ -34,19 +34,27 @@ Laravel Markdown is a simple [PHP Markdown](https://github.com/michelf/php-markd
 
 Please check the system requirements before installing Laravel Markdown.  
 
-To get the latest version of Laravel Markdown, simply require it in your `composer.json` file.
+To get the latest version of Laravel Markdown, simply require it in your `composer.json` file.  
 
-`"graham-campbell/markdown": "dev-master"`
+`"graham-campbell/markdown": "dev-master"`  
 
-You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.  
 
-Once Laravel Markdown is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
+Once Laravel Markdown is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.  
 
-`'GrahamCampbell\Markdown\MarkdownServiceProvider'`
+`'GrahamCampbell\Markdown\MarkdownServiceProvider'`  
 
-You can register the Markdown facade in the `aliases` key of your `app/config/app.php` file if you like.
+You can register the Markdown facade in the `aliases` key of your `app/config/app.php` file if you like.  
 
-`'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`
+`'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`  
+
+
+## Usage
+
+There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
+) for Laravel Markdown.  
+
+You may see an example of implementation in [CMS Core](https://github.com/GrahamCampbell/CMS-Core).  
 
 
 ## Updating Your Fork
@@ -75,7 +83,7 @@ Please submit pull requests against the develop branch.
 * Any pull requests made against the master branch will be closed immediately.  
 * If you plan to fix a bug, please create a branch called `fix-`, followed by an appropriate name.  
 * If you plan to add a feature, please create a branch called `feature-`, followed by an appropriate name.  
-* Please follow PSR-2 standards except namespace declarations should be on the same line as `<?php`.  
+* Please follow the [PSR-2 Coding Style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).  
 
 
 ## License

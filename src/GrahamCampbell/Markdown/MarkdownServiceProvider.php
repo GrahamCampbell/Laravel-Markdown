@@ -53,8 +53,18 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['markdown'] = $this->app->share(function ($app) {
-            return new Classes\Markdown;
+        $this->registerMarkdown();
+    }
+
+    /**
+     * Register the markdowm class.
+     *
+     * @return void
+     */
+    protected function registerMarkdown()
+    {
+        $this->app->bindShared('markdown', function ($app) {
+            return new Classes\Markdown();
         });
     }
 

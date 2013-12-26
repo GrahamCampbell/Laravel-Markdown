@@ -31,14 +31,4 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 abstract class AbstractFacadeTestCase extends AbstractTestCase
 {
     use FacadeTestCaseTrait;
-
-    /**
-     * Get the service provider class.
-     *
-     * @return string
-     */
-    protected function getServiceProviderClass()
-    {
-        return 'GrahamCampbell\Markdown\MarkdownServiceProvider';
-    }
 }

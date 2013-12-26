@@ -40,14 +40,12 @@ abstract class AbstractTestCase extends TestCase
     }
 
     /**
-     * Get the package service providers.
+     * Get the service provider class.
      *
-     * @return array
+     * @return string
      */
-    protected function getPackageProviders()
+    protected function getServiceProviderClass()
     {
-        return array(
-            'GrahamCampbell\Markdown\MarkdownServiceProvider'
-        );
+        return 'GrahamCampbell\Markdown\MarkdownServiceProvider';
     }
 }

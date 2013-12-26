@@ -75,6 +75,8 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('markdown');
+        return array(
+            'markdown'
+        );
     }
 }

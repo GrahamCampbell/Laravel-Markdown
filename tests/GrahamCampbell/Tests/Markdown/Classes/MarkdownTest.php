@@ -37,7 +37,7 @@ class MarkdownTest extends PHPUnit_Framework_TestCase
 
         $return = $markdown->render('test');
 
-        $this->assertEquals($return, '<p>test</p>');
+        $this->assertEquals($return, '<p>test</p>\n');
     }
 
     protected function getMarkdown()

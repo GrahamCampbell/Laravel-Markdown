@@ -16,8 +16,11 @@
 
 namespace GrahamCampbell\Tests\Markdown\Facades;
 
+use GrahamCampbell\Tests\Markdown\AbstractTestCase;
+use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+
 /**
- * This is the markdown facade test case class.
+ * This is the markdown facade test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -25,8 +28,10 @@ namespace GrahamCampbell\Tests\Markdown\Facades;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/develop/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractFacadeTestCase
+class MarkdownTest extends AbstractTestCase
 {
+    use FacadeTestCaseTrait;
+
     /**
      * Get the facade accessor.
      *

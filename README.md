@@ -90,7 +90,7 @@ Please submit pull requests against the develop branch.
 
 Apache License  
 
-Copyright 2013 Graham Campbell  
+Copyright 2013-2014 Graham Campbell  
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -37,6 +37,6 @@ class Markdown
      */
     public function render($value)
     {
-        return MarkdownNext::defaultTransform(($value);
+        return MarkdownNext::defaultTransform($value);
     }
 }

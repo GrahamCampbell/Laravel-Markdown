@@ -35,7 +35,7 @@
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
         "symfony/filesystem": "2.4.*",
-        "michelf/php-markdown": "1.4.*"
+        "nazar-pc/php-markdown-next": "2.0.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "0.2.*"

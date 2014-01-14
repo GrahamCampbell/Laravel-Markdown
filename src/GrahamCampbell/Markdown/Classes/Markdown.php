@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Markdown\Classes;
 
-use Michelf\Markdown as MichelfMarkdown;
+use nazarpc\MarkdownNext;
 
 /**
  * This is the markdown class.
@@ -37,6 +37,6 @@ class Markdown
      */
     public function render($value)
     {
-        return MichelfMarkdown::defaultTransform($value);
+        return MarkdownNext::defaultTransform($value);
     }
 }

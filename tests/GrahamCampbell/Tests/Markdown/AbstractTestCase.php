@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown;
 
-use nazarpc\MarkdownNext;
+use GrahamCampbell\TestBench\Classes\AbstractLaravelTestCase;
 
 /**
- * This is the markdown class.
+ * This is the abstract test case class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,16 +27,25 @@ use nazarpc\MarkdownNext;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+abstract class AbstractTestCase extends AbstractLaravelTestCase
 {
     /**
-     * Get the parsed markdown.
+     * Get the application base path.
      *
-     * @param  string  $value
      * @return string
      */
-    public function render($value)
+    protected function getBasePath()
     {
-        return MarkdownNext::defaultTransform($value);
+        return __DIR__.'/../../../../src';
+    }
+
+    /**
+     * Get the service provider class.
+     *
+     * @return string
+     */
+    protected function getServiceProviderClass()
+    {
+        return 'GrahamCampbell\Markdown\MarkdownServiceProvider';
     }
 }

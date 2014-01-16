@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown;
 
-use nazarpc\MarkdownNext;
+use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
 
 /**
- * This is the markdown class.
+ * This is the service provider test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,16 +27,7 @@ use nazarpc\MarkdownNext;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+class ServiceProviderTest extends AbstractTestCase
 {
-    /**
-     * Get the parsed markdown.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public function render($value)
-    {
-        return MarkdownNext::defaultTransform($value);
-    }
+    use ServiceProviderTestCaseTrait;
 }

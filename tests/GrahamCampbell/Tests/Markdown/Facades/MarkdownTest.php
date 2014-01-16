@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown;
+namespace GrahamCampbell\Tests\Markdown\Facades;
 
-use Illuminate\Support\ServiceProvider;
+use GrahamCampbell\Tests\Markdown\AbstractTestCase;
+use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 
 /**
- * This is the markdown service provider class.
+ * This is the markdown facade test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,56 +28,37 @@ use Illuminate\Support\ServiceProvider;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownServiceProvider extends ServiceProvider
+class MarkdownTest extends AbstractTestCase
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
+    use FacadeTestCaseTrait;
 
     /**
-     * Bootstrap the application events.
+     * Get the facade accessor.
      *
-     * @return void
+     * @return string
      */
-    public function boot()
+    protected function getFacadeAccessor()
     {
-        $this->package('graham-campbell/markdown');
+        return 'markdown';
     }
 
     /**
-     * Register the service provider.
+     * Get the facade class.
      *
-     * @return void
+     * @return string
      */
-    public function register()
+    protected function getFacadeClass()
     {
-        $this->registerMarkdown();
+        return 'GrahamCampbell\Markdown\Facades\Markdown';
     }
 
     /**
-     * Register the markdowm class.
+     * Get the facade route.
      *
-     * @return void
+     * @return string
      */
-    protected function registerMarkdown()
+    protected function getFacadeRoot()
     {
-        $this->app->bindShared('markdown', function ($app) {
-            return new Classes\Markdown();
-        });
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return array(
-            'markdown'
-        );
+        return 'GrahamCampbell\Markdown\Classes\Markdown';
     }
 }

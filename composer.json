@@ -1,26 +1,54 @@
 {
     "name": "graham-campbell/markdown",
-    "description": "Markdown Is A Simple PHP Markdown Wrapper For Laravel 4",
+    "description": "Markdown Is A Simple PHP Markdown Wrapper For Laravel 4.1",
     "keywords": ["laravel", "framework", "markdown", "php markdown", "markdown wrapper", "php markdown wrapper", "Markdown", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Graham Campbell",
             "email": "graham@mineuk.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "sebastianbergmann/phpcov",
+                "version": "1.1.0",
+                "dist": {
+                    "url": "https://github.com/sebastianbergmann/phpcov/archive/1.1.0.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/sebastianbergmann/phpcov.git",
+                    "type": "git",
+                    "reference": "1.1.0"
+                },
+                "bin": [
+                    "phpcov.php"
+                ]
+            }
+        }
+    ],
     "require": {
-        "php": ">=5.3.3",
-        "orchestra/testbench": "2.0.*|2.1.*",
-        "michelf/php-markdown": "1.4.*"
+        "php": ">=5.4.7",
+        "laravel/framework": "4.1.*",
+        "symfony/config": "2.4.*",
+        "symfony/filesystem": "2.4.*",
+        "nazar-pc/php-markdown-next": "2.0.*"
     },
     "require-dev": {
-        "mockery/mockery": "0.8.*",
-        "phpunit/phpunit": "3.7.*"
+        "graham-campbell/testbench": "0.2.*"
     },
     "autoload": {
         "psr-0": {
-            "GrahamCampbell\\Markdown": "src/"
+            "GrahamCampbell\\Markdown": "src/",
+            "GrahamCampbell\\Tests\\Markdown": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     },
     "minimum-stability": "dev",

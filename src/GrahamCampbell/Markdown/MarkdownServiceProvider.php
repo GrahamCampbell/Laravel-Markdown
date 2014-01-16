@@ -24,7 +24,7 @@ use Illuminate\Support\ServiceProvider;
  * @package    Laravel-Markdown
  * @author     Graham Campbell
  * @copyright  Copyright 2013-2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/develop/LICENSE.md
+ * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
 class MarkdownServiceProvider extends ServiceProvider

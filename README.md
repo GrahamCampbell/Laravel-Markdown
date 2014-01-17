@@ -6,8 +6,8 @@ Laravel Markdown
 [![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Markdown.png)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
 [![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Markdown/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/badges/quality-score.png?s=91550d4afdf2961a89d17eb76b3c26304749d872)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f/mini.png)](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f)
 [![Latest Version](https://poser.pugx.org/graham-campbell/markdown/v/stable.png)](https://packagist.org/packages/graham-campbell/markdown)
-[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown)
 
 
 ## What Is Laravel Markdown?
@@ -19,7 +19,7 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 * Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) to run tests to check if it's working as it should.  
 * Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown) to run additional tests and checks.  
 * Laravel Markdown uses [Composer](https://getcomposer.org) to load and manage dependencies.  
-* Laravel Markdown provides a [change log](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), and a [wiki](https://github.com/GrahamCampbell/Laravel-Markdown/wiki).  
+* Laravel Markdown provides a [change log](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), and [api docs](http://grahamcampbell.github.io/Laravel-Markdown).  
 * Laravel Markdown is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md).  
 
 
@@ -80,7 +80,7 @@ Once it is set up, run `git mergetool`. Once all conflicts are fixed, run `git r
 
 Please review these guidelines before submitting any pull requests.  
 
-* Bug fixes shouldn't be sent to the master branch unless they fix features that exist only in the upcoming release.  
+* When submitting bug fixes, check if a maintenance branch exists for an older series, then pull against that older branch if the bug is present in it.  
 * Before sending a pull request for a new feature, you should first create an issue with [Proposal] in the title.  
 * Please follow the [PSR-2 Coding Style](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).  
 

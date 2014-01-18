@@ -16,8 +16,8 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).  
 * Laravel Markdown relies on Nazar Mokrynskyi's [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) package.  
-* Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) to run tests to check if it's working as it should.  
-* Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) and [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown) to run additional tests and checks.  
+* Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown) to check everything is working.  
+* Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f) to run additional checks.  
 * Laravel Markdown uses [Composer](https://getcomposer.org) to load and manage dependencies.  
 * Laravel Markdown provides a [change log](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), and [api docs](http://grahamcampbell.github.io/Laravel-Markdown).  
 * Laravel Markdown is licensed under the Apache License, available [here](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md).  

@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V1.0 Beta 1 (Upcoming)
+## V1.0 Beta 1 (21/01/2014)
 
 * Dropped Laravel 4.0 support
 * Travis and Scrutinizer tweaks

@@ -37,7 +37,7 @@ Please check the system requirements before installing Laravel Markdown.
 
 To get the latest version of Laravel Markdown, simply require it in your `composer.json` file.
 
-`"graham-campbell/markdown": "*"`
+`"graham-campbell/markdown": "1.0.*@beta"`
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 

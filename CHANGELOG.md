@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V1.0 RC 1 (Upcoming)
+
+* PSR-4 autoloading
+* Updated docs
+
+
 ## V1.0 Beta 1 (21/01/2014)
 
 * Dropped Laravel 4.0 support

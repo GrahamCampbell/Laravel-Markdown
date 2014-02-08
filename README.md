@@ -55,7 +55,7 @@ Laravel Markdown requires no configuration. Just follow the simple install instr
 
 **Classes\Markdown**
 
-This is the class of most interest It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
+This is the class of most interest. It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
 
 The `'render'` method will parse a string as markdown using Nazar Mokrynskyi's [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) package, and will return a string of html.
 

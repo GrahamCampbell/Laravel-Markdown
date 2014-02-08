@@ -53,10 +53,24 @@ Laravel Markdown requires no configuration. Just follow the simple install instr
 
 ## Usage
 
-There is currently no usage documentation besides the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
-) for Laravel Markdown.
+**Classes\Markdown**
 
-You may see an example of implementation in [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
+This is the class of most interest It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
+
+The `'render'` method will parse a string as markdown using Nazar Mokrynskyi's [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) package, and will return a string of html.
+
+**Facades\Markdown**
+
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Classes\Markdown` class.
+
+**MarkdownServiceProvider**
+
+This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
+
+**Further Information**
+
+Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
+) for Laravel Markdown. You may see an example of implementation in [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
 
 
 ## Updating Your Fork

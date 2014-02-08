@@ -36,7 +36,7 @@ abstract class AbstractTestCase extends AbstractLaravelTestCase
      */
     protected function getBasePath()
     {
-        return __DIR__.'/../../../../src';
+        return __DIR__.'/../src';
     }
 
     /**

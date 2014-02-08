@@ -43,7 +43,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('graham-campbell/markdown');
+        $this->package('graham-campbell/markdown', 'graham-campbell/markdown', __DIR__);
     }
 
     /**

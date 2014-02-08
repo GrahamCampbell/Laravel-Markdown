@@ -41,9 +41,9 @@
         "graham-campbell/testbench": "0.2.*"
     },
     "autoload": {
-        "psr-0": {
-            "GrahamCampbell\\Markdown": "src/",
-            "GrahamCampbell\\Tests\\Markdown": "tests/"
+        "psr-4": {
+            "GrahamCampbell\\Markdown\\": "src/",
+            "GrahamCampbell\\Tests\\Markdown\\": "tests/"
         }
     },
     "extra": {

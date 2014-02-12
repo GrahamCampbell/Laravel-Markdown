@@ -12,7 +12,7 @@ before_script:
   - mkdir -p build/logs
 
 script:
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
 
 after_success:
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;'

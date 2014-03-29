@@ -2,13 +2,13 @@ Laravel Markdown
 ================
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/GrahamCampbell/Laravel-Markdown/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Markdown.png)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
 [![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Markdown/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/badges/quality-score.png?s=91550d4afdf2961a89d17eb76b3c26304749d872)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f/mini.png)](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f)
 [![Software License](https://poser.pugx.org/graham-campbell/markdown/license.png)](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md)
 [![Latest Version](https://poser.pugx.org/graham-campbell/markdown/v/stable.png)](https://packagist.org/packages/graham-campbell/markdown)
+[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown)
 
 
 ## What Is Laravel Markdown?
@@ -26,7 +26,7 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 
 ## System Requirements
 
-* PHP 5.4.7+ or PHP 5.5+ is required.
+* PHP 5.4.7+ or HHVM 2.4+ is required.
 * You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Markdown.
 
@@ -35,7 +35,7 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 
 Please check the system requirements before installing Laravel Markdown.
 
-To get the latest version of Laravel Markdown, simply require `"graham-campbell/markdown": "1.0.*"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel Markdown, simply require `"graham-campbell/markdown": "1.1.*@dev"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 Once Laravel Markdown is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
@@ -70,7 +70,7 @@ This class contains no public methods of interest. This class should be added to
 **Further Information**
 
 Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
-) for Laravel Markdown. You may see an example of implementation in [CMS Core](https://github.com/GrahamCampbell/CMS-Core).
+) for Laravel Markdown. You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 
 
 ## Updating Your Fork

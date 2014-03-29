@@ -5,7 +5,7 @@ Laravel Markdown
 [![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Markdown/master.svg)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
 [![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Laravel-Markdown/master.svg)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
 [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md)
-[![Latest Version](https://img.shields.io/github/tag/GrahamCampbell/Laravel-Markdown.svg)](https://github.com/GrahamCampbell/Laravel-Markdown/releases)
+[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Markdown.svg)](https://github.com/GrahamCampbell/Laravel-Markdown/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/badges/quality-score.png?s=91550d4afdf2961a89d17eb76b3c26304749d872)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f/mini.png)](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f)
 

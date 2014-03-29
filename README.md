@@ -2,13 +2,12 @@ Laravel Markdown
 ================
 
 
-[![Build Status](https://travis-ci.org/GrahamCampbell/Laravel-Markdown.png)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
-[![Coverage Status](https://coveralls.io/repos/GrahamCampbell/Laravel-Markdown/badge.png)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
+[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Markdown/master.svg)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
+[![Coverage Status](https://img.shields.io/coveralls/GrahamCampbell/Laravel-Markdown/master.svg)](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md)
+[![Latest Version](https://img.shields.io/github/tag/GrahamCampbell/Laravel-Markdown.svg)](https://github.com/GrahamCampbell/Laravel-Markdown/releases)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/badges/quality-score.png?s=91550d4afdf2961a89d17eb76b3c26304749d872)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f/mini.png)](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f)
-[![Software License](https://poser.pugx.org/graham-campbell/markdown/license.png)](https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md)
-[![Latest Version](https://poser.pugx.org/graham-campbell/markdown/v/stable.png)](https://packagist.org/packages/graham-campbell/markdown)
-[![Still Maintained](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown.png)](http://stillmaintained.com/GrahamCampbell/Laravel-Markdown)
 
 
 ## What Is Laravel Markdown?

@@ -13,6 +13,7 @@
         "php": ">=5.4.7",
         "laravel/framework": "4.1.*",
         "symfony/config": "2.4.*",
+        "symfony/event-dispatcher": "2.4.*",
         "symfony/filesystem": "2.4.*",
         "nazar-pc/php-markdown-next": "2.0.*"
     },
@@ -21,7 +22,11 @@
     },
     "autoload": {
         "psr-4": {
-            "GrahamCampbell\\Markdown\\": "src/",
+            "GrahamCampbell\\Markdown\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "GrahamCampbell\\Tests\\Markdown\\": "tests/"
         }
     },

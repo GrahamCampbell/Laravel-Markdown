@@ -7,12 +7,13 @@ php:
   - hhvm
 
 before_script:
-  - composer self-update
-  - composer install --no-interaction --prefer-source --dev
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
   - mkdir -p build/logs
 
 script:
-  - vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "hhvm" ]; then vendor/bin/phpunit --verbose; fi;'
+  - bash -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml; fi;'
 
 after_success:
   - bash -c 'if [ "$TRAVIS_PHP_VERSION" == "5.5" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;'

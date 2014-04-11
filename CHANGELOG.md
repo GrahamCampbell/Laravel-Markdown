@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0 Alpha 1 (Upcoming - July 2014)
+
+* Upgrade to Laravel 4.2
+
+
 ## V1.1 (Upcoming)
 
 * PHP 5.6 and HHVM compatibility

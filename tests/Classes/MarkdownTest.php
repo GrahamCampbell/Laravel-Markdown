@@ -43,6 +43,18 @@ class MarkdownTest extends AbstractTestCase
         $this->assertEquals('html', $return);
     }
 
+    public function testDynamicRequestCall()
+    {
+        $markdown = $this->getMarkdown();
+
+        $markdown->getParsedown()->shouldReceive('text')->once()
+            ->with('test')->andReturn('html');
+
+        $return = $markdown->text('test');
+
+        $this->assertEquals('html', $return);
+    }
+
     protected function getMarkdown()
     {
         $parsedown = Mockery::mock('Parsedown');

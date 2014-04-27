@@ -5,6 +5,7 @@ CHANGE LOG
 ## V2.0 Beta 1 (Upcoming - July 2014)
 
 * Upgrade to Laravel 4.2
+* Moved to parsedown
 
 
 ## V1.1 (21/04/2014)

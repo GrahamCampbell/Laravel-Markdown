@@ -35,13 +35,18 @@ class MarkdownTest extends AbstractTestCase
     {
         $markdown = $this->getMarkdown();
 
+        $markdown->getParsedown()->shouldReceive('text')->once()
+            ->with('test')->andReturn('html');
+
         $return = $markdown->render('test');
 
-        $this->assertEquals("<p>test</p>\n", $return);
+        $this->assertEquals('html', $return);
     }
 
     protected function getMarkdown()
     {
-        return new Markdown();
+        $parsedown = Mockery::mock('Parsedown');
+
+        return new Markdown($parsedown);
     }
 }

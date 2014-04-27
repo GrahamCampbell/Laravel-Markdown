@@ -12,10 +12,10 @@ Laravel Markdown
 
 ## What Is Laravel Markdown?
 
-Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) wrapper for [Laravel 4.1](http://laravel.com).
+Laravel Markdown is a simple [Parsedown](https://github.com/erusev/parsedown) wrapper for [Laravel 4.2](http://laravel.com).
 
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
-* Laravel Markdown relies on Nazar Mokrynskyi's [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) package.
+* Laravel Markdown relies on Emanuil Rusev's [Parsedown](https://github.com/erusev/parsedown) package.
 * Laravel Markdown uses [Travis CI](https://travis-ci.org/GrahamCampbell/Laravel-Markdown) with [Coveralls](https://coveralls.io/r/GrahamCampbell/Laravel-Markdown) to check everything is working.
 * Laravel Markdown uses [Scrutinizer CI](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown) and [SensioLabsInsight](https://insight.sensiolabs.com/projects/15243b7d-e94d-45b6-a761-2a9dfb153b1f) to run additional checks.
 * Laravel Markdown uses [Composer](https://getcomposer.org) to load and manage dependencies.
@@ -25,8 +25,8 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 
 ## System Requirements
 
-* PHP 5.4.7+ or HHVM 3.0+ is required.
-* You will need [Laravel 4.1](http://laravel.com) because this package is designed for it.
+* PHP 5.4.7+ or HHVM 3.1+ is required.
+* You will need [Laravel 4.2](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Markdown.
 
 
@@ -34,7 +34,7 @@ Laravel Markdown is a simple [PHP Markdown Next](https://github.com/nazar-pc/php
 
 Please check the system requirements before installing Laravel Markdown.
 
-To get the latest version of Laravel Markdown, simply require `"graham-campbell/markdown": "1.1.*"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
+To get the latest version of Laravel Markdown, simply require `"graham-campbell/markdown": "~2.0"` in your `composer.json` file. You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
 
 Once Laravel Markdown is installed, you need to register the service provider. Open up `app/config/app.php` and add the following to the `providers` key.
 
@@ -56,7 +56,9 @@ Laravel Markdown requires no configuration. Just follow the simple install instr
 
 This is the class of most interest. It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
 
-The `'render'` method will parse a string as markdown using Nazar Mokrynskyi's [PHP Markdown Next](https://github.com/nazar-pc/php-markdown-next) package, and will return a string of html.
+The `'render'` method will parse a string as markdown using Emanuil Rusev's [Parsedown](https://github.com/erusev/parsedown) package, and will return a string of html.
+
+Any methods not found on this markdown class will actually fall back to the parsedown class with a dynamic call function, so every other method on the pasedown class is available in exactly the same way it would otherwise be.
 
 **Facades\Markdown**
 

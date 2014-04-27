@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Markdown\Classes;
 
-use nazarpc\MarkdownNext;
+use Parsedown;
 
 /**
  * This is the markdown class.
@@ -30,6 +30,24 @@ use nazarpc\MarkdownNext;
 class Markdown
 {
     /**
+     * The parsedown instance.
+     *
+     * @var \Parsedown
+     */
+    protected $parsedown;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \Parsedown  $parsedown
+     * @return void
+     */
+    public function __construct(Parsedown $parsedown)
+    {
+        $this->parsedown = $parsedown;
+    }
+
+    /**
      * Get the parsed markdown.
      *
      * @param  string  $value
@@ -37,6 +55,28 @@ class Markdown
      */
     public function render($value)
     {
-        return MarkdownNext::defaultTransform($value);
+        return $this->parsedown->text($value);
+    }
+
+    /**
+     * Return the parsedown instance.
+     *
+     * @return \Parsedown
+     */
+    public function getParsedown()
+    {
+        return $this->parsedown;
+    }
+
+    /**
+     * Dynamically call all other methods on the parsedown object.
+     *
+     * @param  string  $method
+     * @param  array   $parameters
+     * @return mixed
+     */
+    public function __call($method, $parameters)
+    {
+        return call_user_func_array(array($this->parsedown, $method), $parameters);
     }
 }

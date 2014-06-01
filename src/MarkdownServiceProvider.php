@@ -45,6 +45,62 @@ class MarkdownServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('graham-campbell/markdown', 'graham-campbell/markdown', __DIR__);
+
+        // setup blade engines if enabled
+        if ($this->app['config']['graham-campbell/markdown::engines']) {
+            $this->enableMarkdownEngine();
+            $this->enablePhpMarkdownEngine();
+            $this->enableBladeMarkdownEngine();
+        }
+    }
+
+    /**
+     * Enable the markdown engine.
+     *
+     * @return void
+     */
+    protected function enableMarkdownEngine()
+    {
+        $app = $this->app;
+
+        $app['view']->addExtension('md', 'md', function () use ($app) {
+            $markdown = $app['markdown'];
+
+            return new Engines\MarkdownEngine($markdown);
+        });
+    }
+
+    /**
+     * Enable the php markdown engine.
+     *
+     * @return void
+     */
+    protected function enablePhpMarkdownEngine()
+    {
+        $app = $this->app;
+
+        $app['view']->addExtension('md.php', 'phpmd', function () use ($app) {
+            $markdown = $app['markdown'];
+
+            return new Engines\PhpMarkdownEngine($markdown);
+        });
+    }
+
+    /**
+     * Enable the blade markdown engine.
+     *
+     * @return void
+     */
+    protected function enableBladeMarkdownEngine()
+    {
+        $app = $this->app;
+
+        $app['view']->addExtension('md.blade.php', 'blademd', function () use ($app) {
+            $compiler = $app['blade.compiler'];
+            $markdown = $app['markdown'];
+
+            return new Engines\BladeMarkdownEngine($compiler, $markdown);
+        });
     }
 
     /**

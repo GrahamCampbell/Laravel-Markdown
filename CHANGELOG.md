@@ -4,8 +4,10 @@ CHANGE LOG
 
 ## V2.0 Beta 1 (Upcoming - July 2014)
 
-* Upgrade to Laravel 4.2
+* Upgrade to Laravel ~4.1
 * Moved to parsedown
+* Refactoring
+* Added markdown engines
 
 
 ## V1.1 (21/04/2014)

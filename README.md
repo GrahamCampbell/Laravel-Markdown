@@ -12,7 +12,7 @@ Laravel Markdown
 
 ## What Is Laravel Markdown?
 
-Laravel Markdown is a simple [Parsedown](https://github.com/erusev/parsedown) wrapper for [Laravel 4.2](http://laravel.com).
+Laravel Markdown is a simple [Parsedown](https://github.com/erusev/parsedown) wrapper for [Laravel 4.1+](http://laravel.com).
 
 * Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell).
 * Laravel Markdown relies on Emanuil Rusev's [Parsedown](https://github.com/erusev/parsedown) package.
@@ -26,7 +26,7 @@ Laravel Markdown is a simple [Parsedown](https://github.com/erusev/parsedown) wr
 ## System Requirements
 
 * PHP 5.4.7+ or HHVM 3.1+ is required.
-* You will need [Laravel 4.2](http://laravel.com) because this package is designed for it.
+* You will need [Laravel 4.1+](http://laravel.com) because this package is designed for it.
 * You will need [Composer](https://getcomposer.org) installed to load the dependencies of Laravel Markdown.
 
 
@@ -47,7 +47,17 @@ You can register the Markdown facade in the `aliases` key of your `app/config/ap
 
 ## Configuration
 
-Laravel Markdown requires no configuration. Just follow the simple install instructions and go!
+Laravel Markdown supports optional configuration.
+
+To get started, first publish the package config file:
+
+    php artisan config:publish graham-campbell/markdown
+
+There is one config options:
+
+**Enable The Engines**
+
+This option (`'engines'`) specifies if the view engines are enabled so you can write markdown views and have them compiled into html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable the engines if they are conflicting with another package. The default value for this setting is `true`.
 
 
 ## Usage
@@ -58,8 +68,6 @@ This is the class of most interest. It is bound to the ioc container as `'markdo
 
 The `'render'` method will parse a string as markdown using Emanuil Rusev's [Parsedown](https://github.com/erusev/parsedown) package, and will return a string of html.
 
-Any methods not found on this markdown class will actually fall back to the parsedown class with a dynamic call function, so every other method on the pasedown class is available in exactly the same way it would otherwise be.
-
 **Facades\Markdown**
 
 This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Classes\Markdown` class.
@@ -69,6 +77,8 @@ This facade will dynamically pass static method calls to the `'markdown'` object
 This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
 
 **Further Information**
+
+There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
 
 Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
 ) for Laravel Markdown.

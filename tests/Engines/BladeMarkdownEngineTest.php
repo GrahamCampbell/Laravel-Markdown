@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown\Engines;
 
 use Mockery;
-use GrahamCampbell\Markdown\Classes\Markdown;
+use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
 use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the markdown test class.
+ * This is the blade markdown engine test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -29,24 +29,30 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractTestCase
+class BladeMarkdownTest extends AbstractTestCase
 {
     public function testRender()
     {
-        $markdown = $this->getMarkdown();
+        $engine = $this->getEngine();
 
-        $markdown->getParsedown()->shouldReceive('text')->once()
-            ->with('test')->andReturn('html');
+        $engine->getMarkdown()->shouldReceive('render')->once()
+            ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
 
-        $return = $markdown->render('test');
+        $return = $engine->get(__DIR__.'\stubs\test');
 
         $this->assertEquals('html', $return);
     }
 
-    protected function getMarkdown()
+    protected function getEngine()
     {
-        $parsedown = Mockery::mock('Parsedown');
+        $compiler = Mockery::mock('Illuminate\View\Compilers\CompilerInterface');
+        $markdown = Mockery::mock('GrahamCampbell\Markdown\Classes\Markdown');
 
-        return new Markdown($parsedown);
+        $compiler->shouldReceive('isExpired')->once()
+            ->with(__DIR__.'\stubs\test')->andReturn(false);
+        $compiler->shouldReceive('getCompiledPath')->once()
+            ->andReturn(__DIR__.'\stubs\test');
+
+        return new BladeMarkdownEngine($compiler, $markdown);
     }
 }

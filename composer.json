@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/markdown",
-    "description": "Markdown Is A Simple PHP Markdown Wrapper For Laravel 4.2",
+    "description": "Markdown Is A Simple PHP Markdown Wrapper For Laravel 4.1+",
     "keywords": ["laravel", "framework", "markdown", "php markdown", "markdown wrapper", "php markdown wrapper", "Markdown", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "illuminate/support": "4.2.*",
+        "illuminate/support": "~4.1",
+        "illuminate/view": "~4.1",
         "erusev/parsedown": "~1.0"
     },
     "require-dev": {

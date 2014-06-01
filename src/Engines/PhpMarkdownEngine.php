@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Markdown\Engines;
 
-use Parsedown;
+use Illuminate\View\Engines\PhpEngine;
+use GrahamCampbell\Markdown\Classes\Markdown;
 
 /**
- * This is the markdown class.
+ * This is the php markdown engine class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,44 +28,47 @@ use Parsedown;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+class PhpMarkdownEngine extends PhpEngine
 {
     /**
-     * The parsedown instance.
+     * The markdown instance.
      *
-     * @var \Parsedown
+     * @var \GrahamCampbell\Markdown\Classes\Markdown
      */
-    protected $parsedown;
+    protected $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param  \Parsedown  $parsedown
+     * @param  \GrahamCampbell\Markdown\Classes\Markdown  $markdown
      * @return void
      */
-    public function __construct(Parsedown $parsedown)
+    public function __construct(Markdown $markdown)
     {
-        $this->parsedown = $parsedown;
+        $this->markdown = $markdown;
     }
 
     /**
-     * Get the parsed markdown.
+     * Get the evaluated contents of the view.
      *
-     * @param  string  $value
+     * @param  string  $path
+     * @param  array   $data
      * @return string
      */
-    public function render($value)
+    public function get($path, array $data = array())
     {
-        return $this->parsedown->text($value);
+        $contents = parent::get($path, $data);
+
+        return $this->markdown->render($contents);
     }
 
     /**
-     * Return the parsedown instance.
+     * Return the markdown instance.
      *
-     * @return \Parsedown
+     * @return \GrahamCampbell\Markdown\Classes\Markdown
      */
-    public function getParsedown()
+    public function getMarkdown()
     {
-        return $this->parsedown;
+        return $this->markdown;
     }
 }

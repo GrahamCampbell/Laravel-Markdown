@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown\Engines;
 
-use Parsedown;
+use Mockery;
+use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
+use GrahamCampbell\TestBench\Classes\AbstractTestCase;
 
 /**
- * This is the markdown class.
+ * This is the php markdown engine test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,44 +29,24 @@ use Parsedown;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+class PhpMarkdownTest extends AbstractTestCase
 {
-    /**
-     * The parsedown instance.
-     *
-     * @var \Parsedown
-     */
-    protected $parsedown;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \Parsedown  $parsedown
-     * @return void
-     */
-    public function __construct(Parsedown $parsedown)
+    public function testRender()
     {
-        $this->parsedown = $parsedown;
+        $engine = $this->getEngine();
+
+        $engine->getMarkdown()->shouldReceive('render')->once()
+            ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
+
+        $return = $engine->get(__DIR__.'\stubs\test');
+
+        $this->assertEquals('html', $return);
     }
 
-    /**
-     * Get the parsed markdown.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public function render($value)
+    protected function getEngine()
     {
-        return $this->parsedown->text($value);
-    }
+        $markdown = Mockery::mock('GrahamCampbell\Markdown\Classes\Markdown');
 
-    /**
-     * Return the parsedown instance.
-     *
-     * @return \Parsedown
-     */
-    public function getParsedown()
-    {
-        return $this->parsedown;
+        return new PhpMarkdownEngine($markdown);
     }
 }

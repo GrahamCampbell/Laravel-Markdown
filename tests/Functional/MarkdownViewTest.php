@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown\HTMLMin;
 
-use Parsedown;
+use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 
 /**
- * This is the markdown class.
+ * This is the markdown view test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,44 +27,37 @@ use Parsedown;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+class MarkdownViewTest extends AbstractTestCase
 {
-    /**
-     * The parsedown instance.
-     *
-     * @var \Parsedown
-     */
-    protected $parsedown;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \Parsedown  $parsedown
-     * @return void
-     */
-    public function __construct(Parsedown $parsedown)
+    public function testMarkdown()
     {
-        $this->parsedown = $parsedown;
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::test')->render();
+
+        $this->assertEquals('<h1>Test</h1>', $return);
     }
 
-    /**
-     * Get the parsed markdown.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public function render($value)
+    public function testPhpMarkdown()
     {
-        return $this->parsedown->text($value);
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::foo')->render();
+
+        $this->assertEquals('<h1>Foo</h1>', $return);
     }
 
-    /**
-     * Return the parsedown instance.
-     *
-     * @return \Parsedown
-     */
-    public function getParsedown()
+    public function testBladeMarkdown()
     {
-        return $this->parsedown;
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::bar')->render();
+
+        $this->assertEquals('<h1>Bar</h1>', $return);
+    }
+
+    protected function setUpViews()
+    {
+        $this->app['view']->addNamespace('stubs', realpath(__DIR__.'/stubs'));
     }
 }

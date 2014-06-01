@@ -38,7 +38,7 @@ class MarkdownTest extends AbstractTestCase
         $engine->getMarkdown()->shouldReceive('render')->once()
             ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
 
-        $return = $engine->get(__DIR__.'\stubs\test');
+        $return = $engine->get(__DIR__.'/stubs/test');
 
         $this->assertEquals('html', $return);
     }

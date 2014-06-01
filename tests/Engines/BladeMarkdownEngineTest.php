@@ -38,7 +38,7 @@ class BladeMarkdownTest extends AbstractTestCase
         $engine->getMarkdown()->shouldReceive('render')->once()
             ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
 
-        $return = $engine->get(__DIR__.'\stubs\test');
+        $return = $engine->get(__DIR__.'/stubs/test');
 
         $this->assertEquals('html', $return);
     }
@@ -49,9 +49,9 @@ class BladeMarkdownTest extends AbstractTestCase
         $markdown = Mockery::mock('GrahamCampbell\Markdown\Classes\Markdown');
 
         $compiler->shouldReceive('isExpired')->once()
-            ->with(__DIR__.'\stubs\test')->andReturn(false);
+            ->with(__DIR__.'/stubs/test')->andReturn(false);
         $compiler->shouldReceive('getCompiledPath')->once()
-            ->andReturn(__DIR__.'\stubs\test');
+            ->andReturn(__DIR__.'/stubs/test');
 
         return new BladeMarkdownEngine($compiler, $markdown);
     }

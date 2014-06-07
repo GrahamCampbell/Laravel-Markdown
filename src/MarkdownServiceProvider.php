@@ -46,7 +46,7 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $this->package('graham-campbell/markdown', 'graham-campbell/markdown', __DIR__);
 
-        // setup blade engines if enabled
+        // setup engines if enabled
         if ($this->app['config']['graham-campbell/markdown::engines']) {
             $this->enableMarkdownEngine();
             $this->enablePhpMarkdownEngine();
@@ -63,11 +63,15 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app['view']->addExtension('md', 'md', function () use ($app) {
+        // register a new engine
+        $app['view']->getEngineResolver()->register('md', function () use ($app) {
             $markdown = $app['markdown'];
 
             return new Engines\MarkdownEngine($markdown);
         });
+
+        // add the extension
+        $app->view->addExtension('md', 'md');
     }
 
     /**
@@ -79,11 +83,15 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app['view']->addExtension('md.php', 'phpmd', function () use ($app) {
+        // register a new engine
+        $app['view']->getEngineResolver()->register('phpmd', function () use ($app) {
             $markdown = $app['markdown'];
 
             return new Engines\PhpMarkdownEngine($markdown);
         });
+
+        // add the extension
+        $app->view->addExtension('md.php', 'phpmd');
     }
 
     /**
@@ -95,12 +103,16 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $app = $this->app;
 
-        $app['view']->addExtension('md.blade.php', 'blademd', function () use ($app) {
+        // register a new engine
+        $app['view']->getEngineResolver()->register('blademd', function () use ($app) {
             $compiler = $app['blade.compiler'];
             $markdown = $app['markdown'];
 
             return new Engines\BladeMarkdownEngine($compiler, $markdown);
         });
+
+        // add the extension
+        $app->view->addExtension('md.blade.php', 'blademd');
     }
 
     /**

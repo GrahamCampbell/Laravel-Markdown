@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Markdown;
 
 use Mockery;
 use GrahamCampbell\Markdown\Markdown;
-use GrahamCampbell\TestBench\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
 
 /**
  * This is the markdown test class.
@@ -29,7 +29,7 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractTestCase
+class MarkdownTest extends AbstractTestBenchTestCase
 {
     public function testRender()
     {

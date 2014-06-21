@@ -59,6 +59,6 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Markdown\Classes\Markdown';
+        return 'GrahamCampbell\Markdown\Markdown';
     }
 }

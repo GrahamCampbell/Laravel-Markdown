@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Markdown\Engines;
 
 use Mockery;
 use GrahamCampbell\Markdown\Engines\MarkdownEngine;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the markdown engine test class.
@@ -45,7 +45,7 @@ class MarkdownTest extends AbstractTestCase
 
     protected function getEngine()
     {
-        $markdown = Mockery::mock('GrahamCampbell\Markdown\Classes\Markdown');
+        $markdown = Mockery::mock('GrahamCampbell\Markdown\Markdown');
 
         return new MarkdownEngine($markdown);
     }

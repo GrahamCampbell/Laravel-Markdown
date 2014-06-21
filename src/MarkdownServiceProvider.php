@@ -135,7 +135,7 @@ class MarkdownServiceProvider extends ServiceProvider
         $this->app->bindShared('markdown', function ($app) {
             $parsedown = Parsedown::instance();
 
-            return new Classes\Markdown($parsedown);
+            return new Markdown($parsedown);
         });
     }
 

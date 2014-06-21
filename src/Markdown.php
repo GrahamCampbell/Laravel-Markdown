@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Markdown;
 
 use Parsedown;
 

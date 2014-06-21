@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Markdown\Engines;
 
 use Illuminate\View\Engines\PhpEngine;
-use GrahamCampbell\Markdown\Classes\Markdown;
+use GrahamCampbell\Markdown\Markdown;
 
 /**
  * This is the php markdown engine class.
@@ -33,14 +33,14 @@ class PhpMarkdownEngine extends PhpEngine
     /**
      * The markdown instance.
      *
-     * @var \GrahamCampbell\Markdown\Classes\Markdown
+     * @var \GrahamCampbell\Markdown\Markdown
      */
     protected $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Markdown\Classes\Markdown  $markdown
+     * @param  \GrahamCampbell\Markdown\Markdown  $markdown
      * @return void
      */
     public function __construct(Markdown $markdown)
@@ -65,7 +65,7 @@ class PhpMarkdownEngine extends PhpEngine
     /**
      * Return the markdown instance.
      *
-     * @return \GrahamCampbell\Markdown\Classes\Markdown
+     * @return \GrahamCampbell\Markdown\Markdown
      */
     public function getMarkdown()
     {

@@ -18,7 +18,7 @@ namespace GrahamCampbell\Tests\Markdown\Engines;
 
 use Mockery;
 use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the blade markdown engine test class.
@@ -46,7 +46,7 @@ class BladeMarkdownTest extends AbstractTestCase
     protected function getEngine()
     {
         $compiler = Mockery::mock('Illuminate\View\Compilers\CompilerInterface');
-        $markdown = Mockery::mock('GrahamCampbell\Markdown\Classes\Markdown');
+        $markdown = Mockery::mock('GrahamCampbell\Markdown\Markdown');
 
         $compiler->shouldReceive('isExpired')->once()
             ->with(__DIR__.'/stubs/test')->andReturn(false);

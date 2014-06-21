@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown;
 
 use Mockery;
-use GrahamCampbell\Markdown\Classes\Markdown;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use GrahamCampbell\Markdown\Markdown;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
  * This is the markdown test class.

@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Tests\Markdown;
 
-use GrahamCampbell\TestBench\Classes\AbstractLaravelTestCase;
+use GrahamCampbell\TestBench\AbstractLaravelTestCase;
 
 /**
  * This is the abstract test case class.

@@ -62,7 +62,7 @@ This option (`'engines'`) specifies if the view engines are enabled so you can w
 
 ## Usage
 
-**Classes\Markdown**
+**Markdown**
 
 This is the class of most interest. It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
 
@@ -70,7 +70,7 @@ The `'render'` method will parse a string as markdown using Emanuil Rusev's [Par
 
 **Facades\Markdown**
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Classes\Markdown` class.
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Markdown` class.
 
 **MarkdownServiceProvider**
 

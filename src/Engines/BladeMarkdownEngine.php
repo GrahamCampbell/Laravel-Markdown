@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Markdown\Engines;
 
 use Illuminate\View\Engines\CompilerEngine;
-use GrahamCampbell\Markdown\Classes\Markdown;
+use GrahamCampbell\Markdown\Markdown;
 use Illuminate\View\Compilers\CompilerInterface;
 
 /**
@@ -34,7 +34,7 @@ class BladeMarkdownEngine extends CompilerEngine
     /**
      * The markdown instance.
      *
-     * @var \GrahamCampbell\Markdown\Classes\Markdown
+     * @var \GrahamCampbell\Markdown\Markdown
      */
     protected $markdown;
 
@@ -42,7 +42,7 @@ class BladeMarkdownEngine extends CompilerEngine
      * Create a new instance.
      *
      * @param  \Illuminate\View\Compilers\CompilerInterface  $compiler
-     * @param  \GrahamCampbell\Markdown\Classes\Markdown  $markdown
+     * @param  \GrahamCampbell\Markdown\Markdown  $markdown
      * @return void
      */
     public function __construct(CompilerInterface $compiler, Markdown $markdown)
@@ -68,7 +68,7 @@ class BladeMarkdownEngine extends CompilerEngine
     /**
      * Return the markdown instance.
      *
-     * @return \GrahamCampbell\Markdown\Classes\Markdown
+     * @return \GrahamCampbell\Markdown\Markdown
      */
     public function getMarkdown()
     {

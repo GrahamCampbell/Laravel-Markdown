@@ -137,6 +137,8 @@ class MarkdownServiceProvider extends ServiceProvider
 
             return new Markdown($parsedown);
         });
+
+        $this->app->alias('markdown', 'GrahamCampbell\Markdown\Markdown');
     }
 
     /**

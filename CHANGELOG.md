@@ -7,6 +7,7 @@ CHANGE LOG
 * Upgrade to Laravel ~4.1
 * Moved to parsedown
 * Refactoring
+* Added di aliases
 * Added markdown engines
 
 

@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown;
+namespace GrahamCampbell\Tests\Markdown\Engines;
 
-use GrahamCampbell\TestBench\AbstractLaravelTestCase;
+use Mockery;
+use GrahamCampbell\Markdown\Engines\MarkdownEngine;
+use GrahamCampbell\TestBench\AbstractTestCase;
 
 /**
- * This is the abstract test case class.
+ * This is the markdown engine test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,25 +29,24 @@ use GrahamCampbell\TestBench\AbstractLaravelTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-abstract class AbstractTestCase extends AbstractLaravelTestCase
+class MarkdownTest extends AbstractTestCase
 {
-    /**
-     * Get the application base path.
-     *
-     * @return string
-     */
-    protected function getBasePath()
+    public function testRender()
     {
-        return __DIR__.'/../src';
+        $engine = $this->getEngine();
+
+        $engine->getMarkdown()->shouldReceive('render')->once()
+            ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
+
+        $return = $engine->get(__DIR__.'/stubs/test');
+
+        $this->assertEquals('html', $return);
     }
 
-    /**
-     * Get the service provider class.
-     *
-     * @return string
-     */
-    protected function getServiceProviderClass()
+    protected function getEngine()
     {
-        return 'GrahamCampbell\Markdown\MarkdownServiceProvider';
+        $markdown = Mockery::mock('GrahamCampbell\Markdown\Markdown');
+
+        return new MarkdownEngine($markdown);
     }
 }

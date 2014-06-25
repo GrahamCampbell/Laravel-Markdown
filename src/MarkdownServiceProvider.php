@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\Markdown;
 
+use Parsedown;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -44,6 +45,74 @@ class MarkdownServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('graham-campbell/markdown', 'graham-campbell/markdown', __DIR__);
+
+        // setup engines if enabled
+        if ($this->app['config']['graham-campbell/markdown::engines']) {
+            $this->enableMarkdownEngine();
+            $this->enablePhpMarkdownEngine();
+            $this->enableBladeMarkdownEngine();
+        }
+    }
+
+    /**
+     * Enable the markdown engine.
+     *
+     * @return void
+     */
+    protected function enableMarkdownEngine()
+    {
+        $app = $this->app;
+
+        // register a new engine
+        $app['view']->getEngineResolver()->register('md', function () use ($app) {
+            $markdown = $app['markdown'];
+
+            return new Engines\MarkdownEngine($markdown);
+        });
+
+        // add the extension
+        $app->view->addExtension('md', 'md');
+    }
+
+    /**
+     * Enable the php markdown engine.
+     *
+     * @return void
+     */
+    protected function enablePhpMarkdownEngine()
+    {
+        $app = $this->app;
+
+        // register a new engine
+        $app['view']->getEngineResolver()->register('phpmd', function () use ($app) {
+            $markdown = $app['markdown'];
+
+            return new Engines\PhpMarkdownEngine($markdown);
+        });
+
+        // add the extension
+        $app->view->addExtension('md.php', 'phpmd');
+    }
+
+    /**
+     * Enable the blade markdown engine.
+     *
+     * @return void
+     */
+    protected function enableBladeMarkdownEngine()
+    {
+        $app = $this->app;
+
+        // register a new engine
+        $app['view']->getEngineResolver()->register('blademd', function () use ($app) {
+            $compiler = $app['blade.compiler'];
+            $markdown = $app['markdown'];
+
+            return new Engines\BladeMarkdownEngine($compiler, $markdown);
+        });
+
+        // add the extension
+        $app->view->addExtension('md.blade.php', 'blademd');
     }
 
     /**
@@ -64,8 +133,12 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerMarkdown()
     {
         $this->app->bindShared('markdown', function ($app) {
-            return new Classes\Markdown();
+            $parsedown = Parsedown::instance();
+
+            return new Markdown($parsedown);
         });
+
+        $this->app->alias('markdown', 'GrahamCampbell\Markdown\Markdown');
     }
 
     /**

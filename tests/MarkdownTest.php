@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Classes;
+namespace GrahamCampbell\Tests\Markdown;
 
-use nazarpc\MarkdownNext;
+use Mockery;
+use GrahamCampbell\Markdown\Markdown;
+use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
 
 /**
- * This is the markdown class.
+ * This is the markdown test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -27,16 +29,24 @@ use nazarpc\MarkdownNext;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class Markdown
+class MarkdownTest extends AbstractTestBenchTestCase
 {
-    /**
-     * Get the parsed markdown.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    public function render($value)
+    public function testRender()
     {
-        return MarkdownNext::defaultTransform($value);
+        $markdown = $this->getMarkdown();
+
+        $markdown->getParsedown()->shouldReceive('text')->once()
+            ->with('test')->andReturn('html');
+
+        $return = $markdown->render('test');
+
+        $this->assertEquals('html', $return);
+    }
+
+    protected function getMarkdown()
+    {
+        $parsedown = Mockery::mock('Parsedown');
+
+        return new Markdown($parsedown);
     }
 }

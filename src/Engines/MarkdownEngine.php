@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Facades;
+namespace GrahamCampbell\Markdown\Engines;
 
-use GrahamCampbell\Tests\Markdown\AbstractTestCase;
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use Illuminate\View\Engines\EngineInterface;
+use GrahamCampbell\Markdown\Markdown;
 
 /**
- * This is the markdown facade test class.
+ * This is the markdown engine class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -28,37 +28,47 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractTestCase
+class MarkdownEngine implements EngineInterface
 {
-    use FacadeTestCaseTrait;
+    /**
+     * The markdown instance.
+     *
+     * @var \GrahamCampbell\Markdown\Markdown
+     */
+    protected $markdown;
 
     /**
-     * Get the facade accessor.
+     * Create a new instance.
      *
-     * @return string
+     * @param  \GrahamCampbell\Markdown\Markdown  $markdown
+     * @return void
      */
-    protected function getFacadeAccessor()
+    public function __construct(Markdown $markdown)
     {
-        return 'markdown';
+        $this->markdown = $markdown;
     }
 
     /**
-     * Get the facade class.
+     * Get the evaluated contents of the view.
      *
+     * @param  string  $path
+     * @param  array   $data
      * @return string
      */
-    protected function getFacadeClass()
+    public function get($path, array $data = array())
     {
-        return 'GrahamCampbell\Markdown\Facades\Markdown';
+        $contents = file_get_contents($path);
+
+        return $this->markdown->render($contents);
     }
 
     /**
-     * Get the facade route.
+     * Return the markdown instance.
      *
-     * @return string
+     * @return \GrahamCampbell\Markdown\Markdown
      */
-    protected function getFacadeRoot()
+    public function getMarkdown()
     {
-        return 'GrahamCampbell\Markdown\Markdown';
+        return $this->markdown;
     }
 }

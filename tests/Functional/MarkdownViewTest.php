@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Facades;
+namespace GrahamCampbell\Tests\Markdown\HTMLMin;
 
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 
 /**
- * This is the markdown facade test class.
+ * This is the markdown view test class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -28,37 +27,37 @@ use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractTestCase
+class MarkdownViewTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
-
-    /**
-     * Get the facade accessor.
-     *
-     * @return string
-     */
-    protected function getFacadeAccessor()
+    public function testMarkdown()
     {
-        return 'markdown';
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::test')->render();
+
+        $this->assertEquals('<h1>Test</h1>', $return);
     }
 
-    /**
-     * Get the facade class.
-     *
-     * @return string
-     */
-    protected function getFacadeClass()
+    public function testPhpMarkdown()
     {
-        return 'GrahamCampbell\Markdown\Facades\Markdown';
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::foo')->render();
+
+        $this->assertEquals('<h1>Foo</h1>', $return);
     }
 
-    /**
-     * Get the facade route.
-     *
-     * @return string
-     */
-    protected function getFacadeRoot()
+    public function testBladeMarkdown()
     {
-        return 'GrahamCampbell\Markdown\Markdown';
+        $this->setUpViews();
+
+        $return = $this->app['view']->make('stubs::bar')->render();
+
+        $this->assertEquals('<h1>Bar</h1>', $return);
+    }
+
+    protected function setUpViews()
+    {
+        $this->app['view']->addNamespace('stubs', realpath(__DIR__.'/stubs'));
     }
 }

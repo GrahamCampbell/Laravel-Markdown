@@ -1,7 +1,7 @@
 {
     "name": "graham-campbell/markdown",
-    "description": "Markdown Is A Simple PHP Markdown Wrapper For Laravel 4.1",
-    "keywords": ["laravel", "framework", "markdown", "php markdown", "markdown wrapper", "php markdown wrapper", "Markdown", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
+    "description": "Markdown Is A Parsedown Wrapper For Laravel 4.1+",
+    "keywords": ["laravel", "framework", "markdown", "parsedown", "markdown wrapper", "parsedown wrapper", "Parsedown", "Markdown", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
         {
@@ -11,14 +11,12 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "laravel/framework": "4.1.*",
-        "symfony/config": "2.4.*",
-        "symfony/event-dispatcher": "2.4.*",
-        "symfony/filesystem": "2.4.*",
-        "nazar-pc/php-markdown-next": "2.0.*"
+        "illuminate/support": "~4.1",
+        "illuminate/view": "~4.1",
+        "erusev/parsedown": "~1.0"
     },
     "require-dev": {
-        "graham-campbell/testbench": "0.3.*"
+        "graham-campbell/testbench": "~1.0"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1-dev"
+            "dev-develop": "2.0-dev"
         }
     },
     "minimum-stability": "dev",

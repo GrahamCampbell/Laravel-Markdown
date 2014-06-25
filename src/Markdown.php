@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Classes;
+namespace GrahamCampbell\Markdown;
 
-use Mockery;
-use GrahamCampbell\Markdown\Classes\Markdown;
-use GrahamCampbell\TestBench\Classes\AbstractTestCase;
+use Parsedown;
 
 /**
- * This is the markdown test class.
+ * This is the markdown class.
  *
  * @package    Laravel-Markdown
  * @author     Graham Campbell
@@ -29,19 +27,44 @@ use GrahamCampbell\TestBench\Classes\AbstractTestCase;
  * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
  * @link       https://github.com/GrahamCampbell/Laravel-Markdown
  */
-class MarkdownTest extends AbstractTestCase
+class Markdown
 {
-    public function testRender()
+    /**
+     * The parsedown instance.
+     *
+     * @var \Parsedown
+     */
+    protected $parsedown;
+
+    /**
+     * Create a new instance.
+     *
+     * @param  \Parsedown  $parsedown
+     * @return void
+     */
+    public function __construct(Parsedown $parsedown)
     {
-        $markdown = $this->getMarkdown();
-
-        $return = $markdown->render('test');
-
-        $this->assertEquals("<p>test</p>\n", $return);
+        $this->parsedown = $parsedown;
     }
 
-    protected function getMarkdown()
+    /**
+     * Get the parsed markdown.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function render($value)
     {
-        return new Markdown();
+        return $this->parsedown->text($value);
+    }
+
+    /**
+     * Return the parsedown instance.
+     *
+     * @return \Parsedown
+     */
+    public function getParsedown()
+    {
+        return $this->parsedown;
     }
 }

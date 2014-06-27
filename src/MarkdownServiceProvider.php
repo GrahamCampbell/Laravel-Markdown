@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Markdown;
 
-use Parsedown;
+use ParsedownExtra;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -133,7 +133,7 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerMarkdown()
     {
         $this->app->bindShared('markdown', function ($app) {
-            $parsedown = Parsedown::instance();
+            $parsedown = ParsedownExtra::instance();
 
             return new Markdown($parsedown);
         });

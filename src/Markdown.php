@@ -16,7 +16,7 @@
 
 namespace GrahamCampbell\Markdown;
 
-use Parsedown;
+use ParsedownExtra;
 
 /**
  * This is the markdown class.
@@ -30,19 +30,19 @@ use Parsedown;
 class Markdown
 {
     /**
-     * The parsedown instance.
+     * The parsedown extra instance.
      *
-     * @var \Parsedown
+     * @var \ParsedownExtra
      */
     protected $parsedown;
 
     /**
      * Create a new instance.
      *
-     * @param  \Parsedown  $parsedown
+     * @param  \ParsedownExtra  $parsedown
      * @return void
      */
-    public function __construct(Parsedown $parsedown)
+    public function __construct(ParsedownExtra $parsedown)
     {
         $this->parsedown = $parsedown;
     }
@@ -59,9 +59,9 @@ class Markdown
     }
 
     /**
-     * Return the parsedown instance.
+     * Return the parsedown extra instance.
      *
-     * @return \Parsedown
+     * @return \ParsedownExtra
      */
     public function getParsedown()
     {

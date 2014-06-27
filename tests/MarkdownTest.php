@@ -45,7 +45,7 @@ class MarkdownTest extends AbstractTestBenchTestCase
 
     protected function getMarkdown()
     {
-        $parsedown = Mockery::mock('Parsedown');
+        $parsedown = Mockery::mock('ParsedownExtra');
 
         return new Markdown($parsedown);
     }

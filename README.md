@@ -64,8 +64,7 @@ This class contains no public methods of interest. This class should be added to
 
 There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
 
-Feel free to check out the [API Documentation](http://grahamcampbell.github.io/Laravel-Markdown
-) for Laravel Markdown.
+Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Markdown.
 
 You may see an example of implementation in [Bootstrap CMS](https://github.com/GrahamCampbell/Bootstrap-CMS).
 

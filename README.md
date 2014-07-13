@@ -11,7 +11,7 @@ Laravel Markdown
 
 ## Introduction
 
-Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Parsedown Extra](https://github.com/erusev/parsedown-extra) wrapper for [Laravel 4.1+](http://laravel.com). It ships with integration with the laravel view system too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Parsedown Extra](https://github.com/erusev/parsedown-extra) wrapper for [Laravel 4.1+](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 
 ## Installation
@@ -39,28 +39,28 @@ To get started, first publish the package config file:
 
 There is one config options:
 
-**Enable The Engines**
+##### Enable The Engines
 
 This option (`'engines'`) specifies if the view engines are enabled so you can write markdown views and have them compiled into html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable the engines if they are conflicting with another package. The default value for this setting is `true`.
 
 
 ## Usage
 
-**Markdown**
+##### Markdown
 
 This is the class of most interest. It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
 
 The `'render'` method will parse a string as markdown using Emanuil Rusev's [Parsedown Extra](https://github.com/erusev/parsedown-extra) package, and will return a string of html.
 
-**Facades\Markdown**
+##### Facades\Markdown
 
 This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Markdown` class.
 
-**MarkdownServiceProvider**
+##### MarkdownServiceProvider
 
 This class contains no public methods of interest. This class should be added to the providers array in `app/config/app.php`. This class will setup ioc bindings.
 
-**Further Information**
+##### Further Information
 
 There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
 

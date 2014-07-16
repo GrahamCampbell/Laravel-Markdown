@@ -62,7 +62,7 @@ This class contains no public methods of interest. This class should be added to
 
 ##### Further Information
 
-There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
+There are other classes in this package that are not documented here (such as the engine classes). This is because they are not intended for public use and are used internally by this package.
 
 Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Markdown.
 

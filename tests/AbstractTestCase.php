@@ -30,16 +30,6 @@ use GrahamCampbell\TestBench\AbstractLaravelTestCase;
 abstract class AbstractTestCase extends AbstractLaravelTestCase
 {
     /**
-     * Get the application base path.
-     *
-     * @return string
-     */
-    protected function getBasePath()
-    {
-        return __DIR__.'/../src';
-    }
-
-    /**
      * Get the service provider class.
      *
      * @return string

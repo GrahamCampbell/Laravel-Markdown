@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0 (20/07/2014)
+
+* Bumped to stable
+
+
 ## V2.0 RC 1 (16/07/2014)
 
 * Upgrade to Laravel 4.1+

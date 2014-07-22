@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Markdown;
 
-use ParsedownExtra;
 use Illuminate\Support\ServiceProvider;
+use ParsedownExtra;
 
 /**
  * This is the markdown service provider class.
@@ -144,7 +144,7 @@ class MarkdownServiceProvider extends ServiceProvider
     /**
      * Get the services provided by the provider.
      *
-     * @return array
+     * @return string[]
      */
     public function provides()
     {

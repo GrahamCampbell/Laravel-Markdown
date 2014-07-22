@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Markdown\Engines;
 
-use Illuminate\View\Engines\EngineInterface;
 use GrahamCampbell\Markdown\Markdown;
+use Illuminate\View\Engines\EngineInterface;
 
 /**
  * This is the markdown engine class.

@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Markdown\Engines;
 
-use Illuminate\View\Engines\PhpEngine;
 use GrahamCampbell\Markdown\Markdown;
+use Illuminate\View\Engines\PhpEngine;
 
 /**
  * This is the php markdown engine class.

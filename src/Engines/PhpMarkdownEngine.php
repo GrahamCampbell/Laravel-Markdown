@@ -22,25 +22,24 @@ use Illuminate\View\Engines\PhpEngine;
 /**
  * This is the php markdown engine class.
  *
- * @package    Laravel-Markdown
- * @author     Graham Campbell
- * @copyright  Copyright 2013-2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Markdown
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
 class PhpMarkdownEngine extends PhpEngine
 {
     /**
      * The markdown instance.
      *
-     * @var \GrahamCampbell\Markdown\Markdown
+     * @type \GrahamCampbell\Markdown\Markdown
      */
     protected $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param  \GrahamCampbell\Markdown\Markdown  $markdown
+     * @param \GrahamCampbell\Markdown\Markdown $markdown
+     *
      * @return void
      */
     public function __construct(Markdown $markdown)
@@ -51,8 +50,9 @@ class PhpMarkdownEngine extends PhpEngine
     /**
      * Get the evaluated contents of the view.
      *
-     * @param  string  $path
-     * @param  array   $data
+     * @param string $path
+     * @param array  $data
+     *
      * @return string
      */
     public function get($path, array $data = array())

@@ -22,18 +22,16 @@ use ParsedownExtra;
 /**
  * This is the markdown service provider class.
  *
- * @package    Laravel-Markdown
- * @author     Graham Campbell
- * @copyright  Copyright 2013-2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Markdown
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
 class MarkdownServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
      *
-     * @var bool
+     * @type bool
      */
     protected $defer = false;
 

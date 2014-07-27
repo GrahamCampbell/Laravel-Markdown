@@ -21,11 +21,9 @@ use Illuminate\Support\Facades\Facade;
 /**
  * This is the markdown facade class.
  *
- * @package    Laravel-Markdown
- * @author     Graham Campbell
- * @copyright  Copyright 2013-2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Markdown
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
 class Markdown extends Facade
 {

@@ -21,25 +21,24 @@ use ParsedownExtra;
 /**
  * This is the markdown class.
  *
- * @package    Laravel-Markdown
- * @author     Graham Campbell
- * @copyright  Copyright 2013-2014 Graham Campbell
- * @license    https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md
- * @link       https://github.com/GrahamCampbell/Laravel-Markdown
+ * @author    Graham Campbell <graham@mineuk.com>
+ * @copyright 2013-2014 Graham Campbell
+ * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
 class Markdown
 {
     /**
      * The parsedown extra instance.
      *
-     * @var \ParsedownExtra
+     * @type \ParsedownExtra
      */
     protected $parsedown;
 
     /**
      * Create a new instance.
      *
-     * @param  \ParsedownExtra  $parsedown
+     * @param \ParsedownExtra $parsedown
+     *
      * @return void
      */
     public function __construct(ParsedownExtra $parsedown)
@@ -50,7 +49,8 @@ class Markdown
     /**
      * Get the parsed markdown.
      *
-     * @param  string  $value
+     * @param string $value
+     *
      * @return string
      */
     public function render($value)

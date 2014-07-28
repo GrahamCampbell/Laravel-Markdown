@@ -35,7 +35,9 @@ Laravel Markdown supports optional configuration.
 
 To get started, first publish the package config file:
 
-    php artisan config:publish graham-campbell/markdown
+```bash
+$ php artisan config:publish graham-campbell/markdown
+```
 
 There is one config options:
 

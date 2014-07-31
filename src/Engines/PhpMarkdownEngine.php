@@ -31,7 +31,7 @@ class PhpMarkdownEngine extends PhpEngine
     /**
      * The markdown instance.
      *
-     * @type \GrahamCampbell\Markdown\Markdown
+     * @var \GrahamCampbell\Markdown\Markdown
      */
     protected $markdown;
 

@@ -30,7 +30,7 @@ class Markdown
     /**
      * The parsedown extra instance.
      *
-     * @type \ParsedownExtra
+     * @var \ParsedownExtra
      */
     protected $parsedown;
 

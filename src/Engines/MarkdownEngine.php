@@ -31,7 +31,7 @@ class MarkdownEngine implements EngineInterface
     /**
      * The markdown instance.
      *
-     * @type \GrahamCampbell\Markdown\Markdown
+     * @var \GrahamCampbell\Markdown\Markdown
      */
     protected $markdown;
 

@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.3 (18/08/2014)
+
+* Force parsedown extra 0.1 due issues with newer versions.
+
+
 ## V2.0.2 (09/08/2014)
 
 * Corrected the license comments

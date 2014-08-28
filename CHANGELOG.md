@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V2.0.4 (Upcoming)
+## V2.0.4 (28/08/2014)
 
 * Update the parsedown version constraints again
 

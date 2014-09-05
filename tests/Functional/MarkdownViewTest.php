@@ -33,7 +33,7 @@ class MarkdownViewTest extends AbstractTestCase
 
         $return = $this->app['view']->make('stubs::test')->render();
 
-        $this->assertEquals('<h1>Test</h1>', $return);
+        $this->assertSame('<h1>Test</h1>', $return);
     }
 
     public function testPhpMarkdown()
@@ -42,7 +42,7 @@ class MarkdownViewTest extends AbstractTestCase
 
         $return = $this->app['view']->make('stubs::foo')->render();
 
-        $this->assertEquals('<h1>Foo</h1>', $return);
+        $this->assertSame('<h1>Foo</h1>', $return);
     }
 
     public function testBladeMarkdown()
@@ -51,7 +51,7 @@ class MarkdownViewTest extends AbstractTestCase
 
         $return = $this->app['view']->make('stubs::bar')->render();
 
-        $this->assertEquals('<h1>Bar</h1>', $return);
+        $this->assertSame('<h1>Bar</h1>', $return);
     }
 
     protected function setUpViews()

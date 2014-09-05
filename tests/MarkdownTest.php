@@ -38,7 +38,7 @@ class MarkdownTest extends AbstractTestBenchTestCase
 
         $return = $markdown->render('test');
 
-        $this->assertEquals('html', $return);
+        $this->assertSame('html', $return);
     }
 
     protected function getMarkdown()

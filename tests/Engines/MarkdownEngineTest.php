@@ -38,7 +38,7 @@ class MarkdownTest extends AbstractTestCase
 
         $return = $engine->get(__DIR__.'/stubs/test');
 
-        $this->assertEquals('html', $return);
+        $this->assertSame('html', $return);
     }
 
     protected function getEngine()

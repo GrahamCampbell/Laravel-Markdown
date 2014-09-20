@@ -11,7 +11,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          strict="true"
-         verbose="true">
+         verbose="true"
 >
     <testsuites>
         <testsuite name="Laravel Markdown Test Suite">

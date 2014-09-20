@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V2.0.4 (Upcoming)
+## V2.0.5 (Upcoming)
 
 * Improved the test suite
 

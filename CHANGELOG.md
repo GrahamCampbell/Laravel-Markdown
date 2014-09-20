@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.0.4 (Upcoming)
+
+* Improved the test suite
+
+
 ## V2.0.4 (28/08/2014)
 
 * Update the parsedown version constraints again

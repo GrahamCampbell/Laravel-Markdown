@@ -29,11 +29,6 @@
             "GrahamCampbell\\Tests\\Markdown\\": "tests/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0-dev"
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -1,6 +1,6 @@
 {
     "name": "graham-campbell/markdown",
-    "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 4.1/4.2",
+    "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 5",
     "keywords": ["laravel", "framework", "markdown", "parsedown", "parsedown extra", "markdown wrapper", "parsedown wrapper","parsedown extra wrapper", "Markdown", "Parsedown", "Parsedown Extra", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
@@ -11,13 +11,13 @@
     ],
     "require": {
         "php": ">=5.4.7",
-        "illuminate/support": "~4.1",
-        "illuminate/view": "~4.1",
+        "illuminate/support": "~5.0",
+        "illuminate/view": "~5.0",
         "erusev/parsedown": "~1.0.1",
         "erusev/parsedown-extra": "~0.2.1"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~1.0"
+        "graham-campbell/testbench": "~2.0"
     },
     "autoload": {
         "psr-4": {
@@ -27,6 +27,11 @@
     "autoload-dev": {
         "psr-4": {
             "GrahamCampbell\\Tests\\Markdown\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0-dev"
         }
     },
     "minimum-stability": "dev",

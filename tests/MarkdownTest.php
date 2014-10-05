@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Markdown;
 
-use Mockery;
 use GrahamCampbell\Markdown\Markdown;
 use GrahamCampbell\TestBench\AbstractTestCase as AbstractTestBenchTestCase;
+use Mockery;
 
 /**
  * This is the markdown test class.

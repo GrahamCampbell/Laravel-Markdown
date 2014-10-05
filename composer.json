@@ -13,8 +13,8 @@
         "php": ">=5.4.7",
         "illuminate/support": "~4.1",
         "illuminate/view": "~4.1",
-        "erusev/parsedown": "~1.0.1",
-        "erusev/parsedown-extra": "~0.2.1"
+        "erusev/parsedown": "~1.1",
+        "erusev/parsedown-extra": "~0.2.2"
     },
     "require-dev": {
         "graham-campbell/testbench": "~1.0"

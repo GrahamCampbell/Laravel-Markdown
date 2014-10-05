@@ -1,22 +1,17 @@
 Laravel Markdown
 ================
 
-
-[![Build Status](https://img.shields.io/travis/GrahamCampbell/Laravel-Markdown/master.svg?style=flat-square)](https://travis-ci.org/GrahamCampbell/Laravel-Markdown)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Markdown.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Markdown.svg?style=flat-square)](https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown)
-[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/GrahamCampbell/Laravel-Markdown.svg?style=flat-square)](https://github.com/GrahamCampbell/Laravel-Markdown/releases)
-
-
-### Looking for a laravel 5 compatable version?
-
-Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-Markdown/tree/master), installable by requiring `"graham-campbell/markdown": "~3.0"`.
-
-
-## Introduction
-
 Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Parsedown Extra](https://github.com/erusev/parsedown-extra) wrapper for [Laravel 4.1/4.2](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+
+![Laravel Markdown](https://cloud.githubusercontent.com/assets/2829600/4432288/a9a013a8-468c-11e4-85e4-98bdea379276.PNG)
+
+<p align="center">
+<a href="https://travis-ci.org/GrahamCampbell/Laravel-Markdown"><img src="https://img.shields.io/travis/GrahamCampbell/Laravel-Markdown/master.svg?style=flat-square" alt="Build Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown/code-structure"><img src="https://img.shields.io/scrutinizer/coverage/g/GrahamCampbell/Laravel-Markdown.svg?style=flat-square" alt="Coverage Status"></img></a>
+<a href="https://scrutinizer-ci.com/g/GrahamCampbell/Laravel-Markdown"><img src="https://img.shields.io/scrutinizer/g/GrahamCampbell/Laravel-Markdown.svg?style=flat-square" alt="Quality Score"></img></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg?style=flat-square" alt="Software License"></img></a>
+<a href="https://github.com/GrahamCampbell/Laravel-Markdown/releases"><img src="https://img.shields.io/github/release/GrahamCampbell/Laravel-Markdown.svg?style=flat-square" alt="Latest Version"></img></a>
+</p>
 
 
 ## Installation
@@ -32,6 +27,10 @@ Once Laravel Markdown is installed, you need to register the service provider. O
 You can register the Markdown facade in the `aliases` key of your `app/config/app.php` file if you like.
 
 * `'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`
+
+#### Looking for a laravel 5 compatable version?
+
+Checkout the [master branch](https://github.com/GrahamCampbell/Laravel-Markdown/tree/master), installable by requiring `"graham-campbell/markdown": "~3.0"`.
 
 
 ## Configuration

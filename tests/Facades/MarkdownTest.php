@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Tests\Markdown\Facades;
 
-use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 
 /**
  * This is the markdown facade test class.

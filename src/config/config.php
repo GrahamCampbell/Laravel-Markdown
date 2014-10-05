@@ -30,6 +30,6 @@ return array(
     |
     */
 
-    'engines' => true
+    'engines' => true,
 
 );

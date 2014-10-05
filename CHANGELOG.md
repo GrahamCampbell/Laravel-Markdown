@@ -9,7 +9,10 @@ CHANGE LOG
 
 ## V2.0.5 (Upcoming)
 
+* Composer tweaks
 * Improved the test suite
+* Added cs fixers to the test suite
+* Improved the docs
 
 
 ## V2.0.4 (28/08/2014)

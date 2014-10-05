@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Tests\Markdown\Engines;
 
-use Mockery;
 use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Mockery;
 
 /**
  * This is the blade markdown engine test class.
@@ -27,14 +27,14 @@ use GrahamCampbell\TestBench\AbstractTestCase;
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
-class BladeMarkdownTest extends AbstractTestCase
+class BladeMarkdownEngineTest extends AbstractTestCase
 {
     public function testRender()
     {
         $engine = $this->getEngine();
 
         $engine->getMarkdown()->shouldReceive('render')->once()
-            ->with('qwertyuiop'.PHP_EOL)->andReturn('html');
+            ->with("qwertyuiop\n")->andReturn('html');
 
         $return = $engine->get(__DIR__.'/stubs/test');
 

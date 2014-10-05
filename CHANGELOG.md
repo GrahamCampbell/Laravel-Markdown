@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V2.0.5 (Upcoming)
+## V2.0.5 (05/10/2014)
 
 * Composer tweaks
 * Improved the test suite

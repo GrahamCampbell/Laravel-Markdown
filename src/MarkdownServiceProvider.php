@@ -130,7 +130,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     protected function registerMarkdown()
     {
-        $this->app->bindShared('markdown', function ($app) {
+        $this->app->singleton('markdown', function ($app) {
             $parsedown = new ParsedownExtra();
 
             return new Markdown($parsedown);

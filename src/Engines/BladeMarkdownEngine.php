@@ -58,7 +58,7 @@ class BladeMarkdownEngine extends CompilerEngine
      *
      * @return string
      */
-    public function get($path, array $data = array())
+    public function get($path, array $data = [])
     {
         $contents = parent::get($path, $data);
 

@@ -14,7 +14,7 @@
         "illuminate/support": "~5.0",
         "illuminate/view": "~5.0",
         "erusev/parsedown": "~1.1",
-        "erusev/parsedown-extra": "~0.2.2"
+        "erusev/parsedown-extra": "~0.2.6"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

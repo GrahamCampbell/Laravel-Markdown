@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V2.0.6 Alpha (Upcoming)
+
+* Composer tweaks
+* Removed the cs fixers
+
+
 ## V2.0.5 (05/10/2014)
 
 * Composer tweaks

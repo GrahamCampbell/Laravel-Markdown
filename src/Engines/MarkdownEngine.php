@@ -55,7 +55,7 @@ class MarkdownEngine implements EngineInterface
      *
      * @return string
      */
-    public function get($path, array $data = array())
+    public function get($path, array $data = [])
     {
         $contents = file_get_contents($path);
 

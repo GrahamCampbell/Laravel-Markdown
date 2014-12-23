@@ -31,6 +31,6 @@ class ServiceProviderTest extends AbstractTestCase
 
     public function testMarkdownIsInjectable()
     {
-        $this->assertIsInjectable('GrahamCampbell\Markdown\Markdown');
+        $this->assertIsInjectable('League\CommonMark\CommonMarkConverter');
     }
 }

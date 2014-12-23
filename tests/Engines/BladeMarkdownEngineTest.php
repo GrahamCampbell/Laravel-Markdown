@@ -33,7 +33,7 @@ class BladeMarkdownEngineTest extends AbstractTestCase
     {
         $engine = $this->getEngine();
 
-        $engine->getMarkdown()->shouldReceive('render')->once()
+        $engine->getMarkdown()->shouldReceive('convertToHtml')->once()
             ->with("qwertyuiop\n")->andReturn('html');
 
         $return = $engine->get(__DIR__.'/stubs/test');
@@ -44,7 +44,7 @@ class BladeMarkdownEngineTest extends AbstractTestCase
     protected function getEngine()
     {
         $compiler = Mockery::mock('Illuminate\View\Compilers\CompilerInterface');
-        $markdown = Mockery::mock('GrahamCampbell\Markdown\Markdown');
+        $markdown = Mockery::mock('League\CommonMark\CommonMarkConverter');
 
         $compiler->shouldReceive('isExpired')->once()
             ->with(__DIR__.'/stubs/test')->andReturn(false);

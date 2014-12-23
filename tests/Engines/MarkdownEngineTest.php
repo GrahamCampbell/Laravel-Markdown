@@ -33,7 +33,7 @@ class MarkdownEngineTest extends AbstractTestCase
     {
         $engine = $this->getEngine();
 
-        $engine->getMarkdown()->shouldReceive('render')->once()
+        $engine->getMarkdown()->shouldReceive('convertToHtml')->once()
             ->with("qwertyuiop\n")->andReturn('html');
 
         $return = $engine->get(__DIR__.'/stubs/test');
@@ -43,7 +43,7 @@ class MarkdownEngineTest extends AbstractTestCase
 
     protected function getEngine()
     {
-        $markdown = Mockery::mock('GrahamCampbell\Markdown\Markdown');
+        $markdown = Mockery::mock('League\CommonMark\CommonMarkConverter');
 
         return new MarkdownEngine($markdown);
     }

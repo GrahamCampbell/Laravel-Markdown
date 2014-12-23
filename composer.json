@@ -1,7 +1,7 @@
 {
     "name": "graham-campbell/markdown",
-    "description": "Markdown Is A Parsedown Extra Wrapper For Laravel 5",
-    "keywords": ["laravel", "framework", "markdown", "parsedown", "parsedown extra", "markdown wrapper", "parsedown wrapper","parsedown extra wrapper", "Markdown", "Parsedown", "Parsedown Extra", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
+    "description": "Markdown Is A CommonMark Wrapper For Laravel 5",
+    "keywords": ["laravel", "framework", "markdown", "commonmark", "common mark", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
     "license": "Apache-2.0",
     "authors": [
         {
@@ -23,8 +23,7 @@
         "php": ">=5.4.7",
         "illuminate/support": "~5.0",
         "illuminate/view": "~5.0",
-        "erusev/parsedown": "~1.1",
-        "erusev/parsedown-extra": "~0.2.6"
+        "league/commonmark": "0.5.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

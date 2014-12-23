@@ -1,7 +1,7 @@
 Laravel Markdown
 ================
 
-Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [Parsedown Extra](https://github.com/erusev/parsedown-extra) wrapper for [Laravel 5](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
+Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [CommonMark](https://github.com/thephpleague/commonmark) wrapper for [Laravel 5](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [license](LICENSE.md), [api docs](http://docs.grahamjcampbell.co.uk), and [contribution guidelines](CONTRIBUTING.md).
 
 ![Laravel Markdown](https://cloud.githubusercontent.com/assets/2829600/4432292/c10da636-468c-11e4-9ed9-dac778a15cd5.PNG)
 
@@ -58,15 +58,9 @@ This option (`'engines'`) specifies if the view engines are enabled so you can w
 
 ## Usage
 
-##### Markdown
-
-This is the class of most interest. It is bound to the ioc container as `'markdown'` and can be accessed using the `Facades\Markdown` facade. There is one public method of interest.
-
-The `'render'` method will parse a string as markdown using Emanuil Rusev's [Parsedown Extra](https://github.com/erusev/parsedown-extra) package, and will return a string of html.
-
 ##### Facades\Markdown
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is the `Markdown` class.
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\CommonMarkConverter`.
 
 ##### MarkdownServiceProvider
 

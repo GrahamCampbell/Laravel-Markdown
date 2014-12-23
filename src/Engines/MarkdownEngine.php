@@ -16,8 +16,8 @@
 
 namespace GrahamCampbell\Markdown\Engines;
 
-use GrahamCampbell\Markdown\Markdown;
 use Illuminate\View\Engines\EngineInterface;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the markdown engine class.
@@ -31,18 +31,18 @@ class MarkdownEngine implements EngineInterface
     /**
      * The markdown instance.
      *
-     * @var \GrahamCampbell\Markdown\Markdown
+     * @var \League\CommonMark\CommonMarkConverter
      */
     protected $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param \GrahamCampbell\Markdown\Markdown $markdown
+     * @param \League\CommonMark\CommonMarkConverter $markdown
      *
      * @return void
      */
-    public function __construct(Markdown $markdown)
+    public function __construct(CommonMarkConverter $markdown)
     {
         $this->markdown = $markdown;
     }
@@ -59,13 +59,13 @@ class MarkdownEngine implements EngineInterface
     {
         $contents = file_get_contents($path);
 
-        return $this->markdown->render($contents);
+        return $this->markdown->convertToHtml($contents);
     }
 
     /**
      * Return the markdown instance.
      *
-     * @return \GrahamCampbell\Markdown\Markdown
+     * @return \League\CommonMark\CommonMarkConverter
      */
     public function getMarkdown()
     {

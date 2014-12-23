@@ -16,9 +16,9 @@
 
 namespace GrahamCampbell\Markdown\Engines;
 
-use GrahamCampbell\Markdown\Markdown;
 use Illuminate\View\Compilers\CompilerInterface;
 use Illuminate\View\Engines\CompilerEngine;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the php markdown engine class.
@@ -32,7 +32,7 @@ class BladeMarkdownEngine extends CompilerEngine
     /**
      * The markdown instance.
      *
-     * @var \GrahamCampbell\Markdown\Markdown
+     * @var \League\CommonMark\CommonMarkConverter
      */
     protected $markdown;
 
@@ -40,13 +40,14 @@ class BladeMarkdownEngine extends CompilerEngine
      * Create a new instance.
      *
      * @param \Illuminate\View\Compilers\CompilerInterface $compiler
-     * @param \GrahamCampbell\Markdown\Markdown            $markdown
+     * @param \League\CommonMark\CommonMarkConverter       $markdown
      *
      * @return void
      */
-    public function __construct(CompilerInterface $compiler, Markdown $markdown)
+    public function __construct(CompilerInterface $compiler, CommonMarkConverter $markdown)
     {
         parent::__construct($compiler);
+
         $this->markdown = $markdown;
     }
 
@@ -62,13 +63,13 @@ class BladeMarkdownEngine extends CompilerEngine
     {
         $contents = parent::get($path, $data);
 
-        return $this->markdown->render($contents);
+        return $this->markdown->convertToHtml($contents);
     }
 
     /**
      * Return the markdown instance.
      *
-     * @return \GrahamCampbell\Markdown\Markdown
+     * @return \League\CommonMark\CommonMarkConverter
      */
     public function getMarkdown()
     {

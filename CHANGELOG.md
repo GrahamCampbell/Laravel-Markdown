@@ -5,6 +5,7 @@ CHANGE LOG
 ## V3.0 Beta 1 (Upcoming)
 
 * Upgraded to laravel 5
+* Switched to commonmark
 
 
 ## V2.0.6 Alpha (Upcoming)

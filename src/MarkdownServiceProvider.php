@@ -17,7 +17,7 @@
 namespace GrahamCampbell\Markdown;
 
 use Illuminate\Support\ServiceProvider;
-use ParsedownExtra;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the markdown service provider class.
@@ -131,12 +131,10 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerMarkdown()
     {
         $this->app->singleton('markdown', function ($app) {
-            $parsedown = new ParsedownExtra();
-
-            return new Markdown($parsedown);
+            return new CommonMarkConverter();
         });
 
-        $this->app->alias('markdown', 'GrahamCampbell\Markdown\Markdown');
+        $this->app->alias('markdown', 'League\CommonMark\CommonMarkConverter');
     }
 
     /**

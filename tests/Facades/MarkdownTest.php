@@ -16,6 +16,7 @@
 
 namespace GrahamCampbell\Tests\Markdown\Facades;
 
+use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 
@@ -57,6 +58,13 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'GrahamCampbell\Markdown\Markdown';
+        return 'League\CommonMark\CommonMarkConverter';
+    }
+
+    public function testConvertToHtml()
+    {
+        $result = Markdown::convertToHtml('foo');
+
+        $this->assertSame("<p>foo</p>\n", $result);
     }
 }

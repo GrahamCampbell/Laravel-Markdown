@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Markdown\Engines;
+namespace GrahamCampbell\Markdown\Compilers;
 
-use Illuminate\View\Engines\EngineInterface;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\View\Compilers\Compiler;
+use Illuminate\View\Compilers\CompilerInterface;
 use League\CommonMark\CommonMarkConverter;
 
 /**
- * This is the markdown engine class.
+ * This is the markdown compiler class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
-class MarkdownEngine implements EngineInterface
+class MarkdownCompiler extends Compiler implements CompilerInterface
 {
     /**
      * The markdown instance.
@@ -39,27 +41,40 @@ class MarkdownEngine implements EngineInterface
      * Create a new instance.
      *
      * @param \League\CommonMark\CommonMarkConverter $markdown
+     * @param \Illuminate\Filesystem\Filesystem      $files
+     * @param string                                 $cachePath
      *
      * @return void
      */
-    public function __construct(CommonMarkConverter $markdown)
+    public function __construct(CommonMarkConverter $markdown, Filesystem $files, $cachePath)
     {
+        parent::__construct($files, $cachePath);
+
         $this->markdown = $markdown;
     }
 
     /**
-     * Get the evaluated contents of the view.
+     * Compile the view at the given path.
      *
      * @param string $path
-     * @param array  $data
      *
-     * @return string
+     * @return void
      */
-    public function get($path, array $data = [])
+    public function compile($path)
     {
-        $contents = file_get_contents($path);
+        $contents = $this->markdown->convertToHtml($this->files->get($path));
 
-        return $this->markdown->convertToHtml($contents);
+        $this->files->put($this->getCompiledPath($path), $contents);
+    }
+
+    /**
+     * Return the filesystem instance.
+     *
+     * @return \Illuminate\Filesystem\Filesystem
+     */
+    public function getFiles()
+    {
+        return $this->files;
     }
 
     /**

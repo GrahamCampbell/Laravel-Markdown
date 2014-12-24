@@ -14,37 +14,43 @@
  * limitations under the License.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Engines;
+namespace GrahamCampbell\Tests\Markdown\Compilers;
 
-use GrahamCampbell\Markdown\Engines\MarkdownEngine;
+use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Mockery;
 
 /**
- * This is the markdown engine test class.
+ * This is the markdown compiler test class.
  *
  * @author    Graham Campbell <graham@mineuk.com>
  * @copyright 2013-2014 Graham Campbell
  * @license   <https://github.com/GrahamCampbell/Laravel-Markdown/blob/master/LICENSE.md> Apache 2.0
  */
-class MarkdownEngineTest extends AbstractTestCase
+class MarkdownCompilerTest extends AbstractTestCase
 {
-    public function testRender()
+    public function testCompile()
     {
-        $engine = $this->getEngine();
+        $compiler = $this->getCompiler();
 
-        $engine->getMarkdown()->shouldReceive('convertToHtml')->once()
-            ->with("qwertyuiop\n")->andReturn('html');
+        $compiler->getFiles()->shouldReceive('get')->once()
+            ->with('path')->andReturn('markdown');
 
-        $return = $engine->get(__DIR__.'/stubs/test');
+        $compiler->getMarkdown()->shouldReceive('convertToHtml')->once()
+            ->with("markdown")->andReturn('html');
 
-        $this->assertSame('html', $return);
+        $compiler->getFiles()->shouldReceive('put')->once()
+            ->with(__DIR__.'/d6fe1d0be6347b8ef2427fa629c04485', 'html');
+
+        $this->assertNull($compiler->compile('path'));
     }
 
-    protected function getEngine()
+    protected function getCompiler()
     {
         $markdown = Mockery::mock('League\CommonMark\CommonMarkConverter');
+        $files = Mockery::mock('Illuminate\Filesystem\Filesystem');
+        $cachePath = __DIR__;
 
-        return new MarkdownEngine($markdown);
+        return new MarkdownCompiler($markdown, $files, $cachePath);
     }
 }

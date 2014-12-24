@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Upgraded to laravel 5
 * Switched to commonmark
+* Refactored to improve performance
 
 
 ## V2.0.6 Alpha (Upcoming)

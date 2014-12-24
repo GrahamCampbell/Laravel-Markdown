@@ -51,9 +51,9 @@ $ php artisan publish:config graham-campbell/markdown
 
 There is one config options:
 
-##### Enable The Engines
+##### Enable View Integration
 
-This option (`'engines'`) specifies if the view engines are enabled so you can write markdown views and have them compiled into html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable the engines if they are conflicting with another package. The default value for this setting is `true`.
+This option (`'views'`) specifies if the view integration is enabled so you can write markdown views and have them rendered as html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable this integration if it is conflicting with another package. The default value for this setting is `true`.
 
 
 ## Usage
@@ -68,7 +68,7 @@ This class contains no public methods of interest. This class should be added to
 
 ##### Further Information
 
-There are other classes in this package that are not documented here (such as the engine classes). This is because they are not intended for public use and are used internally by this package.
+There are other classes in this package that are not documented here (such as the engine and compiler classes). This is because they are not intended for public use and are used internally by this package.
 
 Feel free to check out the [API Documentation](http://docs.grahamjcampbell.co.uk) for Laravel Markdown.
 

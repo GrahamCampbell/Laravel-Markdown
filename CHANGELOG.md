@@ -9,10 +9,12 @@ CHANGE LOG
 * Refactored to improve performance
 
 
-## V2.0.6 Alpha (Upcoming)
+## V2.0.6 Alpha (02/01/2014)
 
 * Composer tweaks
 * Removed the cs fixers
+* CS fixes
+* Moved to the MIT license
 
 
 ## V2.0.5 (05/10/2014)

@@ -6,6 +6,8 @@ CHANGE LOG
 
 * Composer tweaks
 * Removed the cs fixers
+* CS fixes
+* Moved to the MIT license
 
 
 ## V2.0.5 (05/10/2014)

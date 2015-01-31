@@ -2,7 +2,12 @@ CHANGE LOG
 ==========
 
 
-## V2.0.6 Alpha (02/01/2014)
+## V2.0.7 (Upcoming)
+
+* Fixed the parsedown version constraint
+
+
+## V2.0.6 (02/01/2015)
 
 * Composer tweaks
 * Removed the cs fixers

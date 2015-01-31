@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V2.1 (Upcoming)
+
+* Updated to parsedown extra 0.7
+
+
 ## V2.0.7 (Upcoming)
 
 * Fixed the parsedown version constraint

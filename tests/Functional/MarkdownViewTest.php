@@ -24,7 +24,7 @@ class MarkdownViewTest extends AbstractTestCase
     {
         $this->setUpViews();
 
-        $return = $this->app['view']->make('stubs::test')->render();
+        $return = $this->app->view->make('stubs::test')->render();
 
         $this->assertSame("<h1>Test</h1>\n", $return);
     }
@@ -33,7 +33,7 @@ class MarkdownViewTest extends AbstractTestCase
     {
         $this->setUpViews();
 
-        $return = $this->app['view']->make('stubs::foo')->render();
+        $return = $this->app->view->make('stubs::foo')->render();
 
         $this->assertSame("<h1>Foo</h1>\n", $return);
     }
@@ -42,13 +42,13 @@ class MarkdownViewTest extends AbstractTestCase
     {
         $this->setUpViews();
 
-        $return = $this->app['view']->make('stubs::bar')->render();
+        $return = $this->app->view->make('stubs::bar')->render();
 
         $this->assertSame("<h1>Bar</h1>\n", $return);
     }
 
     protected function setUpViews()
     {
-        $this->app['view']->addNamespace('stubs', realpath(__DIR__.'/stubs'));
+        $this->app->view->addNamespace('stubs', realpath(__DIR__.'/stubs'));
     }
 }

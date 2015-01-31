@@ -9,21 +9,12 @@
             "email": "graham@mineuk.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/framework"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GrahamCampbell/testbench"
-        }
-    ],
     "require": {
         "php": ">=5.4.7",
-        "illuminate/support": "~5.0",
-        "illuminate/view": "~5.0",
-        "league/commonmark": "0.5.*"
+        "illuminate/contracts": "5.0.*",
+        "illuminate/support": "5.0.*",
+        "illuminate/view": "5.0.*",
+        "league/commonmark": "0.6.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

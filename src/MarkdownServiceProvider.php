@@ -24,26 +24,33 @@ use League\CommonMark\CommonMarkConverter;
 class MarkdownServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
-
-    /**
-     * Bootstrap the application events.
+     * Boot the service provider.
      *
      * @return void
      */
     public function boot()
     {
-        $this->package('graham-campbell/markdown', 'graham-campbell/markdown', __DIR__);
+        $this->setupConfig();
 
-        if ($this->app['config']['graham-campbell/markdown::views']) {
+        if ($this->app->config->get('markdown.views')) {
             $this->enableMarkdownCompiler($this->app);
             $this->enablePhpMarkdownEngine($this->app);
             $this->enableBladeMarkdownEngine($this->app);
         }
+    }
+
+    /**
+     * Setup the config.
+     *
+     * @return void
+     */
+    protected function setupConfig()
+    {
+        $source = realpath(__DIR__.'/../config/markdown.php');
+
+        $this->publishes([$source => config_path('markdown.php')]);
+
+        $this->mergeConfigFrom($source, 'markdown');
     }
 
     /**
@@ -55,7 +62,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     protected function enableMarkdownCompiler(Application $app)
     {
-        $app['view']->getEngineResolver()->register('md', function () use ($app) {
+        $app->view->getEngineResolver()->register('md', function () use ($app) {
             $compiler = $app['markdown.compiler'];
 
             return new CompilerEngine($compiler);
@@ -73,7 +80,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     protected function enablePhpMarkdownEngine(Application $app)
     {
-        $app['view']->getEngineResolver()->register('phpmd', function () use ($app) {
+        $app->view->getEngineResolver()->register('phpmd', function () use ($app) {
             $markdown = $app['markdown'];
 
             return new Engines\PhpMarkdownEngine($markdown);
@@ -91,7 +98,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     protected function enableBladeMarkdownEngine(Application $app)
     {
-        $app['view']->getEngineResolver()->register('blademd', function () use ($app) {
+        $app->view->getEngineResolver()->register('blademd', function () use ($app) {
             $compiler = $app['blade.compiler'];
             $markdown = $app['markdown'];
 
@@ -108,40 +115,44 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerMarkdown();
-        $this->registerMarkdownCompiler();
+        $this->registerMarkdown($this->app);
+        $this->registerMarkdownCompiler($this->app);
     }
 
     /**
      * Register the markdowm class.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function registerMarkdown()
+    protected function registerMarkdown(Application $app)
     {
-        $this->app->singleton('markdown', function ($app) {
+        $app->singleton('markdown', function ($app) {
             return new CommonMarkConverter();
         });
 
-        $this->app->alias('markdown', 'League\CommonMark\CommonMarkConverter');
+        $app->alias('markdown', 'League\CommonMark\CommonMarkConverter');
     }
 
     /**
      * Register the markdown compiler class.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function registerMarkdownCompiler()
+    protected function registerMarkdownCompiler(Application $app)
     {
-        $this->app->singleton('markdown.compiler', function ($app) {
+        $app->singleton('markdown.compiler', function ($app) {
             $markdown = $app['markdown'];
             $files = $app['files'];
-            $storagePath = $app['config']['view.compiled'];
+            $storagePath = $app->config->get('view.compiled');
 
             return new Compilers\MarkdownCompiler($markdown, $files, $storagePath);
         });
 
-        $this->app->alias('markdown.compiler', 'GrahamCampbell\Markdown\Compilers\MarkdownCompiler');
+        $app->alias('markdown.compiler', 'GrahamCampbell\Markdown\Compilers\MarkdownCompiler');
     }
 
     /**

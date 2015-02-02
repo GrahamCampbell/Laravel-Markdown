@@ -9,12 +9,12 @@ CHANGE LOG
 * Refactored to improve performance
 
 
-## V2.1 (Upcoming)
+## V2.1 (02/02/2015)
 
 * Updated to parsedown extra 0.7
 
 
-## V2.0.7 (Upcoming)
+## V2.0.7 (02/02/2015)
 
 * Fixed the parsedown version constraint
 

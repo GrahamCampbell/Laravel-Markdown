@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.0 Beta 1 (Upcoming)
+## V3.0 (05/02/2015)
 
 * Upgraded to laravel 5.0
 * Switched to commonmark

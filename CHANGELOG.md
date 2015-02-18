@@ -2,10 +2,15 @@ CHANGE LOG
 ==========
 
 
+## V3.0.1 (Upcoming)
+
+* Upgraded to commonmark 0.7
+
+
 ## V3.0 (05/02/2015)
 
 * Upgraded to laravel 5.0
-* Switched to commonmark
+* Switched to commonmark 0.6
 * Refactored to improve performance
 
 

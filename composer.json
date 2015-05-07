@@ -14,7 +14,7 @@
         "illuminate/contracts": "5.0.*",
         "illuminate/support": "5.0.*",
         "illuminate/view": "5.0.*",
-        "league/commonmark": "0.7.*"
+        "league/commonmark": "0.8.*"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.0"

@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V3.0.2 (Upcoming)
+## V3.0.2 (07/05/2015)
 
 * Upgraded to commonmark 0.8
 

@@ -30,7 +30,7 @@ class MarkdownCompilerTest extends AbstractTestCase
             ->with('path')->andReturn('markdown');
 
         $compiler->getMarkdown()->shouldReceive('convertToHtml')->once()
-            ->with("markdown")->andReturn('html');
+            ->with('markdown')->andReturn('html');
 
         $compiler->getFiles()->shouldReceive('put')->once()
             ->with(__DIR__.'/d6fe1d0be6347b8ef2427fa629c04485', 'html');

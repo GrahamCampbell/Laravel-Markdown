@@ -17,7 +17,7 @@
         "league/commonmark": "0.8.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~2.0"
+        "graham-campbell/testbench": "~2.1"
     },
     "autoload": {
         "psr-4": {

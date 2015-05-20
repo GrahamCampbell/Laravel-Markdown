@@ -34,10 +34,6 @@ You can register the Markdown facade in the `aliases` key of your `config/app.ph
 
 * `'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`
 
-#### Looking for a laravel 4 compatable version?
-
-Checkout the [2.1 branch](https://github.com/GrahamCampbell/Laravel-Markdown/tree/2.1), installable by requiring `"graham-campbell/markdown": "~2.0"`.
-
 
 ## Configuration
 

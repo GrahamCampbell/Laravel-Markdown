@@ -48,7 +48,9 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__.'/../config/markdown.php');
 
-        $this->publishes([$source => config_path('markdown.php')]);
+        if (class_exists('Illuminate\Foundation\Application', false)) {
+            $this->publishes([$source => config_path('markdown.php')]);
+        }
 
         $this->mergeConfigFrom($source, 'markdown');
     }

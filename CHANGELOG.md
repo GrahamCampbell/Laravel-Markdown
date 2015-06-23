@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V3.2 (Upcoming)
+
+* Lumen support
+
+
 ## V3.1.1 (19/06/2015)
 
 * Upgraded to commonmark 0.9

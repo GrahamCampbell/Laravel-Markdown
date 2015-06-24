@@ -20,10 +20,22 @@ use GrahamCampbell\Tests\Markdown\AbstractTestCase;
  */
 class MarkdownViewTest extends AbstractTestCase
 {
+    /**
+     * Setup the application environment.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        parent::getEnvironmentSetUp($app);
+
+        $app->view->addNamespace('stubs', realpath(__DIR__.'/stubs'));
+    }
+
     public function testMarkdown()
     {
-        $this->setUpViews();
-
         $return = $this->app->view->make('stubs::test')->render();
 
         $this->assertSame("<h1>Test</h1>\n", $return);
@@ -31,8 +43,6 @@ class MarkdownViewTest extends AbstractTestCase
 
     public function testPhpMarkdown()
     {
-        $this->setUpViews();
-
         $return = $this->app->view->make('stubs::foo')->render();
 
         $this->assertSame("<h1>Foo</h1>\n", $return);
@@ -40,15 +50,8 @@ class MarkdownViewTest extends AbstractTestCase
 
     public function testBladeMarkdown()
     {
-        $this->setUpViews();
-
         $return = $this->app->view->make('stubs::bar')->render();
 
         $this->assertSame("<h1>Bar</h1>\n", $return);
-    }
-
-    protected function setUpViews()
-    {
-        $this->app->view->addNamespace('stubs', realpath(__DIR__.'/stubs'));
     }
 }

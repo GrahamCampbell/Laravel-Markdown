@@ -12,8 +12,9 @@
 namespace GrahamCampbell\Tests\Markdown\Facades;
 
 use GrahamCampbell\Markdown\Facades\Markdown;
-use GrahamCampbell\TestBench\Traits\FacadeTestCaseTrait;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the markdown facade test class.
@@ -22,7 +23,7 @@ use GrahamCampbell\Tests\Markdown\AbstractTestCase;
  */
 class MarkdownTest extends AbstractTestCase
 {
-    use FacadeTestCaseTrait;
+    use FacadeTrait;
 
     /**
      * Get the facade accessor.
@@ -41,7 +42,7 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeClass()
     {
-        return 'GrahamCampbell\Markdown\Facades\Markdown';
+        return Markdown::class;
     }
 
     /**
@@ -51,7 +52,7 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return 'League\CommonMark\CommonMarkConverter';
+        return CommonMarkConverter::class;
     }
 
     public function testConvertToHtml()

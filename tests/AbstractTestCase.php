@@ -11,6 +11,7 @@
 
 namespace GrahamCampbell\Tests\Markdown;
 
+use GrahamCampbell\Markdown\MarkdownServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 /**
@@ -29,6 +30,6 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return 'GrahamCampbell\Markdown\MarkdownServiceProvider';
+        return MarkdownServiceProvider::class;
     }
 }

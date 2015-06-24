@@ -11,6 +11,9 @@
 
 namespace GrahamCampbell\Markdown;
 
+use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
+use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
+use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
@@ -85,7 +88,7 @@ class MarkdownServiceProvider extends ServiceProvider
         $app->view->getEngineResolver()->register('phpmd', function () use ($app) {
             $markdown = $app['markdown'];
 
-            return new Engines\PhpMarkdownEngine($markdown);
+            return new PhpMarkdownEngine($markdown);
         });
 
         $app->view->addExtension('md.php', 'phpmd');
@@ -104,7 +107,7 @@ class MarkdownServiceProvider extends ServiceProvider
             $compiler = $app['blade.compiler'];
             $markdown = $app['markdown'];
 
-            return new Engines\BladeMarkdownEngine($compiler, $markdown);
+            return new BladeMarkdownEngine($compiler, $markdown);
         });
 
         $app->view->addExtension('md.blade.php', 'blademd');
@@ -134,7 +137,7 @@ class MarkdownServiceProvider extends ServiceProvider
             return new CommonMarkConverter();
         });
 
-        $app->alias('markdown', 'League\CommonMark\CommonMarkConverter');
+        $app->alias('markdown', CommonMarkConverter::class);
     }
 
     /**
@@ -151,10 +154,10 @@ class MarkdownServiceProvider extends ServiceProvider
             $files = $app['files'];
             $storagePath = $app->config->get('view.compiled');
 
-            return new Compilers\MarkdownCompiler($markdown, $files, $storagePath);
+            return new MarkdownCompiler($markdown, $files, $storagePath);
         });
 
-        $app->alias('markdown.compiler', 'GrahamCampbell\Markdown\Compilers\MarkdownCompiler');
+        $app->alias('markdown.compiler', MarkdownCompiler::class);
     }
 
     /**

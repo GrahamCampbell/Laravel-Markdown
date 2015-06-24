@@ -5,6 +5,7 @@ CHANGE LOG
 ## V3.2 (Upcoming)
 
 * Official lumen support
+* Code cleanup
 
 
 ## V3.1.1 (19/06/2015)

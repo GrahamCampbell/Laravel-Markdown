@@ -21,7 +21,7 @@ Laravel Markdown was created by, and is maintained by [Graham Campbell](https://
 To get the latest version of Laravel Markdown, simply add the following line to the require block of your `composer.json` file:
 
 ```
-"graham-campbell/markdown": "~3.2"
+"graham-campbell/markdown": "~4.0"
 ```
 
 You'll then need to run `composer install` or `composer update` to download it and have the autoloader updated.
@@ -58,7 +58,7 @@ This option (`'views'`) specifies if the view integration is enabled so you can 
 
 ##### Facades\Markdown
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\CommonMarkConverter`.
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\Converter`.
 
 ##### MarkdownServiceProvider
 

@@ -13,7 +13,8 @@ namespace GrahamCampbell\Tests\Markdown;
 
 use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
-use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Converter;
+use League\CommonMark\Environment;
 
 /**
  * This is the service provider test class.
@@ -24,12 +25,17 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTrait;
 
-    public function testMarkdownIsInjectable()
+    public function testEnvironmentIsInjectable()
     {
-        $this->assertIsInjectable(CommonMarkConverter::class);
+        $this->assertIsInjectable(Environment::class);
     }
 
-    public function testMarkdownCompilerIsInjectable()
+    public function testMarkdownIsInjectable()
+    {
+        $this->assertIsInjectable(Converter::class);
+    }
+
+    public function testCompilerIsInjectable()
     {
         $this->assertIsInjectable(MarkdownCompiler::class);
     }

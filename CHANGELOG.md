@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V4.0 (Upcoming)
+
+* Changed the converter class we bind
+* Make the environment object available
+
+
 ## V3.2 (26/06/2015)
 
 * Official lumen support

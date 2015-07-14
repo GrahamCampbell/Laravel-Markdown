@@ -14,7 +14,7 @@ namespace GrahamCampbell\Tests\Markdown\Compilers;
 use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Filesystem\Filesystem;
-use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Converter;
 use Mockery;
 
 /**
@@ -42,7 +42,7 @@ class MarkdownCompilerTest extends AbstractTestCase
 
     protected function getCompiler()
     {
-        $markdown = Mockery::mock(CommonMarkConverter::class);
+        $markdown = Mockery::mock(Converter::class);
         $files = Mockery::mock(Filesystem::class);
         $cachePath = __DIR__;
 

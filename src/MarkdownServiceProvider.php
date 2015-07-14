@@ -17,7 +17,10 @@ use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
-use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Converter;
+use League\CommonMark\DocParser;
+use League\CommonMark\Environment;
+use League\CommonMark\HtmlRenderer;
 
 /**
  * This is the markdown service provider class.
@@ -120,8 +123,25 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerEnvironment($this->app);
         $this->registerMarkdown($this->app);
-        $this->registerMarkdownCompiler($this->app);
+        $this->registerCompiler($this->app);
+    }
+
+    /**
+     * Register the environment class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerEnvironment(Application $app)
+    {
+        $app->singleton('markdown.environment', function ($app) {
+            return Environment::createCommonMarkEnvironment();
+        });
+
+        $app->alias('markdown.environment', Environment::class);
     }
 
     /**
@@ -134,10 +154,14 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerMarkdown(Application $app)
     {
         $app->singleton('markdown', function ($app) {
-            return new CommonMarkConverter();
+            $environment = $app['markdown.environment'];
+            $docParser = new DocParser($environment);
+            $htmlRenderer = new HtmlRenderer($environment);
+
+            return new Converter($docParser, $htmlRenderer);
         });
 
-        $app->alias('markdown', CommonMarkConverter::class);
+        $app->alias('markdown', Converter::class);
     }
 
     /**
@@ -147,7 +171,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMarkdownCompiler(Application $app)
+    protected function registerCompiler(Application $app)
     {
         $app->singleton('markdown.compiler', function ($app) {
             $markdown = $app['markdown'];
@@ -168,6 +192,7 @@ class MarkdownServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
+            'markdown.environment',
             'markdown',
             'markdown.compiler',
         ];

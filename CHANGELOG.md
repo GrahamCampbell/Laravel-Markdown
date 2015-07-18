@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Changed the converter class we bind
 * Make the environment object available
+* Upgraded to commonmark 0.10
 
 
 ## V3.2 (26/06/2015)

@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V4.0 (Upcoming)
+## V4.0 (25/07/2015)
 
 * Changed the converter class we bind
 * Make the environment object available

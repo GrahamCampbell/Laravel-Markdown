@@ -155,6 +155,11 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $app->singleton('markdown', function ($app) {
             $environment = $app['markdown.environment'];
+
+            if ($this->app->config->get('markdown.extensions')) {
+                $this->registerMarkdownExtensions($app);
+            }
+
             $docParser = new DocParser($environment);
             $htmlRenderer = new HtmlRenderer($environment);
 
@@ -162,6 +167,24 @@ class MarkdownServiceProvider extends ServiceProvider
         });
 
         $app->alias('markdown', Converter::class);
+    }
+
+    /**
+     * Register the markdowm extensions class.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
+     * @return void
+     */
+    protected function registerMarkdownExtensions(Application $app)
+    {
+        $environment = $app['markdown.environment'];
+
+        foreach($this->app->config->get('markdown.extensions') as $extension) {
+            if (class_exists($extension)) {
+                $environment->addExtension(new $extension);
+            }
+        }
     }
 
     /**

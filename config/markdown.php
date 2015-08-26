@@ -27,4 +27,21 @@ return [
 
     'views' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Enable Markdown Extensions
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies the extensions class to register with the markdown
+    | environment.  You may register any extensions that uses the environment's
+    | addExtension method.
+    |
+    | Default: []
+    |
+    */
+
+    'extensions' => [
+        //
+    ],
+
 ];

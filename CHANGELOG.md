@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V4.1 (Upcoming)
+
+* Upgraded to commonmark 0.11
+
+
 ## V4.0 (25/07/2015)
 
 * Changed the converter class we bind

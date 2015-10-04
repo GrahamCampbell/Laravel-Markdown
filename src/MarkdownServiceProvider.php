@@ -56,6 +56,8 @@ class MarkdownServiceProvider extends ServiceProvider
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->publishes([$source => config_path('markdown.php')]);
+        } elseif (class_exists('Laravel\Lumen\Application', false)) {
+            $this->configure('markdown');
         }
 
         $this->mergeConfigFrom($source, 'markdown');

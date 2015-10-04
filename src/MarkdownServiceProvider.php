@@ -36,7 +36,7 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
+        $this->setupConfig($this->app);
 
         if ($this->app->config->get('markdown.views')) {
             $this->enableMarkdownCompiler($this->app);
@@ -48,16 +48,18 @@ class MarkdownServiceProvider extends ServiceProvider
     /**
      * Setup the config.
      *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     *
      * @return void
      */
-    protected function setupConfig()
+    protected function setupConfig(Application $app)
     {
         $source = realpath(__DIR__.'/../config/markdown.php');
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->publishes([$source => config_path('markdown.php')]);
         } elseif (class_exists('Laravel\Lumen\Application', false)) {
-            $this->configure('markdown');
+            $app->configure('markdown');
         }
 
         $this->mergeConfigFrom($source, 'markdown');

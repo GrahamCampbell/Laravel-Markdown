@@ -91,7 +91,7 @@ class Foo
 
     public function bar()
     {
-        $this->converter->convertToHtml('foo');
+        return $this->converter->convertToHtml('foo');
     }
 }
 

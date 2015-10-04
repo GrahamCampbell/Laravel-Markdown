@@ -64,6 +64,42 @@ This facade will dynamically pass static method calls to the `'markdown'` object
 
 This class contains no public methods of interest. This class should be added to the providers array in `config/app.php`. This class will setup ioc bindings.
 
+##### Real Examples
+
+Here you can see an example of just how simple this package is to use.
+
+```php
+use GrahamCampbell\Markdown\Facades\Markdown;
+
+Markdown::convertToHtml('foo'); // <p>foo</p>
+```
+
+If you prefer to use dependency injection over facades like me, then you can easily inject the class like so:
+
+```php
+use Illuminate\Support\Facades\App;
+use League\CommonMark\Converter;
+
+class Foo
+{
+    protected $converter;
+
+    public function __construct(Converter $converter)
+    {
+        $this->converter = $converter;
+    }
+
+    public function bar()
+    {
+        $this->converter->convertToHtml('foo');
+    }
+}
+
+App::make('Foo')->bar();
+```
+
+And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system.
+
 ##### Further Information
 
 There are other classes in this package that are not documented here (such as the engine and compiler classes). This is because they are not intended for public use and are used internally by this package.

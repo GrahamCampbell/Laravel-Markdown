@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V5.2 (Upcoming)
+
+* Upgraded to commonmark 0.12
+
+
 ## V5.1 (06/10/2015)
 
 * Improved lumen support

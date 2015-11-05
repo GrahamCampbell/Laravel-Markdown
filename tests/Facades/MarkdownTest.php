@@ -61,4 +61,13 @@ class MarkdownTest extends AbstractTestCase
 
         $this->assertSame("<p>foo</p>\n", $result);
     }
+
+    public function testSafeConversion()
+    {
+        $this->app->config->set('markdown.safe', true);
+
+        $result = Markdown::convertToHtml("[Click me](javascript:alert('XSS'))");
+
+        $this->assertSame("<p><a>Click me</a></p>\n", $result);
+    }
 }

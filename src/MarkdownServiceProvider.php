@@ -142,7 +142,13 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerEnvironment(Application $app)
     {
         $app->singleton('markdown.environment', function ($app) {
-            return Environment::createCommonMarkEnvironment();
+            $environment = Environment::createCommonMarkEnvironment();
+
+            $config = array_only($app->config->get('markdown'), ['renderer', 'enable_em', 'enable_strong', 'use_asterisk', 'use_underscore', 'safe']);
+
+            $environment->mergeConfig($config);
+
+            return $environment;
         });
 
         $app->alias('markdown.environment', Environment::class);

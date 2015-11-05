@@ -53,27 +53,27 @@ There are several config options:
 
 This option (`'views'`) specifies if the view integration is enabled so you can write markdown views and have them rendered as html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable this integration if it is conflicting with another package. The default value for this setting is `true`.
 
-#### Renderer Configuration
+##### Renderer Configuration
 
 This option (`'renderer'`) specifies an array of options for rendering HTML. The default value for this setting is `['block_separator' => "\n", 'inner_separator' => "\n", 'soft_break' => "\n"]`.
 
-#### Enable Em Tag Parsing
+##### Enable Em Tag Parsing
 
 This option (`'enable_em'`) specifies if `<em>` parsing is enabled. The default value for this setting is `true`.
 
-#### Enable Strong Tag Parsing
+##### Enable Strong Tag Parsing
 
 This option (`'enable_strong'`) specifies if `<strong>` parsing is enabled. The default value for this setting is `true`.
 
-#### Enable Asterisk Parsing
+##### Enable Asterisk Parsing
 
 This option (`'use_asterisk'`) specifies if `*` should be parsed for emphasis. The default value for this setting is `true`.
 
-#### Enable Underscore Parsing
+##### Enable Underscore Parsing
 
 This option (`'use_underscore'`) specifies if `_` should be parsed for emphasis. The default value for this setting is `true`.
 
-#### Safe Mode
+##### Safe Mode
 
 This option (`'safe'`) specifies if raw HTML should be allowed in the document. The default value for this setting is `true`.
 

@@ -5,6 +5,7 @@ CHANGE LOG
 ## V5.3 (Upcoming)
 
 * Added laravel 5.2 support
+* Improved environment detection
 
 
 ## V5.2 (05/11/2015)

@@ -105,7 +105,8 @@ return [
     | Safe Mode
     |--------------------------------------------------------------------------
     |
-    | This option specifies if raw HTML should be allowed in the document.
+    | This option specifies if raw HTML is rendered in the document
+    | true will not render HTML.
     |
     | Default: false
     |

@@ -83,7 +83,7 @@ This option (`'use_underscore'`) specifies if `_` should be parsed for emphasis.
 
 ##### Safe Mode
 
-This option (`'safe'`) specifies if raw HTML should be allowed in the document. The default value for this setting is `true`.
+This option (`'safe'`) specifies if raw HTML is rendered in the document. Setting this to `true` will not render HTML, and `false` will. The default value for this setting is `false`.
 
 
 ## Usage

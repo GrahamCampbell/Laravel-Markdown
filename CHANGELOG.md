@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V6.0 (Upcoming)
+
+* Upgraded to commonmark 0.13
+
+
 ## V5.3 (14/11/2015)
 
 * Added laravel 5.2 support

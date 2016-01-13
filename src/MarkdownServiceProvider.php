@@ -146,7 +146,7 @@ class MarkdownServiceProvider extends ServiceProvider
         $app->singleton('markdown.environment', function ($app) {
             $environment = Environment::createCommonMarkEnvironment();
 
-            $config = array_only($app->config->get('markdown'), ['renderer', 'enable_em', 'enable_strong', 'use_asterisk', 'use_underscore', 'safe']);
+            $config = array_except($app->config->get('markdown'), ['views']);
 
             $environment->mergeConfig($config);
 

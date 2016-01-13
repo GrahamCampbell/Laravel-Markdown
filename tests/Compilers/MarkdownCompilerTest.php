@@ -34,8 +34,14 @@ class MarkdownCompilerTest extends AbstractTestCase
         $compiler->getMarkdown()->shouldReceive('convertToHtml')->once()
             ->with('markdown')->andReturn('html');
 
+        if (substr(Application::VERSION, 0, 3) === '5.1') {
+            $file = 'd6fe1d0be6347b8ef2427fa629c04485';
+        } else {
+            $file = '3150ecd5e0294534a81ae047ddac559de481d774.php';
+        }
+
         $compiler->getFiles()->shouldReceive('put')->once()
-            ->with(__DIR__.'/d6fe1d0be6347b8ef2427fa629c04485', 'html');
+            ->with(__DIR__.'/'.$file, 'html');
 
         $this->assertNull($compiler->compile('path'));
     }

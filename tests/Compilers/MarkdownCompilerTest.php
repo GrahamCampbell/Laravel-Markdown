@@ -14,6 +14,7 @@ namespace GrahamCampbell\Tests\Markdown\Compilers;
 use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Application;
 use League\CommonMark\Converter;
 use Mockery;
 

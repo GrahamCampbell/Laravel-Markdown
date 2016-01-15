@@ -5,6 +5,7 @@ CHANGE LOG
 ## V6.0 (Upcoming)
 
 * Upgraded to commonmark 0.13
+* Added automatic extensions support
 
 
 ## V5.3 (14/11/2015)

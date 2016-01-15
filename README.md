@@ -62,6 +62,10 @@ There are several config options:
 
 This option (`'views'`) specifies if the view integration is enabled so you can write markdown views and have them rendered as html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable this integration if it is conflicting with another package. The default value for this setting is `true`.
 
+##### CommonMark Extensions
+
+This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here. The default value for this setting is `[]`.
+
 ##### Renderer Configuration
 
 This option (`'renderer'`) specifies an array of options for rendering HTML. The default value for this setting is `['block_separator' => "\n", 'inner_separator' => "\n", 'soft_break' => "\n"]`.

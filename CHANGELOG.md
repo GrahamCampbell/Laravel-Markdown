@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V6.0 (Upcoming)
+## V6.0 (15/01/2016)
 
 * Upgraded to commonmark 0.13
 * Added automatic extensions support

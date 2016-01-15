@@ -29,6 +29,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | CommonMark Extenstions
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies what extensions will be automatically enabled.
+    | Simply provide your extension class names here.
+    |
+    | Default: []
+    |
+    */
+
+    'extensions' => [],
+
+    /*
+    |--------------------------------------------------------------------------
     | Renderer Configuration
     |--------------------------------------------------------------------------
     |

@@ -15,6 +15,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 use League\CommonMark\Converter;
+use League\CommonMark\Extras\SmartPunct\SmartPunctExtension;
 
 /**
  * This is the markdown facade test class.
@@ -69,5 +70,14 @@ class MarkdownTest extends AbstractTestCase
         $result = Markdown::convertToHtml("[Click me](javascript:alert('XSS'))");
 
         $this->assertSame("<p><a>Click me</a></p>\n", $result);
+    }
+
+    public function testSmartPuncConversion()
+    {
+        $this->app->config->set('markdown.extensions', [SmartPunctExtension::class]);
+
+        $result = Markdown::convertToHtml("'A', 'B', and 'C' are letters.");
+
+        $this->assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result);
     }
 }

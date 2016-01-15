@@ -146,9 +146,13 @@ class MarkdownServiceProvider extends ServiceProvider
         $app->singleton('markdown.environment', function ($app) {
             $environment = Environment::createCommonMarkEnvironment();
 
-            $config = array_except($app->config->get('markdown'), ['views']);
+            $config = $app->config->get('markdown');
 
-            $environment->mergeConfig($config);
+            $environment->mergeConfig(array_except($config, ['extensions', 'views']));
+
+            foreach ((array) array_get($config, 'extensions') as $extension) {
+                $environment->addExtension($app->make($extension));
+            }
 
             return $environment;
         });

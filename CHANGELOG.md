@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V6.0.1 (30/01/2016)
+
+* Improved service provider
+* Fixed some typos
+
+
 ## V6.0 (15/01/2016)
 
 * Upgraded to commonmark 0.13

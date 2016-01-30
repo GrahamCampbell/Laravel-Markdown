@@ -14,7 +14,7 @@ namespace GrahamCampbell\Markdown;
 use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
 use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
 use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
@@ -41,9 +41,9 @@ class MarkdownServiceProvider extends ServiceProvider
         $this->setupConfig();
 
         if ($this->app->config->get('markdown.views')) {
-            $this->enableMarkdownCompiler($this->app);
-            $this->enablePhpMarkdownEngine($this->app);
-            $this->enableBladeMarkdownEngine($this->app);
+            $this->enableMarkdownCompiler();
+            $this->enablePhpMarkdownEngine();
+            $this->enableBladeMarkdownEngine();
         }
     }
 
@@ -68,12 +68,12 @@ class MarkdownServiceProvider extends ServiceProvider
     /**
      * Enable the markdown compiler.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function enableMarkdownCompiler(Application $app)
+    protected function enableMarkdownCompiler()
     {
+        $app = $this->app;
+
         $app->view->getEngineResolver()->register('md', function () use ($app) {
             $compiler = $app['markdown.compiler'];
 
@@ -86,12 +86,12 @@ class MarkdownServiceProvider extends ServiceProvider
     /**
      * Enable the php markdown engine.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function enablePhpMarkdownEngine(Application $app)
+    protected function enablePhpMarkdownEngine()
     {
+        $app = $this->app;
+
         $app->view->getEngineResolver()->register('phpmd', function () use ($app) {
             $markdown = $app['markdown'];
 
@@ -104,12 +104,12 @@ class MarkdownServiceProvider extends ServiceProvider
     /**
      * Enable the blade markdown engine.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function enableBladeMarkdownEngine(Application $app)
+    protected function enableBladeMarkdownEngine()
     {
+        $app = $this->app;
+
         $app->view->getEngineResolver()->register('blademd', function () use ($app) {
             $compiler = $app['blade.compiler'];
             $markdown = $app['markdown'];
@@ -127,21 +127,19 @@ class MarkdownServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerEnvironment($this->app);
-        $this->registerMarkdown($this->app);
-        $this->registerCompiler($this->app);
+        $this->registerEnvironment();
+        $this->registerMarkdown();
+        $this->registerCompiler();
     }
 
     /**
      * Register the environment class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerEnvironment(Application $app)
+    protected function registerEnvironment()
     {
-        $app->singleton('markdown.environment', function ($app) {
+        $this->app->singleton('markdown.environment', function (Container $app) {
             $environment = Environment::createCommonMarkEnvironment();
 
             $config = $app->config->get('markdown');
@@ -155,19 +153,17 @@ class MarkdownServiceProvider extends ServiceProvider
             return $environment;
         });
 
-        $app->alias('markdown.environment', Environment::class);
+        $this->app->alias('markdown.environment', Environment::class);
     }
 
     /**
      * Register the markdowm class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerMarkdown(Application $app)
+    protected function registerMarkdown()
     {
-        $app->singleton('markdown', function ($app) {
+        $this->app->singleton('markdown', function (Container $app) {
             $environment = $app['markdown.environment'];
             $docParser = new DocParser($environment);
             $htmlRenderer = new HtmlRenderer($environment);
@@ -175,19 +171,17 @@ class MarkdownServiceProvider extends ServiceProvider
             return new Converter($docParser, $htmlRenderer);
         });
 
-        $app->alias('markdown', Converter::class);
+        $this->app->alias('markdown', Converter::class);
     }
 
     /**
      * Register the markdown compiler class.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
      * @return void
      */
-    protected function registerCompiler(Application $app)
+    protected function registerCompiler()
     {
-        $app->singleton('markdown.compiler', function ($app) {
+        $this->app->singleton('markdown.compiler', function (Container $app) {
             $markdown = $app['markdown'];
             $files = $app['files'];
             $storagePath = $app->config->get('view.compiled');
@@ -195,7 +189,7 @@ class MarkdownServiceProvider extends ServiceProvider
             return new MarkdownCompiler($markdown, $files, $storagePath);
         });
 
-        $app->alias('markdown.compiler', MarkdownCompiler::class);
+        $this->app->alias('markdown.compiler', MarkdownCompiler::class);
     }
 
     /**

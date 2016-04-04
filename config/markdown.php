@@ -136,7 +136,7 @@ return [
     | This option let you add custom parsers to CommonMark
     |
     | Default: [
-    |              'block' => [],
+    |              'block'  => [],
     |              'inline' => [],
     |          ]
     |
@@ -149,7 +149,7 @@ return [
     */
 
     'parsers' => [
-        'block' => [],
+        'block'  => [],
         'inline' => [],
     ],
 
@@ -161,7 +161,7 @@ return [
     | This option let you add custom renderers to CommonMark
     |
     | Default: [
-    |              'block' => [],
+    |              'block'  => [],
     |              'inline' => [],
     |          ]
     |
@@ -174,7 +174,7 @@ return [
     */
 
     'renderers' => [
-        'block' => [],
+        'block'  => [],
         'inline' => [],
     ],
 

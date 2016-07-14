@@ -29,7 +29,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | CommonMark Extenstions
+    | CommonMark Extensions
     |--------------------------------------------------------------------------
     |
     | This option specifies what extensions will be automatically enabled.

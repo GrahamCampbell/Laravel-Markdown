@@ -86,9 +86,13 @@ This option (`'use_asterisk'`) specifies if `*` should be parsed for emphasis. T
 
 This option (`'use_underscore'`) specifies if `_` should be parsed for emphasis. The default value for this setting is `true`.
 
-##### Safe Mode
+##### HTML Input
 
-This option (`'safe'`) specifies if raw HTML is rendered in the document. Setting this to `true` will not render HTML, and `false` will. The default value for this setting is `false`.
+This option (`'html_input'`) specifies how to handle untrusted HTML input. The default value for this setting is `'strip'`.
+
+##### Allow Unsafe Links
+
+This option (`'allow_unsafe_links'`) specifies whether to allow risky image URLs and links. The default value for this setting is `true`.
 
 
 ## Usage

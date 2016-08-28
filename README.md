@@ -141,6 +141,123 @@ App::make('Foo')->bar();
 
 And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system.
 
+##### Extension Example
+
+Here you can see how you can use extensions. For example rendering `# {Test Title}` as `<h1 id="test-title">Test Title</h1>` you would need to go through following steps; 
+
+Create a file `app/Markdown/CustomHeadingRenderer.php` with following code block;
+```php
+<?php
+namespace App\Markdown;
+
+
+use League\CommonMark\Block\Renderer\BlockRendererInterface;
+
+use League\CommonMark\Block\Element\AbstractBlock;
+use League\CommonMark\Block\Element\Heading;
+use League\CommonMark\ElementRendererInterface;
+use League\CommonMark\HtmlElement;
+use League\CommonMark\Util\RegexHelper;
+
+/**
+ * Custom Heading Renderer for League\CommonMark Extensions
+ *
+ * @author Tevfik Tümer <tevfik@tuemer.me>
+ * https://github.com/tevfik6
+ */
+class CustomHeadingRenderer implements BlockRendererInterface
+{
+    /**
+     * @param Heading                  $block
+     * @param ElementRendererInterface $htmlRenderer
+     * @param bool                     $inTightList
+     *
+     * @return HtmlElement
+     */
+    public function render(AbstractBlock $block, ElementRendererInterface $htmlRenderer, $inTightList = false)
+    {
+        if (!($block instanceof Heading)) {
+            throw new \InvalidArgumentException('Incompatible block type: ' . get_class($block));
+        }
+
+        $tag = 'h' . $block->getLevel();
+
+        $attrs = [];
+        foreach ($block->getData('attributes', []) as $key => $value) {
+            $attrs[$key] = $htmlRenderer->escape($value, true);
+        }
+
+        $renderedHtml = $htmlRenderer->renderInlines($block->children());
+
+        $match = RegexHelper::matchAll('/^\s*\{(.*?)\}\s*$/', $renderedHtml);
+        if ($match) {
+            $renderedHtml = $match[1];
+            $attrs['id'] = str_slug($renderedHtml, "-");
+        }
+
+        return new HtmlElement($tag, $attrs, $renderedHtml);
+    }
+}
+```
+
+And then you need to create your CommonMark Extension file `app/Markdown/HeadingRendererExtension.php`  with following code block;
+```php
+<?php
+namespace App\Markdown;
+
+use League\CommonMark\Extension\Extension;
+
+/**
+ * This is the custom header extension class.
+ *
+ * @author Tevfik Tümer <tevfik@tuemer.me>
+ * https://github.com/tevfik6
+ */
+class HeadingRendererExtension extends Extension
+{
+    /**
+     * The custom header renderer.
+     *
+     * @var \App\Markdown\CustomHeadingRenderer
+     */
+    protected $renderer;
+
+    /**
+     * Create a new custom header renderer instance.
+     *
+     * @param \App\Markdown\CustomHeadingRenderer $renderer
+     *
+     * @return void
+     */
+    public function __construct(CustomHeadingRenderer $renderer)
+    {
+        $this->renderer = $renderer;
+    }
+
+    /**
+     * Returns a list of block renderers to add to the existing list.
+     *
+     * @return \League\CommonMark\Block\Parser\BlockRendererInterface[]
+     */
+    public function getBlockRenderers()
+    {
+        return [
+            'League\CommonMark\Block\Element\Heading' => $this->renderer
+        ];
+    }
+}
+```
+
+After creating your extension file you would need to add into your `app/config/markdown.php`. (If you don't see the file in your config folder, you would need to run; `php artisan vendor:publish`)
+
+As a last step update your extensions of markdown config like;
+```php
+    'extensions' => [
+        App\Markdown\HeadingRendererExtension::class,
+    ],
+```
+That's all.
+
 ##### Further Information
 
 There are other classes in this package that are not documented here (such as the engine and compiler classes). This is because they are not intended for public use and are used internally by this package.

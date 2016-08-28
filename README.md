@@ -150,9 +150,7 @@ There are other classes in this package that are not documented here (such as th
 
 As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: http://commonmark.thephpleague.com/.
 
-Alt Three's Emoji package also serves as a good example of how to implement the full deal: https://github.com/AltThree/Emoji. In particular, note the presence of the [Extension class](https://github.com/AltThree/Emoji/blob/master/src/EmojiExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run; `php artisan vendor:publish`.
-
-After creating your extension file you would need to add into your `app/config/markdown.php`. (If you don't see the file in your config folder, you would need to run; `php artisan vendor:publish`)
+Alt Three's Emoji package also serves as a good example of how to implement the full deal: https://github.com/AltThree/Emoji. In particular, note the presence of the [Extension class](https://github.com/AltThree/Emoji/blob/master/src/EmojiExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
 
 
 ## Security

@@ -30,7 +30,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "graham-campbell/markdown": "^6.0"
+        "graham-campbell/markdown": "^7.0"
     }
 }
 ```

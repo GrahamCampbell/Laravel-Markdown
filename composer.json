@@ -14,7 +14,7 @@
         "illuminate/contracts": "5.1.*|5.2.*|5.3.*",
         "illuminate/support": "5.1.*|5.2.*|5.3.*",
         "illuminate/view": "5.1.*|5.2.*|5.3.*",
-        "league/commonmark": "^0.14"
+        "league/commonmark": "^0.15"
     },
     "require-dev": {
         "graham-campbell/testbench": "^3.1",

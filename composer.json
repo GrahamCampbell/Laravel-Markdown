@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "graham-campbell/testbench": "^3.1",
-        "league/commonmark-extras": "^0.1.2",
+        "league/commonmark-extras": "^0.2",
         "mockery/mockery": "^0.9.4",
         "phpunit/phpunit": "^4.8|^5.0"
     },

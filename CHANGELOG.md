@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V7.1 (01/01/2017)
+
+* Added laravel 5.4 support
+
+
 ## V7.0 (20/09/2016)
 
 * Upgraded to commonmark 0.15

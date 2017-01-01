@@ -7,16 +7,17 @@ Contributions are welcome, and are accepted via pull requests. Please review the
 
 ## Guidelines
 
-* Please follow the [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) and [PHP-FIG Naming Conventions](https://github.com/php-fig/fig-standards/blob/master/bylaws/002-psr-naming-conventions.md).
+* Please follow the [PSR-2 Coding Style Guide](http://www.php-fig.org/psr/psr-2/), enforced by [StyleCI](https://styleci.io/).
 * Ensure that the current tests pass, and if you've added something new, add the tests where relevant.
-* Remember that we follow [SemVer](http://semver.org). If you are changing the behavior, or the public api, you may need to update the docs.
-* Send a coherent commit history, making sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash](http://git-scm.com/book/en/Git-Tools-Rewriting-History) them before submitting.
-* You may also need to [rebase](http://git-scm.com/book/en/Git-Branching-Rebasing) to avoid merge conflicts.
+* Send a coherent commit history, making sure each individual commit in your pull request is meaningful.
+* You may need to [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) to avoid merge conflicts.
+* If you are changing the behavior, or the public api, you may need to update the docs.
+* Please remember that we follow [SemVer](http://semver.org/).
 
 
 ## Running Tests
 
-You will need an install of [Composer](https://getcomposer.org) before continuing.
+You will need an install of [Composer](https://getcomposer.org/) before continuing.
 
 First, install the dependencies:
 
@@ -32,6 +33,6 @@ $ vendor/bin/phpunit
 
 If the test suite passes on your local machine you should be good to go.
 
-When you make a pull request, the tests will automatically be run again by [Travis CI](https://travis-ci.org/) on multiple PHP versions and HHVM.
+When you make a pull request, the tests will automatically be run again by [Travis CI](https://travis-ci.org/).
 
-We also have StyleCI setup to automatically check and fix any code style issues.
+We also have [StyleCI](https://styleci.io/) setup to automatically fix any code style issues.

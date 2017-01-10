@@ -66,6 +66,14 @@ This option (`'views'`) specifies if the view integration is enabled so you can 
 
 This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here. The default value for this setting is `[]`.
 
+##### CommonMark Parsers
+
+This option (`'parsers'`) allow you to add custom Parsers to be automatically loaded. Simply provide your Parsers class names here, according to Parser type. The default value for this setting is `['inline' => [], 'block' => []]`.
+
+##### CommonMark Renderers
+
+This option (`'renderers'`) allow you to add custom Renderers to be automatically loaded. Simply provide your Renderers class names here, according to Element and Renderer type. The default value for this setting is `['inline' => [], 'block' => []]`.
+
 ##### Renderer Configuration
 
 This option (`'renderer'`) specifies an array of options for rendering HTML. The default value for this setting is `['block_separator' => "\n", 'inner_separator' => "\n", 'soft_break' => "\n"]`.

@@ -146,8 +146,27 @@ class MarkdownServiceProvider extends ServiceProvider
 
             $environment->mergeConfig(array_except($config, ['extensions', 'views']));
 
+            // Extensions
             foreach ((array) array_get($config, 'extensions') as $extension) {
                 $environment->addExtension($app->make($extension));
+            }
+
+            // Parsers
+            foreach ((array) array_get($config['parsers'], 'block') as $blockParser) {
+                $environment->addBlockParser($app->make($blockParser));
+            }
+
+            foreach ((array) array_get($config['parsers'], 'inline') as $inlineParser) {
+                $environment->addInlineParser($app->make($inlineParser));
+            }
+
+            // Renderers
+            foreach ((array) array_get($config['renderers'], 'block') as $blockClass => $renderer) {
+                $environment->addBlockRenderer($blockClass, $app->make($renderer));
+            }
+
+            foreach ((array) array_get($config['renderers'], 'inline') as $inlineClass => $renderer) {
+                $environment->addInlineRenderer($inlineClass, $app->make($renderer));
             }
 
             return $environment;

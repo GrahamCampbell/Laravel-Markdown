@@ -140,4 +140,54 @@ return [
 
     'allow_unsafe_links' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Parsers
+    |--------------------------------------------------------------------------
+    |
+    | This option let you add custom parsers to CommonMark
+    |
+    | Default: [
+    |              'block'  => [],
+    |              'inline' => [],
+    |          ]
+    |
+    | Example: [
+    |              'inline' => [
+    |                   Path\To\Parser::class,
+    |               ],
+    |          ]
+    |
+    */
+
+    'parsers' => [
+        'block'  => [],
+        'inline' => [],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Renderers
+    |--------------------------------------------------------------------------
+    |
+    | This option let you add custom renderers to CommonMark
+    |
+    | Default: [
+    |              'block'  => [],
+    |              'inline' => [],
+    |          ]
+    |
+    | Example: [
+    |              'inline: [
+    |                  'Path\To\Element::class => Path\To\Renderer::class,
+    |              ],
+    |          ]
+    |
+    */
+
+    'renderers' => [
+        'block'  => [],
+        'inline' => [],
+    ],
+
 ];

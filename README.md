@@ -37,11 +37,11 @@ Instead, you may of course manually update your require block and run `composer 
 
 Once Laravel Markdown is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
 
-* `'GrahamCampbell\Markdown\MarkdownServiceProvider'`
+* `GrahamCampbell\Markdown\MarkdownServiceProvider::class`
 
 You can register the Markdown facade in the `aliases` key of your `config/app.php` file if you like.
 
-* `'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`
+* `'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class`
 
 
 ## Configuration
@@ -51,7 +51,7 @@ Laravel Markdown supports optional configuration.
 To get started, you'll need to publish all vendor assets:
 
 ```bash
-$ php artisan vendor:publish
+$ php artisan vendor:publish --provider="GrahamCampbell\Markdown\MarkdownServiceProvider"
 ```
 
 This will create a `config/markdown.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.

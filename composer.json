@@ -47,7 +47,7 @@
                 "Markdown": "GrahamCampbell\\Markdown\\Facades\\Markdown"
             }
         }
-    }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

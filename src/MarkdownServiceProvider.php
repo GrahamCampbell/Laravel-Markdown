@@ -47,7 +47,7 @@ class MarkdownServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            realpath(__DIR__.'/../config/markdown.php') => config_path('markdown.php')
+            realpath(__DIR__.'/../config/markdown.php') => config_path('markdown.php'),
         ], 'markdown');
     }
 

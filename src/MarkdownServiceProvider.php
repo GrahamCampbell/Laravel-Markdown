@@ -45,6 +45,10 @@ class MarkdownServiceProvider extends ServiceProvider
             $this->enablePhpMarkdownEngine();
             $this->enableBladeMarkdownEngine();
         }
+
+        $this->publishes([
+            realpath(__DIR__.'/../config/markdown.php') => config_path('markdown.php')
+        ], 'markdown');
     }
 
     /**

@@ -38,6 +38,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "7.1-dev"
+        },
+        "laravel": {
+            "providers": [
+                "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
+            ],
+            "aliases": {
+                "Markdown": "GrahamCampbell\\Markdown\\Facades\\Markdown"
+            }
         }
     },
     "minimum-stability": "dev",

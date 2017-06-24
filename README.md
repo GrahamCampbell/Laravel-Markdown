@@ -17,31 +17,19 @@ Laravel Markdown was created by, and is maintained by [Graham Campbell](https://
 
 ## Installation
 
-Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
+Laravel Markdown requires [PHP](https://php.net) 5.5+. This particular version supports Laravel 5.1, 5.2, 5.3, or 5.4 only.
 
-To get the latest version of Laravel Markdown, simply require the project using [Composer](https://getcomposer.org):
+To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require graham-campbell/markdown
 ```
 
-Instead, you may of course manually update your require block and run `composer update` if you so choose:
+Once installed, you need to register the `GrahamCampbell\Markdown\MarkdownServiceProvider` service provider in your `config/app.php`, and optionally alias our facade:
 
-```json
-{
-    "require": {
-        "graham-campbell/markdown": "^7.0"
-    }
-}
+```php
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 ```
-
-Once Laravel Markdown is installed, you need to register the service provider. Open up `config/app.php` and add the following to the `providers` key.
-
-* `'GrahamCampbell\Markdown\MarkdownServiceProvider'`
-
-You can register the Markdown facade in the `aliases` key of your `config/app.php` file if you like.
-
-* `'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown'`
 
 
 ## Configuration

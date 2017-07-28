@@ -17,7 +17,7 @@
         "league/commonmark": "^0.15"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^1.0",
+        "graham-campbell/analyzer": "^1.1",
         "graham-campbell/testbench": "^4.0",
         "league/commonmark-extras": "^0.1.2",
         "mockery/mockery": "dev-master#c90a17247147543081e4d00f46911e422b49e583",

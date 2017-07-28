@@ -11,9 +11,9 @@
     ],
     "require": {
         "php": "^7.0",
-        "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*",
-        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
-        "illuminate/view": "5.1.*|5.2.*|5.3.*|5.4.*",
+        "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+        "illuminate/view": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
         "league/commonmark": "^0.15"
     },
     "require-dev": {

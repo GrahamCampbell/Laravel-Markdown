@@ -39,7 +39,7 @@ class MarkdownCompiler extends Compiler implements CompilerInterface
      *
      * @return void
      */
-    public function __construct(Converter $markdown, Filesystem $files, $cachePath)
+    public function __construct(Converter $markdown, Filesystem $files, string $cachePath)
     {
         parent::__construct($files, $cachePath);
 

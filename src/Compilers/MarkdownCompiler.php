@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of Laravel Markdown.
  *
@@ -39,7 +41,7 @@ class MarkdownCompiler extends Compiler implements CompilerInterface
      *
      * @return void
      */
-    public function __construct(Converter $markdown, Filesystem $files, $cachePath)
+    public function __construct(Converter $markdown, Filesystem $files, string $cachePath)
     {
         parent::__construct($files, $cachePath);
 

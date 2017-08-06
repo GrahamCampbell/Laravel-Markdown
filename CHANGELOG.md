@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V8.0 (06/08/2017)
+
+* Support PHP 7.0, 7.1, 7.2
+* Support Laravel 5.1 - 5.5
+* More type hints
+
+
 ## V7.1 (01/01/2017)
 
 * Added laravel 5.4 support

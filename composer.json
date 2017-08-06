@@ -39,6 +39,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "8.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

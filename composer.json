@@ -43,10 +43,7 @@
         "laravel": {
             "providers": [
                 "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
-            ],
-            "aliases": {
-                "Markdown": "GrahamCampbell\\Markdown\\Facades\\Markdown"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

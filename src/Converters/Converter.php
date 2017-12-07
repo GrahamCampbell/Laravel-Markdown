@@ -11,8 +11,6 @@ class Converter extends \League\CommonMark\Converter {
 	 * @param string $commonMark
 	 *
 	 * @return string
-	 *
-	 * @api
 	 */
 	public function convertToHtml($commonMark)
 	{

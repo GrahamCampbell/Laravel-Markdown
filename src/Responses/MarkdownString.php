@@ -13,7 +13,7 @@ class MarkdownString implements Htmlable {
 	}
 	
 	/**
-	 * @return \GrahamCampbell\Markdown\Responses\MarkdownString
+	 * @return string
 	 */
 	public function toHtml() {
 		return $this->string;

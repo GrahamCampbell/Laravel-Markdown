@@ -10,7 +10,7 @@ class Converter extends \League\CommonMark\Converter {
 	 *
 	 * @param string $commonMark
 	 *
-	 * @return string
+	 * @return \GrahamCampbell\Markdown\Responses\MarkdownString
 	 */
 	public function convertToHtml($commonMark)
 	{

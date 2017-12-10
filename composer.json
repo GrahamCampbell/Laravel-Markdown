@@ -14,7 +14,7 @@
         "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
         "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
         "illuminate/view": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
-        "league/commonmark": "^0.15"
+        "league/commonmark": "^0.15|^0.16"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^1.1",
@@ -38,7 +38,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "8.0-dev"
+            "dev-master": "8.1-dev"
         },
         "laravel": {
             "providers": [

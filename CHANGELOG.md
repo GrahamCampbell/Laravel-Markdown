@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V8.1 (10/12/2017)
+
+* Support commonmark 0.16 too
+
+
 ## V8.0 (06/08/2017)
 
 * Support PHP 7.0, 7.1, 7.2

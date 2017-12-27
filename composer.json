@@ -17,11 +17,11 @@
         "league/commonmark": "^0.15|^0.16"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^1.1",
+        "graham-campbell/analyzer": "^2.0",
         "graham-campbell/testbench": "^4.0",
         "league/commonmark-extras": "^0.1.2",
         "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^6.1"
+        "phpunit/phpunit": "^6.5"
     },
     "autoload": {
         "psr-4": {

@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V9.0 (02/01/2018)
+
+* Switched to commonmark 0.17
+* Fixed config when inside phar
+
+
 ## V8.1 (10/12/2017)
 
 * Support commonmark 0.16 too

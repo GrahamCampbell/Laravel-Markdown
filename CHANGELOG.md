@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V10.0 (01/03/2018)
+
+* Support PHP 7.1 or 7.2
+* Support Laravel 5.5 or 5.6
+
+
 ## V9.0 (02/01/2018)
 
 * Switched to commonmark 0.17

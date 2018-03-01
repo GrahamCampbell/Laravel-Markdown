@@ -4,45 +4,37 @@ sudo: false
 
 matrix:
   include:
-    - php: 7.0
-      env: LARAVEL_VERSION=5.1.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.4.*
-    - php: 7.0
-      env: LARAVEL_VERSION=5.5.*
     - php: 7.1
-      env: LARAVEL_VERSION=5.1.*
+      env:
+        - LARAVEL_VERSION=5.5.*
+        - SYMFONY_VERSION=^3.0
+        - PHPUNIT_VERSION=^6.5
     - php: 7.1
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.1
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.1
-      env: LARAVEL_VERSION=5.4.*
-    - php: 7.1
-      env: LARAVEL_VERSION=5.5.*
+      env:
+        - LARAVEL_VERSION=5.6.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^7.0
     - php: 7.2
-      env: LARAVEL_VERSION=5.1.*
+      env:
+        - LARAVEL_VERSION=5.5.*
+        - SYMFONY_VERSION=^3.0
+        - PHPUNIT_VERSION=^6.5
     - php: 7.2
-      env: LARAVEL_VERSION=5.2.*
-    - php: 7.2
-      env: LARAVEL_VERSION=5.3.*
-    - php: 7.2
-      env: LARAVEL_VERSION=5.4.*
-    - php: 7.2
-      env: LARAVEL_VERSION=5.5.*
+      env:
+        - LARAVEL_VERSION=5.6.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^7.0
 
 install:
   - composer require "laravel/framework:${LARAVEL_VERSION}" --no-update -n
+  - composer require "symfony/lts:${SYMFONY_VERSION}" --no-update -n
+  - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --dev --no-update -n
   - travis_retry composer install --no-suggest --prefer-dist -n -o
 
 script:
-  - if [ "$TRAVIS_PHP_VERSION" != "7.0" ]; then vendor/bin/phpunit; fi
-  - if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then vendor/bin/phpunit --coverage-clover build/logs/clover.xml; fi
+  - if [ "$TRAVIS_PHP_VERSION" != "7.1" ]; then vendor/bin/phpunit; fi
+  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then vendor/bin/phpunit --coverage-clover build/logs/clover.xml; fi
 
 after_script:
-  - if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
+  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi

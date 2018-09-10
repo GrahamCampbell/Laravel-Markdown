@@ -47,6 +47,8 @@ class MarkdownServiceProvider extends ServiceProvider
             $this->enablePhpMarkdownEngine();
             $this->enableBladeMarkdownEngine();
         }
+
+        $this->enableBladeDirective();
     }
 
     /**
@@ -120,6 +122,23 @@ class MarkdownServiceProvider extends ServiceProvider
         });
 
         $app->view->addExtension('md.blade.php', 'blademd');
+    }
+
+    protected function enableBladeDirective()
+    {
+        $app = $this->app;
+
+        $app['blade.compiler']->directive('markdown', function($markdown) {
+            if ($markdown) {
+                return "<?php echo app('markdown')->convertToHtml({$markdown}); ?>";
+            }
+
+            return '<?php ob_start(); ?>';
+        });
+
+        $app['blade.compiler']->directive('endmarkdown', function () {
+            return "<?php echo app('markdown')->convertToHtml(ob_get_clean()); ?>";
+        });
     }
 
     /**

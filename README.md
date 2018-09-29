@@ -50,7 +50,7 @@ There are several config options:
 
 ##### Enable View Integration
 
-This option (`'views'`) specifies if the view integration is enabled so you can write markdown views and have them rendered as html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. You may disable this integration if it is conflicting with another package. The default value for this setting is `true`.
+This option (`'views'`) specifies if the view integration is enabled so you can write markdown views and have them rendered as html. The following extensions are currently supported: `'.md'`, `'.md.php'`, and `'.md.blade.php'`. Additionally, this will enable the `@markdown` Blade directive. You may disable this integration if it is conflicting with another package. The default value for this setting is `true`.
 
 ##### CommonMark Extensions
 
@@ -129,7 +129,36 @@ class Foo
 App::make('Foo')->bar();
 ```
 
-And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system.
+And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system. You can use both the `@markdown` blade directive, and also using the following file extensions will compile your views as markdown: `'.md'`, `'.md.php'`, and `'.md.blade.php'`.
+
+For example, the following are all methods of rendering markdown:
+
+*`foo.blade.php`*:
+```blade
+@markdown('# Foo')
+```
+
+*`bar.blade.php`*:
+```blade
+@markdown
+# Bar
+@endmarkdown
+```
+
+*`baz1.md`*:
+```
+# Baz 1
+```
+
+*`baz2.md.php`*:
+```
+# Baz 2
+```
+
+*`baz3.md.blade.php`*:
+```
+# Baz 3
+```
 
 ##### Further Information
 

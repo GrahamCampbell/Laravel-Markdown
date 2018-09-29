@@ -2,6 +2,14 @@ CHANGE LOG
 ==========
 
 
+## V10.2 (29/09/2018)
+
+* Switched to commonmark 0.18
+* Use the new ConverterInterface
+* Added markdown blade directive
+* Document maximum nesting level
+
+
 ## V10.1 (23/08/2018)
 
 * Added Laravel 5.7 support

@@ -46,9 +46,8 @@ class MarkdownServiceProvider extends ServiceProvider
             $this->enableMarkdownCompiler();
             $this->enablePhpMarkdownEngine();
             $this->enableBladeMarkdownEngine();
+            $this->enableBladeDirective();
         }
-
-        $this->enableBladeDirective();
     }
 
     /**

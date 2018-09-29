@@ -89,7 +89,7 @@ This option (`'allow_unsafe_links'`) specifies whether to allow risky image URLs
 
 ##### Facades\Markdown
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\Converter`.
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\ConverterInterface`.
 
 ##### MarkdownServiceProvider
 
@@ -109,13 +109,13 @@ If you prefer to use dependency injection over facades like me, then you can eas
 
 ```php
 use Illuminate\Support\Facades\App;
-use League\CommonMark\Converter;
+use League\CommonMark\ConverterInterface;
 
 class Foo
 {
     protected $converter;
 
-    public function __construct(Converter $converter)
+    public function __construct(ConverterInterface $converter)
     {
         $this->converter = $converter;
     }

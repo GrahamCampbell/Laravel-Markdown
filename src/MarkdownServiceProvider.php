@@ -22,6 +22,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Laravel\Lumen\Application as LumenApplication;
 use League\CommonMark\Converter;
+use League\CommonMark\ConverterInterface;
 use League\CommonMark\DocParser;
 use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
@@ -192,6 +193,7 @@ class MarkdownServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('markdown', Converter::class);
+        $this->app->alias('markdown', ConverterInterface::class);
     }
 
     /**

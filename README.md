@@ -84,6 +84,10 @@ This option (`'html_input'`) specifies how to handle untrusted HTML input. The d
 
 This option (`'allow_unsafe_links'`) specifies whether to allow risky image URLs and links. The default value for this setting is `true`.
 
+##### Maximum Nesting Level
+
+This option (`'max_nesting_level'`) specifies the maximum permitted block nesting level. The default value for this setting is `INF`.
+
 
 ## Usage
 

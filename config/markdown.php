@@ -142,4 +142,17 @@ return [
 
     'allow_unsafe_links' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Maximum Nesting Level
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies the maximum permitted block nesting level.
+    |
+    | Default: INF
+    |
+    */
+
+    'max_nesting_level' => INF,
+
 ];

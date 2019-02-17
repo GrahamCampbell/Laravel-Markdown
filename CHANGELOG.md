@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V10.3 (17/02/2019)
+
+* Added Laravel 5.8 support
+
+
 ## V10.2 (29/09/2018)
 
 * Switched to commonmark 0.18

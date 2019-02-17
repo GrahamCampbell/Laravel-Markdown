@@ -13,12 +13,17 @@ matrix:
       env:
         - LARAVEL_VERSION=5.6.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
     - php: 7.1
       env:
         - LARAVEL_VERSION=5.7.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
+    - php: 7.1
+      env:
+        - LARAVEL_VERSION=5.8.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^7.5
     - php: 7.2
       env:
         - LARAVEL_VERSION=5.5.*
@@ -28,12 +33,17 @@ matrix:
       env:
         - LARAVEL_VERSION=5.6.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
     - php: 7.2
       env:
         - LARAVEL_VERSION=5.7.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
+    - php: 7.2
+      env:
+        - LARAVEL_VERSION=5.8.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^8.0
     - php: 7.3
       env:
         - LARAVEL_VERSION=5.5.*
@@ -43,12 +53,17 @@ matrix:
       env:
         - LARAVEL_VERSION=5.6.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
     - php: 7.3
       env:
         - LARAVEL_VERSION=5.7.*
         - SYMFONY_VERSION=^4.0
-        - PHPUNIT_VERSION=^7.0
+        - PHPUNIT_VERSION=^7.5
+    - php: 7.3
+      env:
+        - LARAVEL_VERSION=5.8.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^8.0
 
 install:
   - composer require "laravel/framework:${LARAVEL_VERSION}" --no-update -n

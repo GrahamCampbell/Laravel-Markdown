@@ -173,7 +173,33 @@ There are other classes in this package that are not documented here (such as th
 
 As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: http://commonmark.thephpleague.com/.
 
-Alt Three's Emoji package also serves as a good example of how to implement the full deal: https://github.com/AltThree/Emoji. In particular, note the presence of the [Extension class](https://github.com/AltThree/Emoji/blob/master/src/EmojiExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
+CommonMark Strikethrough package also serves as a good example of how to implement the full deal: https://github.com/thephpleague/commonmark-ext-strikethrough.
+In particular, note the presence of the [Extension class](https://github.com/thephpleague/commonmark-ext-strikethrough/blob/master/src/StrikethroughExtension.php). 
+
+To activate the extension add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
+
+#### Upgrading from 10.3
+
+[CommonMark 0.19](http://commonmark.thephpleague.com/) change how extensions are defined.
+Now the `ExtensionInterface` define a single method, `register`, in which you will receive an instance of the environment.
+
+```php
+
+use League\CommonMark\Extension\ExtensionInterface;
+use League\CommonMark\ConfigurableEnvironmentInterface;
+
+final class EmojiExtension implements ExtensionInterface
+{
+    public function register(ConfigurableEnvironmentInterface $environment)
+    {
+        $environment
+            ->addInlineParser(new EmojiParser(), 20)
+            ->addDocumentProcessor(new ReplaceUnicodeEmojiProcessor(), 0)
+            ->addInlineRenderer(Emoji::class, new EmojiRenderer(), 0)
+        ;
+    }
+}
+```
 
 
 ## Security

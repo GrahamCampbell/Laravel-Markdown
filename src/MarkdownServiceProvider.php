@@ -18,6 +18,7 @@ use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
 use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Laravel\Lumen\Application as LumenApplication;
@@ -165,9 +166,9 @@ class MarkdownServiceProvider extends ServiceProvider
 
             $config = $app->config->get('markdown');
 
-            $environment->mergeConfig(array_except($config, ['extensions', 'views']));
+            $environment->mergeConfig(Arr::except($config, ['extensions', 'views']));
 
-            foreach ((array) array_get($config, 'extensions') as $extension) {
+            foreach ((array) Arr::get($config, 'extensions') as $extension) {
                 $environment->addExtension($app->make($extension));
             }
 

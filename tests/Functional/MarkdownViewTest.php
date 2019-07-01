@@ -64,10 +64,24 @@ class MarkdownViewTest extends AbstractTestCase
         $this->assertSame("<h1>Baz</h1>\n", $return);
     }
 
-    public function testBladeDirectiveBlock()
+    public function testBladeDirectiveBlock1()
     {
         $return = $this->app->view->make('stubs::qux')->render();
 
         $this->assertSame("<h1>Qux</h1>\n", $return);
+    }
+
+    public function testBladeDirectiveBlock2()
+    {
+        $return = $this->app->view->make('stubs::dir')->render();
+
+        $this->assertSame("<div>\n    <p>foo\nbar</p>\n<pre><code>baz\n</code></pre>\n<p>bat</p>\n</div>\n", $return);
+    }
+
+    public function testBladeDirectiveBlock3()
+    {
+        $return = $this->app->view->make('stubs::bad')->render();
+
+        $this->assertSame("<div>\n    <pre><code>foo\n</code></pre>\n<p>baz</p>\n</div>\n", $return);
     }
 }

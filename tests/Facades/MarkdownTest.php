@@ -17,7 +17,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 use League\CommonMark\Converter;
-use League\CommonMark\Extras\SmartPunct\SmartPunctExtension;
+use League\CommonMark\Ext\SmartPunct\SmartPunctExtension;
 
 /**
  * This is the markdown facade test class.
@@ -65,9 +65,9 @@ class MarkdownTest extends AbstractTestCase
         $this->assertSame("<p>foo</p>\n", $result);
     }
 
-    public function testSafeConversion()
+    public function testDisallowingUnsafeLinks()
     {
-        $this->app->config->set('markdown.safe', true);
+        $this->app->config->set('markdown.allow_unsafe_links', false);
 
         $result = Markdown::convertToHtml("[Click me](javascript:alert('XSS'))");
 

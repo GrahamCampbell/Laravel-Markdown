@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V11.0 (Upcoming)
+
+* Upgrade to CommonMark 1.x
+
+
 ## V10.3.1 (30/06/2019)
 
 * Avoid deprecated Laravel code

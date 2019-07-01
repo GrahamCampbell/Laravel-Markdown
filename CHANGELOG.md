@@ -2,9 +2,10 @@ CHANGE LOG
 ==========
 
 
-## V11.0 (Upcoming)
+## V11.0 (01/07/2019)
 
 * Upgrade to CommonMark 1.x
+* Handle indented blade directive content
 
 
 ## V10.3.1 (30/06/2019)

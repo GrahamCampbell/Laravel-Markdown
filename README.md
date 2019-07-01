@@ -54,7 +54,7 @@ This option (`'views'`) specifies if the view integration is enabled so you can 
 
 ##### CommonMark Extensions
 
-This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here. The default value for this setting is `[]`.
+This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here, and they will be resolved from the service container, and registered with CommonMark. The default value for this setting is `[]`.
 
 ##### Renderer Configuration
 
@@ -173,7 +173,7 @@ There are other classes in this package that are not documented here (such as th
 
 As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: http://commonmark.thephpleague.com/.
 
-Alt Three's Emoji package also serves as a good example of how to implement the full deal: https://github.com/AltThree/Emoji. In particular, note the presence of the [Extension class](https://github.com/AltThree/Emoji/blob/master/src/EmojiExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
+The Smart Punctuation package also serves as a good example of how to implement the full deal: https://github.com/thephpleague/commonmark-ext-smartpunct. In particular, note the presence of the [Extension class](https://github.com/thephpleague/commonmark-ext-smartpunct/blob/master/src/SmartPunctExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
 
 
 ## Security

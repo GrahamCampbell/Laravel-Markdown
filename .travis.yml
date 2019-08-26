@@ -43,6 +43,11 @@ matrix:
         - SYMFONY_VERSION=^4.0
         - PHPUNIT_VERSION=^8.0
     - env:
+        - PHP_VERSION=7.2
+        - LARAVEL_VERSION=^6.0
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^8.0
+    - env:
         - PHP_VERSION=7.3
         - LARAVEL_VERSION=5.5.*
         - SYMFONY_VERSION=^3.0
@@ -60,6 +65,11 @@ matrix:
     - env:
         - PHP_VERSION=7.3
         - LARAVEL_VERSION=5.8.*
+        - SYMFONY_VERSION=^4.0
+        - PHPUNIT_VERSION=^8.0
+    - env:
+        - PHP_VERSION=7.3
+        - LARAVEL_VERSION=^6.0
         - SYMFONY_VERSION=^4.0
         - PHPUNIT_VERSION=^8.0
 

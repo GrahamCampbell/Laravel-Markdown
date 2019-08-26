@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V11.1 (26/08/2019)
+
+* Added Laravel 6 support
+
+
 ## V11.0 (01/07/2019)
 
 * Upgrade to CommonMark 1.x

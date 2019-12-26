@@ -3,7 +3,7 @@ Laravel Markdown
 
 Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [CommonMark](https://github.com/thephpleague/commonmark) wrapper for [Laravel 5](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [security policy](https://github.com/GrahamCampbell/Laravel-Markdown/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
-![Laravel Markdown](https://cloud.githubusercontent.com/assets/2829600/4432292/c10da636-468c-11e4-9ed9-dac778a15cd5.PNG)
+![Banner](https://user-images.githubusercontent.com/2829600/71477505-680d0f80-27e2-11ea-94a6-b4bacb08e270.png)
 
 <p align="center">
 <a href="https://styleci.io/repos/15090687"><img src="https://styleci.io/repos/15090687/shield" alt="StyleCI Status"></img></a>

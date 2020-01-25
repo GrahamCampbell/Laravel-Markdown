@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V11.2 (25/01/2020)
+
+* Added Laravel 7 support
+
+
 ## V11.1 (26/08/2019)
 
 * Added Laravel 6 support

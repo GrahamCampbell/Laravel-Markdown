@@ -17,7 +17,7 @@ Laravel Markdown was created by, and is maintained by [Graham Campbell](https://
 
 ## Installation
 
-Laravel Markdown requires [PHP](https://php.net) 7.1-7.4. This particular version supports Laravel 5.5-7.
+Laravel Markdown requires [PHP](https://php.net) 7.2-7.4. This particular version supports Laravel 6-7.
 
 | Manager | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 |
 |---------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
@@ -28,6 +28,7 @@ Laravel Markdown requires [PHP](https://php.net) 7.1-7.4. This particular versio
 | 9.0     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                |
 | 10.3    | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
 | 11.2    | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| 12.0    | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
@@ -183,7 +184,7 @@ There are other classes in this package that are not documented here (such as th
 
 As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: http://commonmark.thephpleague.com/.
 
-The Smart Punctuation package also serves as a good example of how to implement the full deal: https://github.com/thephpleague/commonmark-ext-smartpunct. In particular, note the presence of the [Extension class](https://github.com/thephpleague/commonmark-ext-smartpunct/blob/master/src/SmartPunctExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
+The Smart Punctuation package also serves as a good example of how to implement the full deal: https://github.com/thephpleague/commonmark-ext-smartpunct. In particular, note the presence of the [Extension class](https://github.com/thephpleague/commonmark-ext-smartpunct/blob/v1.1.0/src/SmartPunctExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
 
 
 ## Security

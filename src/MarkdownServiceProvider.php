@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Markdown;
 
-use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
-use GrahamCampbell\Markdown\Directives\MarkdownDirective;
-use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
-use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
+use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
+use GrahamCampbell\Markdown\View\Directive\MarkdownDirective;
+use GrahamCampbell\Markdown\View\Engine\BladeMarkdownEngine;
+use GrahamCampbell\Markdown\View\Engine\PhpMarkdownEngine;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\Arr;

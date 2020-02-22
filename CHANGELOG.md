@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V12.0 (Upcoming)
+
+* Dropped Laravel 5
+* Moved around internals
+
+
 ## V11.2 (25/01/2020)
 
 * Added Laravel 7 support

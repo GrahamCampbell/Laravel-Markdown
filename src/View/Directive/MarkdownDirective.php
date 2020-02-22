@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Markdown\Directives;
+namespace GrahamCampbell\Markdown\View\Directive;
 
 use League\CommonMark\Converter;
 

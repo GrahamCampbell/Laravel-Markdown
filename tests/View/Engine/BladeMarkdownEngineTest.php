@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Engines;
+namespace GrahamCampbell\Tests\Markdown\View\Engine;
 
-use GrahamCampbell\Markdown\Engines\BladeMarkdownEngine;
+use GrahamCampbell\Markdown\View\Engine\BladeMarkdownEngine;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\View\Compilers\CompilerInterface;
 use League\CommonMark\Converter;

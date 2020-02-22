@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Engines;
+namespace GrahamCampbell\Tests\Markdown\View\Engine;
 
-use GrahamCampbell\Markdown\Engines\PhpMarkdownEngine;
+use GrahamCampbell\Markdown\View\Engine\PhpMarkdownEngine;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use League\CommonMark\Converter;
 use Mockery;

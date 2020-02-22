@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Markdown;
 
-use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
-use GrahamCampbell\Markdown\Directives\MarkdownDirective;
+use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
+use GrahamCampbell\Markdown\View\Directive\MarkdownDirective;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 use League\CommonMark\Converter;
 use League\CommonMark\ConverterInterface;

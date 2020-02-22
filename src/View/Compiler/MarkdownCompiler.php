@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Markdown\Compilers;
+namespace GrahamCampbell\Markdown\View\Compiler;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\Compiler;

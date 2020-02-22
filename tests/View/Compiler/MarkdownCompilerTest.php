@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Markdown\Compilers;
+namespace GrahamCampbell\Tests\Markdown\View\Compiler;
 
-use GrahamCampbell\Markdown\Compilers\MarkdownCompiler;
+use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;

@@ -21,14 +21,14 @@ use League\CommonMark\Converter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class PhpMarkdownEngine extends PhpEngine
+final class PhpMarkdownEngine extends PhpEngine
 {
     /**
      * The markdown instance.
      *
      * @var \League\CommonMark\Converter
      */
-    protected $markdown;
+    private $markdown;
 
     /**
      * Create a new instance.

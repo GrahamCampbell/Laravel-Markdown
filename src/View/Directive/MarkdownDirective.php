@@ -20,14 +20,14 @@ use League\CommonMark\Converter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MarkdownDirective
+final class MarkdownDirective
 {
     /**
      * The markdown instance.
      *
      * @var \League\CommonMark\Converter
      */
-    protected $markdown;
+    private $markdown;
 
     /**
      * Create a new markdown directive instance.

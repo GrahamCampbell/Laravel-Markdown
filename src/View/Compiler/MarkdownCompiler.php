@@ -23,14 +23,14 @@ use League\CommonMark\Converter;
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class MarkdownCompiler extends Compiler implements CompilerInterface
+final class MarkdownCompiler extends Compiler implements CompilerInterface
 {
     /**
      * The markdown instance.
      *
      * @var \League\CommonMark\Converter
      */
-    protected $markdown;
+    private $markdown;
 
     /**
      * Create a new instance.

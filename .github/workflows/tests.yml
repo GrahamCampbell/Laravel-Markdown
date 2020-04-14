@@ -1,0 +1,50 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 4 * * 1'
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php: [7.1, 7.2, 7.3, 7.4]
+        laravel: [5.5, 5.6, 5.7, 5.8, 6, 7]
+        exclude:
+          - php: 7.1
+            laravel: 6
+          - php: 7.1
+            laravel: 7
+
+    name: PHP ${{ matrix.php }}; Laravel ${{ matrix.laravel }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Pull Docker Image
+      run: docker pull registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}
+    - name: Select Laravel 5.5
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:5.5.*" "phpunit/phpunit:^6.5" --no-update -n
+      if: "matrix.laravel == 5.5"
+    - name: Select Laravel 5.6
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:5.6.*" "phpunit/phpunit:^7.5" --no-update -n
+      if: "matrix.laravel == 5.6"
+    - name: Select Laravel 5.7
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:5.7.*" "phpunit/phpunit:^7.5" --no-update -n
+      if: "matrix.laravel == 5.7"
+    - name: Select Laravel 5.8
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:${{ matrix.laravel }}.*" "phpunit/phpunit:^7.5|^8.5" --no-update -n
+      if: "matrix.laravel == 5.8"
+    - name: Select Laravel 6/7
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:${{ matrix.laravel }}.*" "phpunit/phpunit:^8.5|^9.0" --no-update -n
+      if: "matrix.laravel >= 6"
+    - name: Run Composer
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} install --prefer-dist -n -o
+    - name: Run PHPUnit
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} --coverage-clover build/logs/clover.xml
+    - name: Upload Coverage
+      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint ocular registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} code-coverage:upload --format=php-clover build/logs/clover.xml

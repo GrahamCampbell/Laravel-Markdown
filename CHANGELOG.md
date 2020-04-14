@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V12.0.1 (Upcoming)
+
+* Updated funding information
+
+
 ## V12.0 (01/03/2020)
 
 * Dropped Laravel 5

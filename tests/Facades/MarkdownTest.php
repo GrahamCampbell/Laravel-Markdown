@@ -17,7 +17,7 @@ use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 use League\CommonMark\Converter;
-use League\CommonMark\Ext\SmartPunct\SmartPunctExtension;
+use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 
 /**
  * This is the markdown facade test class.

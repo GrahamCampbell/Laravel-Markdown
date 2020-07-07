@@ -15,7 +15,7 @@ namespace GrahamCampbell\Tests\Markdown\View\Engine;
 
 use GrahamCampbell\Markdown\View\Engine\PhpMarkdownEngine;
 use GrahamCampbell\TestBench\AbstractTestCase;
-use League\CommonMark\Converter;
+use League\CommonMark\CommonMarkConverter;
 use Mockery;
 
 /**
@@ -39,7 +39,7 @@ class PhpMarkdownEngineTest extends AbstractTestCase
 
     protected function getEngine()
     {
-        $markdown = Mockery::mock(Converter::class);
+        $markdown = Mockery::mock(CommonMarkConverter::class);
 
         return new PhpMarkdownEngine($markdown);
     }

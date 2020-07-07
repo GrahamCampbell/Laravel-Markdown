@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Markdown\View\Engine;
 use GrahamCampbell\Markdown\View\Engine\BladeMarkdownEngine;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\View\Compilers\CompilerInterface;
-use League\CommonMark\Converter;
+use League\CommonMark\CommonMarkConverter;
 use Mockery;
 
 /**
@@ -41,7 +41,7 @@ class BladeMarkdownEngineTest extends AbstractTestCase
     protected function getEngine()
     {
         $compiler = Mockery::mock(CompilerInterface::class);
-        $markdown = Mockery::mock(Converter::class);
+        $markdown = Mockery::mock(CommonMarkConverter::class);
 
         $compiler->shouldReceive('isExpired')->once()
             ->with(__DIR__.'/stubs/test')->andReturn(false);

@@ -23,11 +23,9 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Laravel\Lumen\Application as LumenApplication;
-use League\CommonMark\Converter;
-use League\CommonMark\ConverterInterface;
-use League\CommonMark\DocParser;
+use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Environment;
-use League\CommonMark\HtmlRenderer;
 
 /**
  * This is the markdown service provider class.
@@ -189,14 +187,11 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         $this->app->singleton('markdown', function (Container $app) {
             $environment = $app['markdown.environment'];
-            $docParser = new DocParser($environment);
-            $htmlRenderer = new HtmlRenderer($environment);
-
-            return new Converter($docParser, $htmlRenderer);
+            return new CommonMarkConverter([], $environment);
         });
 
-        $this->app->alias('markdown', Converter::class);
-        $this->app->alias('markdown', ConverterInterface::class);
+        $this->app->alias('markdown', CommonMarkConverter::class);
+        $this->app->alias('markdown', MarkdownConverterInterface::class);
     }
 
     /**

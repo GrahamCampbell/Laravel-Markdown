@@ -16,7 +16,7 @@ namespace GrahamCampbell\Markdown\View\Compiler;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\Compilers\Compiler;
 use Illuminate\View\Compilers\CompilerInterface;
-use League\CommonMark\Converter;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the markdown compiler class.
@@ -28,20 +28,20 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\Converter
+     * @var \League\CommonMark\CommonMarkConverter
      */
     private $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param \League\CommonMark\Converter      $markdown
+     * @param \League\CommonMark\CommonMarkConverter $markdown
      * @param \Illuminate\Filesystem\Filesystem $files
      * @param string                            $cachePath
      *
      * @return void
      */
-    public function __construct(Converter $markdown, Filesystem $files, string $cachePath)
+    public function __construct(CommonMarkConverter $markdown, Filesystem $files, string $cachePath)
     {
         parent::__construct($files, $cachePath);
 
@@ -75,7 +75,7 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
     /**
      * Return the markdown instance.
      *
-     * @return \League\CommonMark\Converter
+     * @return \League\CommonMark\CommonMarkConverter
      */
     public function getMarkdown()
     {

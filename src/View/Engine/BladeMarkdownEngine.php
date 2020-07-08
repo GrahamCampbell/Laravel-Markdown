@@ -35,7 +35,7 @@ final class BladeMarkdownEngine extends CompilerEngine
      * Create a new instance.
      *
      * @param \Illuminate\View\Compilers\CompilerInterface $compiler
-     * @param \League\CommonMark\CommonMarkConverter $markdown
+     * @param \League\CommonMark\CommonMarkConverter       $markdown
      *
      * @return void
      */

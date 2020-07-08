@@ -36,8 +36,8 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
      * Create a new instance.
      *
      * @param \League\CommonMark\CommonMarkConverter $markdown
-     * @param \Illuminate\Filesystem\Filesystem $files
-     * @param string                            $cachePath
+     * @param \Illuminate\Filesystem\Filesystem      $files
+     * @param string                                 $cachePath
      *
      * @return void
      */

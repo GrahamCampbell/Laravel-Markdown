@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V13.0 (01/07/2019)
+## V13.0 (14/07/2020)
 
 * Upgrade to Commonmark ^1.5
 * Only bind the new classes and interfaces to the container

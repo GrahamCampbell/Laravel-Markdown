@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V13.0 (01/07/2019)
+
+* Upgrade to Commonmark ^1.5
+* Use the new Commonmarkinterfaces
+
+
 ## V12.0.2 (14/04/2020)
 
 * Removed extra file from dist

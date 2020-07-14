@@ -24,7 +24,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Laravel\Lumen\Application as LumenApplication;
 use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Environment;
+use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\MarkdownConverterInterface;
 
 /**
@@ -176,6 +178,8 @@ class MarkdownServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('markdown.environment', Environment::class);
+        $this->app->alias('markdown.environment', EnvironmentInterface::class);
+        $this->app->alias('markdown.environment', ConfigurableEnvironmentInterface::class);
     }
 
     /**

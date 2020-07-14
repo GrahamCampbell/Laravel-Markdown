@@ -17,7 +17,9 @@ use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
 use GrahamCampbell\Markdown\View\Directive\MarkdownDirective;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\ConfigurableEnvironmentInterface;
 use League\CommonMark\Environment;
+use League\CommonMark\EnvironmentInterface;
 use League\CommonMark\MarkdownConverterInterface;
 
 /**
@@ -32,6 +34,8 @@ class ServiceProviderTest extends AbstractTestCase
     public function testEnvironmentIsInjectable()
     {
         $this->assertIsInjectable(Environment::class);
+        $this->assertIsInjectable(EnvironmentInterface::class);
+        $this->assertIsInjectable(ConfigurableEnvironmentInterface::class);
     }
 
     public function testMarkdownIsInjectable()

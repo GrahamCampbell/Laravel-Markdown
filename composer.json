@@ -36,9 +36,6 @@
         "preferred-install": "dist"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "11.2-dev"
-        },
         "laravel": {
             "providers": [
                 "GrahamCampbell\\Markdown\\MarkdownServiceProvider"

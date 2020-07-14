@@ -16,7 +16,7 @@ namespace GrahamCampbell\Tests\Markdown\Facades;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
-use League\CommonMark\Converter;
+use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 
 /**
@@ -55,7 +55,7 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return Converter::class;
+        return CommonMarkConverter::class;
     }
 
     public function testConvertToHtml()

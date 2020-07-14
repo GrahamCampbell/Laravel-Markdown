@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Markdown\View\Directive;
 
-use League\CommonMark\Converter;
+use League\CommonMark\CommonMarkConverter;
 
 /**
  * This is the markdown directive class.
@@ -25,18 +25,18 @@ final class MarkdownDirective
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\Converter
+     * @var \League\CommonMark\CommonMarkConverter
      */
     private $markdown;
 
     /**
      * Create a new markdown directive instance.
      *
-     * @param \League\CommonMark\Converter $markdown
+     * @param \League\CommonMark\CommonMarkConverter $markdown
      *
      * @return void
      */
-    public function __construct(Converter $markdown)
+    public function __construct(CommonMarkConverter $markdown)
     {
         $this->markdown = $markdown;
     }

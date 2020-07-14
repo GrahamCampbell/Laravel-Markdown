@@ -104,7 +104,7 @@ This option (`'max_nesting_level'`) specifies the maximum permitted block nestin
 
 ##### Facades\Markdown
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\ConverterInterface`.
+This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\MarkdownConverterInterface`.
 
 ##### MarkdownServiceProvider
 
@@ -124,13 +124,13 @@ If you prefer to use dependency injection over facades like me, then you can eas
 
 ```php
 use Illuminate\Support\Facades\App;
-use League\CommonMark\ConverterInterface;
+use League\CommonMark\MarkdownConverterInterface;
 
 class Foo
 {
     protected $converter;
 
-    public function __construct(ConverterInterface $converter)
+    public function __construct(MarkdownConverterInterface $converter)
     {
         $this->converter = $converter;
     }

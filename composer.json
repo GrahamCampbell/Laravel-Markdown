@@ -11,16 +11,16 @@
     ],
     "require": {
         "php": "^7.2.5",
-        "illuminate/contracts": "^6.0|^7.0",
-        "illuminate/support": "^6.0|^7.0",
-        "illuminate/view": "^6.0|^7.0",
+        "illuminate/contracts": "^6.0 || ^7.0",
+        "illuminate/support": "^6.0 || ^7.0",
+        "illuminate/view": "^6.0 || ^7.0",
         "league/commonmark": "^1.5"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^3.0",
         "graham-campbell/testbench": "^5.4",
         "mockery/mockery": "^1.3.1",
-        "phpunit/phpunit": "^8.5|^9.0"
+        "phpunit/phpunit": "^8.5 || ^9.0"
     },
     "autoload": {
         "psr-4": {

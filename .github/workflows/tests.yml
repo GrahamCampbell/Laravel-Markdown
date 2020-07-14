@@ -3,30 +3,39 @@ name: Tests
 on:
   push:
   pull_request:
-  schedule:
-    - cron: '0 4 * * 1'
 
 jobs:
-  test:
-
-    runs-on: ubuntu-latest
+  tests:
+    name: PHP ${{ matrix.php }}; Laravel ${{ matrix.laravel }}
+    runs-on: ubuntu-20.04
 
     strategy:
       matrix:
-        php: [7.2, 7.3, 7.4]
-        laravel: [6, 7]
-
-    name: PHP ${{ matrix.php }}; Laravel ${{ matrix.laravel }}
+        php: ['7.2', '7.3', '7.4']
+        laravel: ['6', '7']
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Pull Docker Image
-      run: docker pull registry.gitlab.com/grahamcampbell/php:${{ matrix.php }}
-    - name: Select Laravel
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} require "laravel/framework:${{ matrix.laravel }}.*" --no-update -n
-    - name: Run Composer
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint composer registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} install --prefer-dist -n -o
-    - name: Run PHPUnit
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint vendor/bin/phpunit registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} --coverage-clover build/logs/clover.xml
-    - name: Upload Coverage
-      run: docker run --rm -w /data -v ${{ github.workspace }}:/data --entrypoint ocular registry.gitlab.com/grahamcampbell/php:${{ matrix.php }} code-coverage:upload --format=php-clover build/logs/clover.xml
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
+
+      - name: Setup Problem Matchers
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install Dependencies
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: |
+            composer require "laravel/framework:{{ matrix.laravel }}" --no-update --no-interaction
+            composer update --no-interaction --no-progress
+
+      - name: Execute PHPUnit
+        run: vendor/bin/phpunit

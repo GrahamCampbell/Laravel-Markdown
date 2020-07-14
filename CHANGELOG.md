@@ -5,7 +5,8 @@ CHANGE LOG
 ## V13.0 (01/07/2019)
 
 * Upgrade to Commonmark ^1.5
-* Use the new Commonmarkinterfaces
+* Only bind the new classes and interfaces to the container
+* Use the MarkdownConverterInterface where possible
 
 
 ## V12.0.2 (14/04/2020)

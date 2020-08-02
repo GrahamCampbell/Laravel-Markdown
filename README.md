@@ -6,6 +6,10 @@ Laravel Markdown was created by, and is maintained by [Graham Campbell](https://
 ![Banner](https://user-images.githubusercontent.com/2829600/71477505-680d0f80-27e2-11ea-94a6-b4bacb08e270.png)
 
 <p align="center">
+<a href="https://xscode.com/grahamcampbell/Packagist-Stats"><img src="https://xscode.com/assets/promo-banner.svg" alt="Promo Banner"></img></a>
+</p>
+
+<p align="center">
 <a href="https://github.com/GrahamCampbell/Laravel-Markdown/actions?query=workflow%3ATests"><img src="https://img.shields.io/github/workflow/status/GrahamCampbell/Laravel-Markdown/Tests?label=Tests&style=flat-square" alt="Build Status"></img></a>
 <a href="https://github.styleci.io/repos/15090687"><img src="https://github.styleci.io/repos/15090687/shield" alt="StyleCI Status"></img></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square" alt="Software License"></img></a>

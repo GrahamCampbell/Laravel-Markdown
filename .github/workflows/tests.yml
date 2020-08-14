@@ -13,6 +13,9 @@ jobs:
       matrix:
         php: ['7.2', '7.3', '7.4', '8.0']
         laravel: ['6', '7', '8']
+        exclude:
+          - php: '8.0'
+            laravel: '8'
 
     steps:
       - name: Checkout Code
@@ -33,7 +36,7 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer require "laravel/framework:{{ matrix.laravel }}" --no-update --no-interaction
+          command: composer require "laravel/framework:{{ matrix.laravel }}.*" --no-update --no-interaction
 
       - name: Install PHP 7 Dependencies
         uses: nick-invision/retry@v1

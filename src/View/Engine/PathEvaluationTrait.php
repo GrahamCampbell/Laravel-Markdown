@@ -29,8 +29,9 @@ trait PathEvaluationTrait
     /**
      * Get the evaluated contents of the view at the given path.
      *
-     * @param  string  $path
-     * @param  array  $data
+     * @param string $path
+     * @param array  $data
+     *
      * @return string
      */
     protected function evaluatePath($path, $data)

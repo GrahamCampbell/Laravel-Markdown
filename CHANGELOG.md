@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V13.1 (UPCOMING)
+
+* Added Laravel 8 support
+* Added provisional PHP 8.0 support
+
+
 ## V13.0 (14/07/2020)
 
 * Upgrade to Commonmark ^1.5

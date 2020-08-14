@@ -11,8 +11,8 @@ jobs:
 
     strategy:
       matrix:
-        php: ['7.2', '7.3', '7.4']
-        laravel: ['6', '7']
+        php: ['7.2', '7.3', '7.4', '8.0']
+        laravel: ['6', '7', '8']
 
     steps:
       - name: Checkout Code
@@ -28,14 +28,28 @@ jobs:
       - name: Setup Problem Matchers
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-      - name: Install Dependencies
+      - name: Select Laravel Version
         uses: nick-invision/retry@v1
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: |
-            composer require "laravel/framework:{{ matrix.laravel }}" --no-update --no-interaction
-            composer update --no-interaction --no-progress
+          command: composer require "laravel/framework:{{ matrix.laravel }}" --no-update --no-interaction
+
+      - name: Install PHP 7 Dependencies
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: composer update --no-interaction --no-progress
+        if: "matrix.php < 8"
+
+      - name: Install PHP 8 Dependencies
+        uses: nick-invision/retry@v1
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          command: composer update --no-interaction --no-progress --ignore-platform-req=php
+        if: "matrix.php >= 8"
 
       - name: Execute PHPUnit
         run: vendor/bin/phpunit

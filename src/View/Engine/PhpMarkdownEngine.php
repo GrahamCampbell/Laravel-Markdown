@@ -23,6 +23,8 @@ use League\CommonMark\MarkdownConverterInterface;
  */
 final class PhpMarkdownEngine extends PhpEngine
 {
+    use PathEvaluationTrait;
+
     /**
      * The markdown instance.
      *

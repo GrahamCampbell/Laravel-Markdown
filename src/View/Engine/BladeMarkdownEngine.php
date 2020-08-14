@@ -24,6 +24,8 @@ use League\CommonMark\MarkdownConverterInterface;
  */
 final class BladeMarkdownEngine extends CompilerEngine
 {
+    use PathEvaluationTrait;
+
     /**
      * The markdown instance.
      *
@@ -41,8 +43,7 @@ final class BladeMarkdownEngine extends CompilerEngine
      */
     public function __construct(CompilerInterface $compiler, MarkdownConverterInterface $markdown)
     {
-        parent::__construct($compiler);
-
+        $this->compiler = $compiler;
         $this->markdown = $markdown;
     }
 

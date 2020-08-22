@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Markdown\View\Engine;
 
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
 use Throwable;
 
@@ -32,6 +33,8 @@ trait PathEvaluationTrait
      * @param string $path
      * @param array  $data
      *
+     * @throws \Throwable
+     *
      * @return string
      */
     protected function evaluatePath($path, $data)
@@ -44,7 +47,18 @@ trait PathEvaluationTrait
         // flush out any stray output that might get out before an error occurs or
         // an exception is thrown. This prevents any partial views from leaking.
         try {
-            (new Filesystem())->getRequire($path, $data);
+            if (!(new Filesystem())->isFile($path)) {
+                throw new FileNotFoundException("File does not exist at path {$path}.");
+            }
+
+            $__path = $path;
+            $__data = $data;
+
+            return (static function () use ($__path, $__data) {
+                extract($__data, EXTR_SKIP);
+
+                return require $__path;
+            })();
         } catch (Throwable $e) {
             $this->handleViewException($e, $obLevel);
         }

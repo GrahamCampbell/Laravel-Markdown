@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V13.1.1 (UPCOMING)
+
+* Fixed issue with Laravel 6 and 7
+
+
 ## V13.1 (14/08/2020)
 
 * Added Laravel 8 support

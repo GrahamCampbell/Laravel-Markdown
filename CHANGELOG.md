@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V13.1.1 (UPCOMING)
+## V13.1.1 (22/08/2020)
 
 * Fixed issue with Laravel 6 and 7
 

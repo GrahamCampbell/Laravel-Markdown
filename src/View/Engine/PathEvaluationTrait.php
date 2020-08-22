@@ -54,7 +54,7 @@ trait PathEvaluationTrait
             $__path = $path;
             $__data = $data;
 
-            return (static function () use ($__path, $__data) {
+            (static function () use ($__path, $__data) {
                 extract($__data, EXTR_SKIP);
 
                 return require $__path;

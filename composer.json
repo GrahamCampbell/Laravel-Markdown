@@ -1,7 +1,17 @@
 {
     "name": "graham-campbell/markdown",
     "description": "Markdown Is A CommonMark Wrapper For Laravel",
-    "keywords": ["laravel", "framework", "markdown", "commonmark", "common mark", "Laravel Markdown", "Laravel-Markdown", "Graham Campbell", "GrahamCampbell"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "markdown",
+        "commonmark",
+        "common mark",
+        "Laravel Markdown",
+        "Laravel-Markdown",
+        "Graham Campbell",
+        "GrahamCampbell"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +25,7 @@
         "illuminate/filesystem": "^6.0 || ^7.0 || ^8.0",
         "illuminate/support": "^6.0 || ^7.0 || ^8.0",
         "illuminate/view": "^6.0 || ^7.0 || ^8.0",
-        "league/commonmark": "^1.5"
+        "league/commonmark": "^1.5 || ^2.0.0"
     },
     "require-dev": {
         "graham-campbell/analyzer": "^3.0",

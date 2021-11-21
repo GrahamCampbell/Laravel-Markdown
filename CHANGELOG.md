@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V13.1.2 (21/11/2021)
+
+* Provisional PHP 8.1 support
+* Updated package metadata
+
+
 ## V13.1.1 (22/08/2020)
 
 * Fixed issue with Laravel 6 and 7

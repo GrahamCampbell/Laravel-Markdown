@@ -39,14 +39,14 @@ return [
     |
     | Default: [
     |              League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
-    |              League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
+    |              League\CommonMark\Extension\Table\TableExtension::class,
     |          ]
     |
     */
 
     'extensions' => [
         League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
-        League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
+        League\CommonMark\Extension\Table\TableExtension::class,
     ],
 
     /*

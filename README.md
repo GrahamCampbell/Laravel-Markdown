@@ -66,7 +66,7 @@ This option (`'views'`) specifies if the view integration is enabled so you can 
 
 ##### CommonMark Extensions
 
-This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here, and they will be resolved from the service container, and registered with CommonMark. The default value for this setting is `[League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class, League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class]`.
+This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here, and they will be resolved from the service container, and registered with CommonMark. The default value for this setting is `[League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class, League\CommonMark\Extension\Table\TableExtension::class]`.
 
 ##### Renderer Configuration
 

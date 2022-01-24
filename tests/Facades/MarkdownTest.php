@@ -18,8 +18,8 @@ use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 use League\CommonMark\ConverterInterface;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
-use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
+use League\CommonMark\Extension\Table\TableExtension;
 
 /**
  * @author Graham Campbell <hello@gjcampbell.co.uk>
@@ -78,7 +78,7 @@ class MarkdownTest extends AbstractTestCase
     {
         $this->app->config->set('markdown.extensions', [
             CommonMarkCoreExtension::class,
-            GithubFlavoredMarkdownExtension::class,
+            TableExtension::class,
             SmartPunctExtension::class,
         ]);
 

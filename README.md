@@ -1,7 +1,7 @@
 Laravel Markdown
 ================
 
-Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [CommonMark](https://github.com/thephpleague/commonmark) wrapper for [Laravel](http://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [security policy](https://github.com/GrahamCampbell/Laravel-Markdown/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
+Laravel Markdown was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a [CommonMark](https://github.com/thephpleague/commonmark) wrapper for [Laravel](https://laravel.com). It ships with **integration with Laravel's view system** too. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/GrahamCampbell/Laravel-Markdown/releases), [security policy](https://github.com/GrahamCampbell/Laravel-Markdown/security/policy), [license](LICENSE), [code of conduct](.github/CODE_OF_CONDUCT.md), and [contribution guidelines](.github/CONTRIBUTING.md).
 
 ![Banner](https://user-images.githubusercontent.com/2829600/71477505-680d0f80-27e2-11ea-94a6-b4bacb08e270.png)
 
@@ -16,24 +16,25 @@ Laravel Markdown was created by, and is maintained by [Graham Campbell](https://
 
 ## Installation
 
-Laravel Markdown requires [PHP](https://php.net) 7.2-8.1. This particular version supports Laravel 6-8.
+Laravel Markdown requires [PHP](https://php.net) 7.4-8.1. This particular version supports Laravel 8-9.
 
-| Markdown | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 | L8                 |
-|----------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
-| 5.3      | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 6.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 7.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 8.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 9.0      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
-| 10.3     | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                |
-| 11.2     | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
-| 12.0     | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :x:                |
-| 13.1     | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Markdown | L5.1               | L5.2               | L5.3               | L5.4               | L5.5               | L5.6               | L5.7               | L5.8               | L6                 | L7                 | L8                 | L9                 |
+|----------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|--------------------|
+| 5.3      | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| 6.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| 7.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| 8.1      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| 9.0      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                |
+| 10.3     | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                | :x:                | :x:                |
+| 11.2     | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
+| 12.0     | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :x:                | :x:                |
+| 13.1     | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x:                |
+| 14.0     | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :x:                | :white_check_mark: | :white_check_mark: |
 
 To get the latest version, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require graham-campbell/markdown:^13.1
+$ composer require graham-campbell/markdown:^14.0
 ```
 
 Once installed, if you are not using automatic package discovery, then you need to register the `GrahamCampbell\Markdown\MarkdownServiceProvider` service provider in your `config/app.php`.
@@ -65,27 +66,15 @@ This option (`'views'`) specifies if the view integration is enabled so you can 
 
 ##### CommonMark Extensions
 
-This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here, and they will be resolved from the service container, and registered with CommonMark. The default value for this setting is `[]`.
+This option (`'extensions'`) specifies what extensions will be automatically enabled. Simply provide your extension class names here, and they will be resolved from the service container, and registered with CommonMark. The default value for this setting is `[League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class, League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class]`.
 
 ##### Renderer Configuration
 
 This option (`'renderer'`) specifies an array of options for rendering HTML. The default value for this setting is `['block_separator' => "\n", 'inner_separator' => "\n", 'soft_break' => "\n"]`.
 
-##### Enable Em Tag Parsing
+##### CommonMark Configuration
 
-This option (`'enable_em'`) specifies if `<em>` parsing is enabled. The default value for this setting is `true`.
-
-##### Enable Strong Tag Parsing
-
-This option (`'enable_strong'`) specifies if `<strong>` parsing is enabled. The default value for this setting is `true`.
-
-##### Enable Asterisk Parsing
-
-This option (`'use_asterisk'`) specifies if `*` should be parsed for emphasis. The default value for this setting is `true`.
-
-##### Enable Underscore Parsing
-
-This option (`'use_underscore'`) specifies if `_` should be parsed for emphasis. The default value for this setting is `true`.
+This option (`'commonmark'`) specifies an array of options for commonmark. The default value for this setting is `['enable_em' => true, 'enable_strong' => true, 'use_asterisk' => true, 'use_underscore' => true, 'unordered_list_markers' => ['-', '+', '*']]`.
 
 ##### HTML Input
 
@@ -97,14 +86,18 @@ This option (`'allow_unsafe_links'`) specifies whether to allow risky image URLs
 
 ##### Maximum Nesting Level
 
-This option (`'max_nesting_level'`) specifies the maximum permitted block nesting level. The default value for this setting is `INF`.
+This option (`'max_nesting_level'`) specifies the maximum permitted block nesting level. The default value for this setting is `PHP_INT_MAX`.
+
+##### Slug Normalizer
+
+This option (`'slug_normalizer'`) specifies an array of options for slug normalization. The default value for this setting is `['max_length' => 255, 'unique' => 'document']`.
 
 
 ## Usage
 
 ##### Facades\Markdown
 
-This facade will dynamically pass static method calls to the `'markdown'` object in the ioc container which by default is an instance of `League\CommonMark\MarkdownConverterInterface`.
+This facade will dynamically pass static method calls to the `'markdown.converter'` object in the ioc container which by default is an instance of `League\CommonMark\ConverterInterface`.
 
 ##### MarkdownServiceProvider
 
@@ -124,24 +117,24 @@ If you prefer to use dependency injection over facades like me, then you can eas
 
 ```php
 use Illuminate\Support\Facades\App;
-use League\CommonMark\MarkdownConverterInterface;
+use League\CommonMark\ConverterInterface;
 
 class Foo
 {
-    protected $converter;
+    private ConverterInterface $converter;
 
-    public function __construct(MarkdownConverterInterface $converter)
+    public function __construct(ConverterInterface $converter)
     {
         $this->converter = $converter;
     }
 
-    public function bar()
+    public function bar(): string
     {
-        return $this->converter->convertToHtml('foo');
+        return $this->converter->convert('foo')->getContent();
     }
 }
 
-App::make('Foo')->bar();
+App::make(Foo::class)->bar();
 ```
 
 And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system. You can use both the `@markdown` blade directive, and also using the following file extensions will compile your views as markdown: `'.md'`, `'.md.php'`, and `'.md.blade.php'`.
@@ -182,9 +175,7 @@ There are other classes in this package that are not documented here (such as th
 
 ### Extensions
 
-As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: http://commonmark.thephpleague.com/.
-
-The Smart Punctuation package also serves as a good example of how to implement the full deal: https://github.com/thephpleague/commonmark-ext-smartpunct. In particular, note the presence of the [Extension class](https://github.com/thephpleague/commonmark-ext-smartpunct/blob/v1.1.0/src/SmartPunctExtension.php), and the fact that you can add it to the extensions array in your `app/config/markdown.php` file. If you don't see the file in your config folder, you would need to run `php artisan vendor:publish`.
+As hinted in the configuration docs, CommonMark can be modified using extensions. There are some very good examples in the customization section of the CommonMark docs for how to create custom parsers and renders in the customization section: https://commonmark.thephpleague.com/.
 
 
 ## Security

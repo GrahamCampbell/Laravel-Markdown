@@ -18,8 +18,6 @@ use Laravel\Lumen\Application;
 use PHPUnit\Framework\TestCase;
 
 /**
- * This is the analysis test class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class AnalysisTest extends TestCase

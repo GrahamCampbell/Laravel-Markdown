@@ -16,8 +16,6 @@ namespace GrahamCampbell\Markdown\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * This is the markdown facade class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class Markdown extends Facade
@@ -29,6 +27,6 @@ class Markdown extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'markdown';
+        return 'markdown.converter';
     }
 }

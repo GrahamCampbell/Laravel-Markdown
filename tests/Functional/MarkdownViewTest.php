@@ -11,13 +11,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Markdown\HTMLMin;
+namespace GrahamCampbell\Tests\Markdown\Functional;
 
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
 
 /**
- * This is the markdown view test class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class MarkdownViewTest extends AbstractTestCase

@@ -13,21 +13,22 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Markdown;
 
-use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
-use GrahamCampbell\Markdown\View\Directive\MarkdownDirective;
-use GrahamCampbell\Markdown\View\Engine\BladeMarkdownEngine;
-use GrahamCampbell\Markdown\View\Engine\PhpMarkdownEngine;
+use GrahamCampbell\Markdown\View\Compiler\CommonMarkCompiler;
+use GrahamCampbell\Markdown\View\Directive\CommonMarkDirective;
+use GrahamCampbell\Markdown\View\Directive\DirectiveInterface;
+use GrahamCampbell\Markdown\View\Engine\BladeCommonMarkEngine;
+use GrahamCampbell\Markdown\View\Engine\PhpCommonMarkEngine;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Laravel\Lumen\Application as LumenApplication;
-use League\CommonMark\CommonMarkConverter;
-use League\CommonMark\ConfigurableEnvironmentInterface;
-use League\CommonMark\Environment;
-use League\CommonMark\EnvironmentInterface;
-use League\CommonMark\MarkdownConverterInterface;
+use League\CommonMark\ConverterInterface;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Environment\EnvironmentBuilderInterface;
+use League\CommonMark\Environment\EnvironmentInterface;
+use League\CommonMark\MarkdownConverter;
 
 /**
  * This is the markdown service provider class.
@@ -41,14 +42,14 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->setupConfig();
 
         if ($this->app->config->get('markdown.views')) {
-            $this->enableMarkdownCompiler();
-            $this->enablePhpMarkdownEngine();
-            $this->enableBladeMarkdownEngine();
+            $this->enableCompiler();
+            $this->enablePhpEngine();
+            $this->enableBladeEngine();
             $this->enableBladeDirective();
         }
     }
@@ -58,7 +59,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function setupConfig()
+    protected function setupConfig(): void
     {
         $source = realpath($raw = __DIR__.'/../config/markdown.php') ?: $raw;
 
@@ -76,11 +77,11 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enableMarkdownCompiler()
+    protected function enableCompiler(): void
     {
         $app = $this->app;
 
-        $app->view->getEngineResolver()->register('md', function () use ($app) {
+        $app->view->getEngineResolver()->register('md', function () use ($app): CompilerEngine {
             $compiler = $app['markdown.compiler'];
 
             return new CompilerEngine($compiler);
@@ -94,14 +95,15 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enablePhpMarkdownEngine()
+    protected function enablePhpEngine(): void
     {
         $app = $this->app;
 
-        $app->view->getEngineResolver()->register('phpmd', function () use ($app) {
-            $markdown = $app['markdown'];
+        $app->view->getEngineResolver()->register('phpmd', function () use ($app): PhpCommonMarkEngine {
+            $files = $app['files'];
+            $converter = $app['markdown.converter'];
 
-            return new PhpMarkdownEngine($markdown);
+            return new PhpCommonMarkEngine($files, $converter);
         });
 
         $app->view->addExtension('md.php', 'phpmd');
@@ -112,33 +114,34 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enableBladeMarkdownEngine()
+    protected function enableBladeEngine(): void
     {
         $app = $this->app;
 
-        $app->view->getEngineResolver()->register('blademd', function () use ($app) {
+        $app->view->getEngineResolver()->register('blademd', function () use ($app): BladeCommonMarkEngine {
             $compiler = $app['blade.compiler'];
-            $markdown = $app['markdown'];
+            $files = $app['files'];
+            $converter = $app['markdown.converter'];
 
-            return new BladeMarkdownEngine($compiler, $markdown);
+            return new BladeCommonMarkEngine($compiler, $files, $converter);
         });
 
         $app->view->addExtension('md.blade.php', 'blademd');
     }
 
-    protected function enableBladeDirective()
+    protected function enableBladeDirective(): void
     {
         $app = $this->app;
 
-        $app['blade.compiler']->directive('markdown', function ($markdown) {
+        $app['blade.compiler']->directive('markdown', function (string $markdown): string {
             if ($markdown) {
-                return "<?php echo app('markdown')->convertToHtml((string) {$markdown}); ?>";
+                return "<?php echo app('markdown.converter')->convert((string) {$markdown})->getContent(); ?>";
             }
 
             return '<?php ob_start(); ?>';
         });
 
-        $app['blade.compiler']->directive('endmarkdown', function () {
+        $app['blade.compiler']->directive('endmarkdown', function (): string {
             return "<?php echo app('markdown.directive')->render(ob_get_clean()); ?>";
         });
     }
@@ -148,7 +151,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->registerEnvironment();
         $this->registerMarkdown();
@@ -161,14 +164,12 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerEnvironment()
+    protected function registerEnvironment(): void
     {
-        $this->app->singleton('markdown.environment', function (Container $app) {
-            $environment = Environment::createCommonMarkEnvironment();
-
+        $this->app->singleton('markdown.environment', function (Container $app): Environment {
             $config = $app->config->get('markdown');
 
-            $environment->mergeConfig(Arr::except($config, ['extensions', 'views']));
+            $environment = new Environment(Arr::except($config, ['extensions', 'views']));
 
             foreach ((array) Arr::get($config, 'extensions') as $extension) {
                 $environment->addExtension($app->make($extension));
@@ -179,7 +180,7 @@ class MarkdownServiceProvider extends ServiceProvider
 
         $this->app->alias('markdown.environment', Environment::class);
         $this->app->alias('markdown.environment', EnvironmentInterface::class);
-        $this->app->alias('markdown.environment', ConfigurableEnvironmentInterface::class);
+        $this->app->alias('markdown.environment', EnvironmentBuilderInterface::class);
     }
 
     /**
@@ -187,16 +188,16 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMarkdown()
+    protected function registerMarkdown(): void
     {
-        $this->app->singleton('markdown', function (Container $app) {
+        $this->app->singleton('markdown.converter', function (Container $app): MarkdownConverter {
             $environment = $app['markdown.environment'];
 
-            return new CommonMarkConverter([], $environment);
+            return new MarkdownConverter($environment);
         });
 
-        $this->app->alias('markdown', CommonMarkConverter::class);
-        $this->app->alias('markdown', MarkdownConverterInterface::class);
+        $this->app->alias('markdown.converter', MarkdownConverter::class);
+        $this->app->alias('markdown.converter', ConverterInterface::class);
     }
 
     /**
@@ -204,17 +205,17 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerCompiler()
+    protected function registerCompiler(): void
     {
-        $this->app->singleton('markdown.compiler', function (Container $app) {
-            $markdown = $app['markdown'];
+        $this->app->singleton('markdown.compiler', function (Container $app): CommonMarkCompiler {
+            $converter = $app['markdown.converter'];
             $files = $app['files'];
             $storagePath = $app->config->get('view.compiled');
 
-            return new MarkdownCompiler($markdown, $files, $storagePath);
+            return new CommonMarkCompiler($converter, $files, $storagePath);
         });
 
-        $this->app->alias('markdown.compiler', MarkdownCompiler::class);
+        $this->app->alias('markdown.compiler', CommonMarkCompiler::class);
     }
 
     /**
@@ -222,15 +223,16 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerDirective()
+    protected function registerDirective(): void
     {
-        $this->app->singleton('markdown.directive', function (Container $app) {
-            $markdown = $app['markdown'];
+        $this->app->singleton('markdown.directive', function (Container $app): CommonMarkDirective {
+            $converter = $app['markdown.converter'];
 
-            return new MarkdownDirective($markdown);
+            return new CommonMarkDirective($converter);
         });
 
-        $this->app->alias('markdown.directive', MarkdownDirective::class);
+        $this->app->alias('markdown.directive', CommonMarkDirective::class);
+        $this->app->alias('markdown.directive', DirectiveInterface::class);
     }
 
     /**
@@ -242,7 +244,7 @@ class MarkdownServiceProvider extends ServiceProvider
     {
         return [
             'markdown.environment',
-            'markdown',
+            'markdown.converter',
             'markdown.compiler',
             'markdown.directive',
         ];

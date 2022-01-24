@@ -11,23 +11,19 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace GrahamCampbell\Tests\Markdown;
-
-use GrahamCampbell\Markdown\MarkdownServiceProvider;
-use GrahamCampbell\TestBench\AbstractPackageTestCase;
+namespace GrahamCampbell\Markdown\View\Directive;
 
 /**
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
-abstract class AbstractTestCase extends AbstractPackageTestCase
+interface DirectiveInterface
 {
     /**
-     * Get the service provider class.
+     * Normalize and render the markdown.
+     *
+     * @param string $markdown
      *
      * @return string
      */
-    protected function getServiceProviderClass()
-    {
-        return MarkdownServiceProvider::class;
-    }
+    public function render(string $markdown): string;
 }

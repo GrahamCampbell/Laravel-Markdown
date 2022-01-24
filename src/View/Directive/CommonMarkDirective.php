@@ -13,32 +13,23 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Markdown\View\Directive;
 
-use League\CommonMark\MarkdownConverterInterface;
+use League\CommonMark\ConverterInterface;
 
 /**
- * This is the markdown directive class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
-final class MarkdownDirective
+final class CommonMarkDirective implements DirectiveInterface
 {
-    /**
-     * The markdown instance.
-     *
-     * @var \League\CommonMark\MarkdownConverterInterface
-     */
-    private $markdown;
+    private ConverterInterface $converter;
 
     /**
-     * Create a new markdown directive instance.
-     *
-     * @param \League\CommonMark\MarkdownConverterInterface $markdown
+     * @param \League\CommonMark\ConverterInterface $converter
      *
      * @return void
      */
-    public function __construct(MarkdownConverterInterface $markdown)
+    public function __construct(ConverterInterface $converter)
     {
-        $this->markdown = $markdown;
+        $this->converter = $converter;
     }
 
     /**
@@ -48,9 +39,9 @@ final class MarkdownDirective
      *
      * @return string
      */
-    public function render(string $markdown)
+    public function render(string $markdown): string
     {
-        return $this->markdown->convertToHtml(self::adjust($markdown));
+        return $this->converter->convert(self::adjust($markdown))->getContent();
     }
 
     /**
@@ -60,7 +51,7 @@ final class MarkdownDirective
      *
      * @return string
      */
-    private static function adjust(string $markdown)
+    private static function adjust(string $markdown): string
     {
         $lines = preg_split("/(\r\n|\n|\r)/", $markdown);
 

@@ -37,11 +37,17 @@ return [
     | This option specifies what extensions will be automatically enabled.
     | Simply provide your extension class names here.
     |
-    | Default: []
+    | Default: [
+    |              League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
+    |              League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
+    |          ]
     |
     */
 
-    'extensions' => [],
+    'extensions' => [
+        League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
+        League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -66,55 +72,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Enable Em Tag Parsing
+    | Commonmark Configuration
     |--------------------------------------------------------------------------
     |
-    | This option specifies if `<em>` parsing is enabled.
+    | This option specifies an array of options for commonmark.
     |
-    | Default: true
+    | Default: [
+    |              'enable_em' => true,
+    |              'enable_strong' => true,
+    |              'use_asterisk' => true,
+    |              'use_underscore' => true,
+    |              'unordered_list_markers' => ['-', '+', '*'],
+    |          ]
     |
     */
 
-    'enable_em' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Enable Strong Tag Parsing
-    |--------------------------------------------------------------------------
-    |
-    | This option specifies if `<strong>` parsing is enabled.
-    |
-    | Default: true
-    |
-    */
-
-    'enable_strong' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Enable Asterisk Parsing
-    |--------------------------------------------------------------------------
-    |
-    | This option specifies if `*` should be parsed for emphasis.
-    |
-    | Default: true
-    |
-    */
-
-    'use_asterisk' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Enable Underscore Parsing
-    |--------------------------------------------------------------------------
-    |
-    | This option specifies if `_` should be parsed for emphasis.
-    |
-    | Default: true
-    |
-    */
-
-    'use_underscore' => true,
+    'commonmark' => [
+        'enable_em'              => true,
+        'enable_strong'          => true,
+        'use_asterisk'           => true,
+        'use_underscore'         => true,
+        'unordered_list_markers' => ['-', '+', '*'],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -149,10 +128,29 @@ return [
     |
     | This option specifies the maximum permitted block nesting level.
     |
-    | Default: INF
+    | Default: PHP_INT_MAX
     |
     */
 
-    'max_nesting_level' => INF,
+    'max_nesting_level' => PHP_INT_MAX,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Slug Normalizer
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies an array of options for slug normalization.
+    |
+    | Default: [
+    |              'max_length' => 255,
+    |              'unique' => 'document',
+    |          ]
+    |
+    */
+
+    'slug_normalizer' => [
+        'max_length' => 255,
+        'unique'     => 'document',
+    ],
 
 ];

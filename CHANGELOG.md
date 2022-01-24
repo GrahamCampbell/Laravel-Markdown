@@ -2,6 +2,13 @@ CHANGE LOG
 ==========
 
 
+## V14.0 (UPCOMING)
+
+* Upgrade to Commonmark ^2.2
+* Added Laravel 9 support
+* Dropped Laravel 6 and 7
+
+
 ## V13.1.2 (21/11/2021)
 
 * Provisional PHP 8.1 support

@@ -16,12 +16,12 @@ namespace GrahamCampbell\Tests\Markdown\Facades;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use GrahamCampbell\Tests\Markdown\AbstractTestCase;
+use League\CommonMark\ConverterInterface;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
-use League\CommonMark\MarkdownConverterInterface;
 
 /**
- * This is the markdown facade test class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class MarkdownTest extends AbstractTestCase
@@ -35,7 +35,7 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeAccessor()
     {
-        return 'markdown';
+        return 'markdown.converter';
     }
 
     /**
@@ -55,14 +55,14 @@ class MarkdownTest extends AbstractTestCase
      */
     protected function getFacadeRoot()
     {
-        return MarkdownConverterInterface::class;
+        return ConverterInterface::class;
     }
 
     public function testConvertToHtml()
     {
         $result = Markdown::convertToHtml('foo');
 
-        $this->assertSame("<p>foo</p>\n", $result);
+        $this->assertSame("<p>foo</p>\n", $result->getContent());
     }
 
     public function testDisallowingUnsafeLinks()
@@ -71,15 +71,19 @@ class MarkdownTest extends AbstractTestCase
 
         $result = Markdown::convertToHtml("[Click me](javascript:alert('XSS'))");
 
-        $this->assertSame("<p><a>Click me</a></p>\n", $result);
+        $this->assertSame("<p><a>Click me</a></p>\n", $result->getContent());
     }
 
     public function testSmartPuncConversion()
     {
-        $this->app->config->set('markdown.extensions', [SmartPunctExtension::class]);
+        $this->app->config->set('markdown.extensions', [
+            CommonMarkCoreExtension::class,
+            GithubFlavoredMarkdownExtension::class,
+            SmartPunctExtension::class,
+        ]);
 
         $result = Markdown::convertToHtml("'A', 'B', and 'C' are letters.");
 
-        $this->assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result);
+        $this->assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result->getContent());
     }
 }

@@ -13,18 +13,16 @@ declare(strict_types=1);
 
 namespace GrahamCampbell\Tests\Markdown;
 
-use GrahamCampbell\Markdown\View\Compiler\MarkdownCompiler;
-use GrahamCampbell\Markdown\View\Directive\MarkdownDirective;
+use GrahamCampbell\Markdown\View\Compiler\CommonMarkCompiler;
+use GrahamCampbell\Markdown\View\Directive\CommonMarkDirective;
+use GrahamCampbell\Markdown\View\Directive\DirectiveInterface;
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 use League\CommonMark\CommonMarkConverter;
-use League\CommonMark\ConfigurableEnvironmentInterface;
-use League\CommonMark\Environment;
-use League\CommonMark\EnvironmentInterface;
-use League\CommonMark\MarkdownConverterInterface;
+use League\CommonMark\ConverterInterface;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Environment\EnvironmentInterface;
 
 /**
- * This is the service provider test class.
- *
  * @author Graham Campbell <hello@gjcampbell.co.uk>
  */
 class ServiceProviderTest extends AbstractTestCase
@@ -35,22 +33,22 @@ class ServiceProviderTest extends AbstractTestCase
     {
         $this->assertIsInjectable(Environment::class);
         $this->assertIsInjectable(EnvironmentInterface::class);
-        $this->assertIsInjectable(ConfigurableEnvironmentInterface::class);
     }
 
     public function testMarkdownIsInjectable()
     {
         $this->assertIsInjectable(CommonMarkConverter::class);
-        $this->assertIsInjectable(MarkdownConverterInterface::class);
+        $this->assertIsInjectable(ConverterInterface::class);
     }
 
     public function testCompilerIsInjectable()
     {
-        $this->assertIsInjectable(MarkdownCompiler::class);
+        $this->assertIsInjectable(CommonMarkCompiler::class);
     }
 
     public function testDirectiveIsInjectable()
     {
-        $this->assertIsInjectable(MarkdownDirective::class);
+        $this->assertIsInjectable(CommonMarkDirective::class);
+        $this->assertIsInjectable(DirectiveInterface::class);
     }
 }

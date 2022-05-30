@@ -7,7 +7,7 @@ on:
 jobs:
   tests:
     name: PHP ${{ matrix.php }}; Laravel ${{ matrix.laravel }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     strategy:
       matrix:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -32,23 +32,23 @@ jobs:
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Select Laravel 8
-        uses: nick-invision/retry@v1
+        uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer require "laravel/framework:8.*" --no-update --no-interaction
+          command: composer require "laravel/framework:^8.75" --no-update --no-interaction
         if: "matrix.laravel == '8'"
 
       - name: Select Laravel 9
-        uses: nick-invision/retry@v1
+        uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: composer require "laravel/framework:9.*" --no-update --no-interaction
+          command: composer require "laravel/framework:^9.0" --no-update --no-interaction
         if: "matrix.laravel == '9'"
 
       - name: Install PHP Dependencies
-        uses: nick-invision/retry@v1
+        uses: nick-invision/retry@v2
         with:
           timeout_minutes: 5
           max_attempts: 5

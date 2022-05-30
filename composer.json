@@ -16,10 +16,10 @@
         "illuminate/filesystem": "^8.75 || ^9.0",
         "illuminate/support": "^8.75 || ^9.0",
         "illuminate/view": "^8.75 || ^9.0",
-        "league/commonmark": "^2.2"
+        "league/commonmark": "^2.3.1"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^3.0",
+        "graham-campbell/analyzer": "^3.1",
         "graham-campbell/testbench": "^5.7",
         "mockery/mockery": "^1.5",
         "phpunit/phpunit": "^9.5"

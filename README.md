@@ -110,7 +110,7 @@ Here you can see an example of just how simple this package is to use.
 ```php
 use GrahamCampbell\Markdown\Facades\Markdown;
 
-Markdown::convertToHtml('foo'); // <p>foo</p>
+Markdown::convert('foo')->getContent(); // <p>foo</p>
 ```
 
 If you prefer to use dependency injection over facades like me, then you can easily inject the class like so:

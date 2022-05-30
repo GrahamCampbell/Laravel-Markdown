@@ -60,7 +60,7 @@ class MarkdownTest extends AbstractTestCase
 
     public function testConvertToHtml()
     {
-        $result = Markdown::convertToHtml('foo');
+        $result = Markdown::convert('foo');
 
         $this->assertSame("<p>foo</p>\n", $result->getContent());
     }
@@ -69,7 +69,7 @@ class MarkdownTest extends AbstractTestCase
     {
         $this->app->config->set('markdown.allow_unsafe_links', false);
 
-        $result = Markdown::convertToHtml("[Click me](javascript:alert('XSS'))");
+        $result = Markdown::convert("[Click me](javascript:alert('XSS'))");
 
         $this->assertSame("<p><a>Click me</a></p>\n", $result->getContent());
     }
@@ -82,7 +82,7 @@ class MarkdownTest extends AbstractTestCase
             SmartPunctExtension::class,
         ]);
 
-        $result = Markdown::convertToHtml("'A', 'B', and 'C' are letters.");
+        $result = Markdown::convert("'A', 'B', and 'C' are letters.");
 
         $this->assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result->getContent());
     }

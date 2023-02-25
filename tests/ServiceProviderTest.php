@@ -29,26 +29,26 @@ class ServiceProviderTest extends AbstractTestCase
 {
     use ServiceProviderTrait;
 
-    public function testEnvironmentIsInjectable()
+    public function testEnvironmentIsInjectable(): void
     {
-        $this->assertIsInjectable(Environment::class);
-        $this->assertIsInjectable(EnvironmentInterface::class);
+        self::assertIsInjectable(Environment::class);
+        self::assertIsInjectable(EnvironmentInterface::class);
     }
 
-    public function testMarkdownIsInjectable()
+    public function testMarkdownIsInjectable(): void
     {
-        $this->assertIsInjectable(CommonMarkConverter::class);
-        $this->assertIsInjectable(ConverterInterface::class);
+        self::assertIsInjectable(CommonMarkConverter::class);
+        self::assertIsInjectable(ConverterInterface::class);
     }
 
-    public function testCompilerIsInjectable()
+    public function testCompilerIsInjectable(): void
     {
-        $this->assertIsInjectable(CommonMarkCompiler::class);
+        self::assertIsInjectable(CommonMarkCompiler::class);
     }
 
-    public function testDirectiveIsInjectable()
+    public function testDirectiveIsInjectable(): void
     {
-        $this->assertIsInjectable(CommonMarkDirective::class);
-        $this->assertIsInjectable(DirectiveInterface::class);
+        self::assertIsInjectable(CommonMarkDirective::class);
+        self::assertIsInjectable(DirectiveInterface::class);
     }
 }

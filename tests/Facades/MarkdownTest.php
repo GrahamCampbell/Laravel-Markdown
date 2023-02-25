@@ -33,7 +33,7 @@ class MarkdownTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'markdown.converter';
     }
@@ -43,7 +43,7 @@ class MarkdownTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass(): string
     {
         return Markdown::class;
     }
@@ -53,28 +53,28 @@ class MarkdownTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeRoot()
+    protected static function getFacadeRoot(): string
     {
         return ConverterInterface::class;
     }
 
-    public function testConvertToHtml()
+    public function testConvertToHtml(): void
     {
         $result = Markdown::convert('foo');
 
-        $this->assertSame("<p>foo</p>\n", $result->getContent());
+        self::assertSame("<p>foo</p>\n", $result->getContent());
     }
 
-    public function testDisallowingUnsafeLinks()
+    public function testDisallowingUnsafeLinks(): void
     {
         $this->app->config->set('markdown.allow_unsafe_links', false);
 
         $result = Markdown::convert("[Click me](javascript:alert('XSS'))");
 
-        $this->assertSame("<p><a>Click me</a></p>\n", $result->getContent());
+        self::assertSame("<p><a>Click me</a></p>\n", $result->getContent());
     }
 
-    public function testSmartPuncConversion()
+    public function testSmartPuncConversion(): void
     {
         $this->app->config->set('markdown.extensions', [
             CommonMarkCoreExtension::class,
@@ -84,6 +84,6 @@ class MarkdownTest extends AbstractTestCase
 
         $result = Markdown::convert("'A', 'B', and 'C' are letters.");
 
-        $this->assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result->getContent());
+        self::assertSame("<p>‘A’, ‘B’, and ‘C’ are letters.</p>\n", $result->getContent());
     }
 }

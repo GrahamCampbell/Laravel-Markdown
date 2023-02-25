@@ -45,7 +45,7 @@ final class PhpCommonMarkEngine extends PhpEngine
      *
      * @return string
      */
-    public function get($path, array $data = [])
+    public function get($path, array $data = []): string
     {
         $contents = parent::get($path, $data);
 

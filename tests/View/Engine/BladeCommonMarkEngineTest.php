@@ -27,7 +27,7 @@ use Mockery;
  */
 class BladeCommonMarkEngineTest extends AbstractTestCase
 {
-    public function testRender()
+    public function testRender(): void
     {
         $compiler = Mockery::mock(CompilerInterface::class);
         $compiler->shouldReceive('isExpired')->once()->with(__DIR__.'/stubs/test')->andReturn(false);
@@ -38,6 +38,6 @@ class BladeCommonMarkEngineTest extends AbstractTestCase
 
         $engine = new BladeCommonMarkEngine($compiler, new Filesystem(), $converter);
 
-        $this->assertSame('html', $engine->get(__DIR__.'/stubs/test'));
+        self::assertSame('html', $engine->get(__DIR__.'/stubs/test'));
     }
 }

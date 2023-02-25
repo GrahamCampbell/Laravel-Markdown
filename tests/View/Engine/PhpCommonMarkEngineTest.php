@@ -26,13 +26,13 @@ use Mockery;
  */
 class PhpCommonMarkEngineTest extends AbstractTestCase
 {
-    public function testRender()
+    public function testRender(): void
     {
         $converter = Mockery::mock(ConverterInterface::class);
         $converter->shouldReceive('convert')->once()->with("qwertyuiop\n")->andReturn(new RenderedContent(new Document(), 'html'));
 
         $engine = new PhpCommonMarkEngine(new Filesystem(), $converter);
 
-        $this->assertSame('html', $engine->get(__DIR__.'/stubs/test'));
+        self::assertSame('html', $engine->get(__DIR__.'/stubs/test'));
     }
 }

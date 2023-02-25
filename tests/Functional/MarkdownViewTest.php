@@ -27,59 +27,59 @@ class MarkdownViewTest extends AbstractTestCase
      *
      * @return void
      */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         parent::getEnvironmentSetUp($app);
 
         $app->view->addNamespace('stubs', realpath(__DIR__.'/stubs'));
     }
 
-    public function testMarkdown()
+    public function testMarkdown(): void
     {
         $return = $this->app->view->make('stubs::test')->render();
 
-        $this->assertSame("<h1>Test</h1>\n", $return);
+        self::assertSame("<h1>Test</h1>\n", $return);
     }
 
-    public function testPhpMarkdown()
+    public function testPhpMarkdown(): void
     {
         $return = $this->app->view->make('stubs::foo')->render();
 
-        $this->assertSame("<h1>Foo</h1>\n", $return);
+        self::assertSame("<h1>Foo</h1>\n", $return);
     }
 
-    public function testBladeMarkdown()
+    public function testBladeMarkdown(): void
     {
         $return = $this->app->view->make('stubs::bar')->render();
 
-        $this->assertSame("<h1>Bar</h1>\n", $return);
+        self::assertSame("<h1>Bar</h1>\n", $return);
     }
 
-    public function testBladeDirectiveInline()
+    public function testBladeDirectiveInline(): void
     {
         $return = $this->app->view->make('stubs::baz')->render();
 
-        $this->assertSame("<h1>Baz</h1>\n", $return);
+        self::assertSame("<h1>Baz</h1>\n", $return);
     }
 
-    public function testBladeDirectiveBlock1()
+    public function testBladeDirectiveBlock1(): void
     {
         $return = $this->app->view->make('stubs::qux')->render();
 
-        $this->assertSame("<h1>Qux</h1>\n", $return);
+        self::assertSame("<h1>Qux</h1>\n", $return);
     }
 
-    public function testBladeDirectiveBlock2()
+    public function testBladeDirectiveBlock2(): void
     {
         $return = $this->app->view->make('stubs::dir')->render();
 
-        $this->assertSame("<div>\n    <p>foo\nbar</p>\n<pre><code>baz\n</code></pre>\n<p>bat</p>\n</div>\n", $return);
+        self::assertSame("<div>\n    <p>foo\nbar</p>\n<pre><code>baz\n</code></pre>\n<p>bat</p>\n</div>\n", $return);
     }
 
-    public function testBladeDirectiveBlock3()
+    public function testBladeDirectiveBlock3(): void
     {
         $return = $this->app->view->make('stubs::bad')->render();
 
-        $this->assertSame("<div>\n    <pre><code>foo\n</code></pre>\n<p>baz</p>\n</div>\n", $return);
+        self::assertSame("<div>\n    <pre><code>foo\n</code></pre>\n<p>baz</p>\n</div>\n", $return);
     }
 }

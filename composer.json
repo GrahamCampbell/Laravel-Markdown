@@ -12,17 +12,17 @@
     ],
     "require": {
         "php": "^7.4.15 || ^8.0.2",
-        "illuminate/contracts": "^8.75 || ^9.0",
-        "illuminate/filesystem": "^8.75 || ^9.0",
-        "illuminate/support": "^8.75 || ^9.0",
-        "illuminate/view": "^8.75 || ^9.0",
-        "league/commonmark": "^2.3.1"
+        "illuminate/contracts": "^8.75 || ^9.0 || ^10.0",
+        "illuminate/filesystem": "^8.75 || ^9.0 || ^10.0",
+        "illuminate/support": "^8.75 || ^9.0 || ^10.0",
+        "illuminate/view": "^8.75 || ^9.0 || ^10.0",
+        "league/commonmark": "^2.3.9"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^3.1",
-        "graham-campbell/testbench": "^5.7",
-        "mockery/mockery": "^1.5",
-        "phpunit/phpunit": "^9.5"
+        "graham-campbell/analyzer": "^4.0",
+        "graham-campbell/testbench": "^6.0",
+        "mockery/mockery": "^1.5.1",
+        "phpunit/phpunit": "^9.6.3 || ^10.0.12"
     },
     "autoload": {
         "psr-4": {
@@ -43,7 +43,5 @@
                 "GrahamCampbell\\Markdown\\MarkdownServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

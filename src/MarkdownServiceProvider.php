@@ -59,7 +59,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function setupConfig(): void
+    private function setupConfig(): void
     {
         $source = realpath($raw = __DIR__.'/../config/markdown.php') ?: $raw;
 
@@ -77,7 +77,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enableCompiler(): void
+    private function enableCompiler(): void
     {
         $app = $this->app;
 
@@ -95,7 +95,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enablePhpEngine(): void
+    private function enablePhpEngine(): void
     {
         $app = $this->app;
 
@@ -114,7 +114,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function enableBladeEngine(): void
+    private function enableBladeEngine(): void
     {
         $app = $this->app;
 
@@ -129,7 +129,7 @@ class MarkdownServiceProvider extends ServiceProvider
         $app->view->addExtension('md.blade.php', 'blademd');
     }
 
-    protected function enableBladeDirective(): void
+    private function enableBladeDirective(): void
     {
         $app = $this->app;
 
@@ -164,7 +164,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerEnvironment(): void
+    private function registerEnvironment(): void
     {
         $this->app->singleton('markdown.environment', function (Container $app): Environment {
             $config = $app->config->get('markdown');
@@ -188,7 +188,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMarkdown(): void
+    private function registerMarkdown(): void
     {
         $this->app->singleton('markdown.converter', function (Container $app): MarkdownConverter {
             $environment = $app['markdown.environment'];
@@ -205,7 +205,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerCompiler(): void
+    private function registerCompiler(): void
     {
         $this->app->singleton('markdown.compiler', function (Container $app): CommonMarkCompiler {
             $converter = $app['markdown.converter'];
@@ -223,7 +223,7 @@ class MarkdownServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerDirective(): void
+    private function registerDirective(): void
     {
         $this->app->singleton('markdown.directive', function (Container $app): CommonMarkDirective {
             $converter = $app['markdown.converter'];

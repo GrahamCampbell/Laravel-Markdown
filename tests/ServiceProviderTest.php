@@ -31,24 +31,24 @@ class ServiceProviderTest extends AbstractTestCase
 
     public function testEnvironmentIsInjectable(): void
     {
-        self::assertIsInjectable(Environment::class);
-        self::assertIsInjectable(EnvironmentInterface::class);
+        $this->assertIsInjectable(Environment::class);
+        $this->assertIsInjectable(EnvironmentInterface::class);
     }
 
     public function testMarkdownIsInjectable(): void
     {
-        self::assertIsInjectable(CommonMarkConverter::class);
-        self::assertIsInjectable(ConverterInterface::class);
+        $this->assertIsInjectable(CommonMarkConverter::class);
+        $this->assertIsInjectable(ConverterInterface::class);
     }
 
     public function testCompilerIsInjectable(): void
     {
-        self::assertIsInjectable(CommonMarkCompiler::class);
+        $this->assertIsInjectable(CommonMarkCompiler::class);
     }
 
     public function testDirectiveIsInjectable(): void
     {
-        self::assertIsInjectable(CommonMarkDirective::class);
-        self::assertIsInjectable(DirectiveInterface::class);
+        $this->assertIsInjectable(CommonMarkDirective::class);
+        $this->assertIsInjectable(DirectiveInterface::class);
     }
 }

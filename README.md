@@ -112,7 +112,6 @@ Markdown::convert('foo')->getContent(); // <p>foo</p>
 If you prefer to use dependency injection over facades like me, then you can easily inject the class like so:
 
 ```php
-use Illuminate\Support\Facades\App;
 use League\CommonMark\ConverterInterface;
 
 class Foo
@@ -130,7 +129,7 @@ class Foo
     }
 }
 
-App::make(Foo::class)->bar();
+app(Foo::class)->bar();
 ```
 
 And don't forget, that's just the basics. We also support extension through listening for the resolving event from the container, and we ship with integration with Laravel's view system. You can use both the `@markdown` blade directive, and also using the following file extensions will compile your views as markdown: `'.md'`, `'.md.php'`, and `'.md.blade.php'`.

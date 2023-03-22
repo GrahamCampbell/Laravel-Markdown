@@ -38,7 +38,7 @@ Once installed, if you are not using automatic package discovery, then you need 
 You can also optionally alias our facade:
 
 ```php
-        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
 ```
 
 

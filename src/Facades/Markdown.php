@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @author Graham Campbell <hello@gjcampbell.co.uk>
- *
- * @method static convertToHtml(string $markdown)
- * @method static convert(string $input)
  */
 class Markdown extends Facade
 {

@@ -16,13 +16,13 @@
         "illuminate/filesystem": "^8.75 || ^9.0 || ^10.0",
         "illuminate/support": "^8.75 || ^9.0 || ^10.0",
         "illuminate/view": "^8.75 || ^9.0 || ^10.0",
-        "league/commonmark": "^2.3.9"
+        "league/commonmark": "^2.4.1"
     },
     "require-dev": {
-        "graham-campbell/analyzer": "^4.0",
-        "graham-campbell/testbench": "^6.0",
-        "mockery/mockery": "^1.5.1",
-        "phpunit/phpunit": "^9.6.3 || ^10.0.12"
+        "graham-campbell/analyzer": "^4.1",
+        "graham-campbell/testbench": "^6.1",
+        "mockery/mockery": "^1.6.6",
+        "phpunit/phpunit": "^9.6.15 || ^10.5.1"
     },
     "autoload": {
         "psr-4": {

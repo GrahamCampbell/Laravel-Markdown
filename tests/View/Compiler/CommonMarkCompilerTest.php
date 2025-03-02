@@ -16,7 +16,6 @@ namespace GrahamCampbell\Tests\Markdown\View\Compiler;
 use GrahamCampbell\Markdown\View\Compiler\CommonMarkCompiler;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Application;
 use League\CommonMark\ConverterInterface;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Output\RenderedContent;

@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V15.3 (02/03/2025)
+
+* Added PHP 8.4 support
+* Switched to Commonmark ^2.6.1
+
+
 ## V15.2 (17/03/2024)
 
 * Added Laravel 11 support

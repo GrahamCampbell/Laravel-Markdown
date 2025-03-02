@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V16.0 (02/03/2025)
+
+* Support only PHP 8.1-8.4
+* Support only Laravel 10-12
+
+
 ## V15.3 (02/03/2025)
 
 * Added PHP 8.4 support

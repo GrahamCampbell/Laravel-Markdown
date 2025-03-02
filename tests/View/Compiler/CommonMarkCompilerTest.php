@@ -34,12 +34,7 @@ class CommonMarkCompilerTest extends AbstractTestCase
 
         $files = Mockery::mock(Filesystem::class);
         $files->shouldReceive('get')->once()->with('path')->andReturn('markdown');
-
-        if (((int) Application::VERSION) >= 10) {
-            $files->shouldReceive('put')->once()->with(__DIR__.'/b5ee0bc34d1063d878b5fea7206bb2f5.php', 'html');
-        } else {
-            $files->shouldReceive('put')->once()->with(__DIR__.'/e13dbc54cb72a29f66053c494f2c456242d1fefa.php', 'html');
-        }
+        $files->shouldReceive('put')->once()->with(__DIR__.'/b5ee0bc34d1063d878b5fea7206bb2f5.php', 'html');
 
         $compiler = new CommonMarkCompiler($converter, $files, __DIR__);
 

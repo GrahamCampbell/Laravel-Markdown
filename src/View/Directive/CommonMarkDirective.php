@@ -20,7 +20,7 @@ use League\CommonMark\ConverterInterface;
  */
 final class CommonMarkDirective implements DirectiveInterface
 {
-    private ConverterInterface $converter;
+    private readonly ConverterInterface $converter;
 
     /**
      * @param \League\CommonMark\ConverterInterface $converter

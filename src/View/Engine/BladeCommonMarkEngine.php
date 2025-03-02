@@ -23,7 +23,7 @@ use League\CommonMark\ConverterInterface;
  */
 final class BladeCommonMarkEngine extends CompilerEngine
 {
-    private ConverterInterface $converter;
+    private readonly ConverterInterface $converter;
 
     /**
      * @param \Illuminate\View\Compilers\CompilerInterface $compiler

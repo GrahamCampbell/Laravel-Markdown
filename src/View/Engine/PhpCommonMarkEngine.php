@@ -22,7 +22,7 @@ use League\CommonMark\ConverterInterface;
  */
 final class PhpCommonMarkEngine extends PhpEngine
 {
-    private ConverterInterface $converter;
+    private readonly ConverterInterface $converter;
 
     /**
      * @param \Illuminate\Filesystem\Filesystem     $files

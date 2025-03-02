@@ -23,7 +23,7 @@ use League\CommonMark\ConverterInterface;
  */
 final class CommonMarkCompiler extends Compiler implements CompilerInterface
 {
-    private ConverterInterface $converter;
+    private readonly ConverterInterface $converter;
 
     /**
      * @param \League\CommonMark\ConverterInterface $converter

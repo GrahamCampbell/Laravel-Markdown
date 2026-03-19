@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V16.0 (UPCOMING)
+## V16.1 (19/03/2026)
 
 * Add PHP 8.5 support
 * Add Laravel 13 support

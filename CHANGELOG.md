@@ -6,6 +6,7 @@ CHANGE LOG
 
 * Add PHP 8.5 support
 * Add Laravel 13 support
+* Switched to Commonmark ^2.8.2
 
 
 ## V16.0 (02/03/2025)

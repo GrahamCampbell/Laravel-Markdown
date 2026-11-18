@@ -77,6 +77,8 @@ jobs:
           timeout_minutes: 5
           max_attempts: 5
           command: composer update --no-interaction --no-progress
+        env:
+          COMPOSER_POLICY_ADVISORIES_BLOCK: ${{ matrix.laravel >= 12 }}
 
       - name: Execute PHPUnit
         run: vendor/bin/phpunit
